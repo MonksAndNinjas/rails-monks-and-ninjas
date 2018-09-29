@@ -1,0 +1,39 @@
+Rails Monks and Ninjas Project
+
+  > What I want =>
+                Something for assisting in my day to day life.
+
+  > The feel =>
+            Latino Themes (photos, drawings, writings, etc). Weird contradictions and Spanish lingo mixed in.
+
+  > Elements =>
+            * To do list ---------- class: list ----------- attributes: name, family_members (divided by family members)
+                        => Groceries list type for to do list where it has attributes: name, quantity
+
+            * List Item ----------- class: item ----------- attributes: name, type, content
+            * Notes --------------- class: note ----------- attributes: name, date, content
+            * Subscriptions ------- class: subscription --- attributes: name, amount, due_date (subscriptions can be put under finances category)
+            * Motivation ---------- class: motivation ----- attributes: name, content
+            * Discipline ---------- class: discipline ----- attributes: name, content
+            * Users --------------- class: user ----------- attributes: name, age, birthdate (belongs_to_family option to connect content)
+            * Goals --------------- class: goal ----------- attributes: type (2 options short and long), due_date
+
+> Relationships =>
+            * list has_many items   (nested params)
+            * item belongs_to list
+
+            * user has_many_lists
+            * list has_many users
+                => user must include a nested new route with form that relates to the user resource
+                => must include a nested index or show route
+
+            * user has_many goals
+            * goal belongs_to user
+
+> Misc =>
+            * must include one chainable scope method
+            * standard user authentication, including signup, login, logout, and passwords.
+            * authentication system must also allow login from some other service. Facebook, Twitter, Foursquare, Github, etc.
+            * forms should correctly display validation errors.
+                => your fields should be enclosed within a fields_with_errors class
+                => error messages describing the validation failures must be present within the view.

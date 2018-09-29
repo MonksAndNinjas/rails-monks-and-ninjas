@@ -1,1 +1,3 @@
-Monks and Ninjas Rails Project
+#Monks and Ninjas Rails Project
+
+##Overview
