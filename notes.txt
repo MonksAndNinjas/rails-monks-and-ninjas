@@ -1,4 +1,15 @@
-Rails Monks and Ninjas Project
+############# Rails Monks and Ninjas Project #################
+
+
+
+
+########## What's Next? ###########
+
+  => Setup validations and omniauth for sessions and users
+  => Work on what will be user home page
+
+######## App Information ##########
+
 
   > What I want =>
                 Something for assisting in my day to day life.
@@ -18,7 +29,7 @@ Rails Monks and Ninjas Project
             * Users --------------- class: user ----------- attributes: name, age, birthdate (belongs_to_family option to connect content)
             * Goals --------------- class: goal ----------- attributes: type (2 options short and long), due_date
 
-> Relationships =>
+  > Relationships =>
             * list has_many items   (nested params)
             * item belongs_to list
 
@@ -30,7 +41,7 @@ Rails Monks and Ninjas Project
             * user has_many goals
             * goal belongs_to user
 
-> Misc =>
+  > Misc =>
             * must include one chainable scope method
             * standard user authentication, including signup, login, logout, and passwords.
             * authentication system must also allow login from some other service. Facebook, Twitter, Foursquare, Github, etc.
