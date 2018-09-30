@@ -1,4 +1,4 @@
-<%= form_for @user = User.new, url: 'users_path' do |f| %>
+<%= form_for @user = User.new, url: signup_path do |f| %>
   <%= f.label :name %><br>
   <%= f.text_field :name %><br>
 
@@ -6,7 +6,9 @@
   <%= f.number_field :age %><br>
 
   <%= f.label :password %><br>
-  <%= f.password_field :password %><br>
+  <%= f.password_field :password %>
 
-  <%= f.submit %>
+  <br></br>
+
+  <%= f.submit "Get me started" %>
 <% end %>

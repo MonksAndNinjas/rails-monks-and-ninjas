@@ -3,5 +3,14 @@ class UsersController < ApplicationController
   end
 
   def create
+    user = User.create(user_params)
+
+    redirect_to root_url
+  end
+
+  private
+
+  def user_params
+    params.require(:user).permit(:name, :age, :password)
   end
 end
