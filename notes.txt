@@ -5,7 +5,7 @@
 
 ########## What's Next? ###########
 
-  => omniauth for sessions and user
+  => omniauth for sessions and user/ add uid migration to user, then see if you can catch data from reqest env
   => Work on what will be user home page
 
 ######## App Information ##########
