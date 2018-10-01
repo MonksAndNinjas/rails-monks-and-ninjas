@@ -1,3 +1,5 @@
+<h1>Log In</h1>
+
 <%= form_for user = User.new, url: login_path do |f| %>
   <%= f.label :email %><br>
   <%= f.text_field :email %><br>
@@ -7,7 +9,7 @@
 
   <br></br>
 
-  <%= f.submit "I can't wait" %>
+  <%= f.submit "Let's get going" %>
 <% end %>
 
 <br></br>

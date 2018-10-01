@@ -1,6 +1,5 @@
 class SessionsController < ApplicationController
   def new
-
   end
 
   def create
@@ -10,7 +9,7 @@ class SessionsController < ApplicationController
 
       session[:user_id] = user.id
 
-      redirect_to root_url
+      redirect_to user
     else
       # user logs in normal route
       user = User.find_by(email: params[:user][:email])
@@ -20,7 +19,7 @@ class SessionsController < ApplicationController
       # redirects to /login if not a valid user
       session[:user_id] = user.id
 
-      redirect_to root_url
+      redirect_to user
     end
   end
 
