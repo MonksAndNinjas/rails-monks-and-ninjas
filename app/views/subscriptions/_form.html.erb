@@ -15,7 +15,7 @@
 <% end %>
 
 
-<%= form_for @subscription, url: signup_path do |f| %>
+<%= form_for @subscription do |f| %>
 
   <%= f.label :name %><br>
   <%= f.text_field :name %><br>
@@ -23,8 +23,8 @@
   <%= f.label :amount %><br>
   <%= f.number_field :amount %><br>
 
-  <%= f.label :due_date %><br>
-  <%= f.date_field :due_date %><br>
+  <%= f.label :pay_day, "Due date" %><br>
+  <%= f.text_field :pay_day, placeholder: "ex: 10/17" %><br>
 
   <br></br>
 

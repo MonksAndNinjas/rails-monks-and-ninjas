@@ -4,16 +4,16 @@ class SubscriptionsController < ApplicationController
   end
 
   def new
-    @subscription = Subscription.new
+    @subscription = @current_user.subscriptions.build
   end
 
   def create
-    subscription = Subscription.new(subscription_params)
+    @subscription = @current_user.subscriptions.build(subscription_params)
 
-    if subscription.save
+    if @subscription.save
       redirect_to subscriptions_path
     else
-      redirect_to new_subscription_path
+      render :new
     end
   end
 
