@@ -12,13 +12,14 @@
   <body>
 
     <nav>
-      <%= link_to 'Home', root_url %>
+      <%= link_to 'Home', root_url %>&nbsp;&nbsp;
 
       <% if @current_user %>
-        <%= link_to "#{@current_user.name}'s profile", @current_user %>
-        <%= link_to "Log Out", logout_path, method: :delete %>
+        <%= link_to "#{@current_user.name}'s profile", @current_user %>&nbsp;&nbsp;
+        <%= link_to "Subscriptions", subscriptions_path %>&nbsp;&nbsp;
+        <%= link_to "Log Out", logout_path, method: :delete %>&nbsp;&nbsp;
       <% else %>
-        <%= link_to 'Sign Up', signup_path %>
+        <%= link_to 'Sign Up', signup_path %>&nbsp;
         <%= link_to 'Log In', login_path %>
       <% end %>
 
