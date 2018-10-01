@@ -4,22 +4,18 @@ class SessionsController < ApplicationController
 
   def create
     if auth_hash = request.env["omniauth.auth"]
-      # user logs in using omniauth via facebook
-      oauth_email = request.env["omniauth.auth"]["email"]
-      if user = User.find_by(:email => oauth_email)
+      # user logs in or signs up via facebook
+      user = User.find_or_create_by_onniauth(auth_hash))
+      session[:user_id] = user.id
 
-        session[:user_id] = user.id
-      else
-        user = User.create(:email => oath_email)
-        oauth_email
-      end
+      redirect_to root_url
     else
-      # user logs in normal route without omniauth
+      # user logs in normal route
       user = User.find_by(email: params[:user][:email])
       user = user.try(:authenticate, params[:user][:password])
 
       return redirect_to login_path unless user
-
+      # redirects to /login if not a valid user
       session[:user_id] = user.id
 
       redirect_to root_url
@@ -31,10 +27,4 @@ class SessionsController < ApplicationController
 
     redirect_to root_url
   end
-
-  private
-
-  #def auth
-  #  request.env['omniauth.auth']
-  #end
 end
