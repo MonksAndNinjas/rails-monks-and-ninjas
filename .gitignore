@@ -29,3 +29,6 @@
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
+
+# Ignor secret and key for FACEBOOK
+.env
