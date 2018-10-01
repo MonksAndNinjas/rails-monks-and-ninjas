@@ -5,8 +5,7 @@
 
 ########## What's Next? ###########
 
-  => Add column for birthdate and email
-  => Setup validations and omniauth for sessions and users
+  => Setup validation errors for forms and omniauth for sessions and users
   => Work on what will be user home page
 
 ######## App Information ##########
