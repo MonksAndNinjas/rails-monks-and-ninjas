@@ -6,11 +6,14 @@ Rails.application.routes.draw do
   post '/signup', to: 'users#create'
 
   resources :users, only: [:show, :edit, :update]
+  resources :subscriptions, only: [:index, :new, :create, :edit, :update, :destroy]
 
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
 
   get '/auth/facebook/callback' => 'sessions#create'
+
+  resources :
 
 end

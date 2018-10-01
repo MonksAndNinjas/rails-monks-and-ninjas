@@ -40,6 +40,9 @@
             * user has_many goals
             * goal belongs_to user
 
+            * user has_many Subscriptions
+            * subscription belongs_to user
+
   > Misc =>
             * must include one chainable scope method
             * standard user authentication, including signup, login, logout, and passwords.
@@ -47,40 +50,3 @@
             * forms should correctly display validation errors.
                 => your fields should be enclosed within a fields_with_errors class
                 => error messages describing the validation failures must be present within the view.
-
-
-                % if @current_user.errors.any? %>
-                  <div id="error_explanation">
-                    <h2>
-                      <%= pluralize(@current_user.errors.count, "error") %>
-                      prohibited this post from being saved:
-                    </h2>
-
-                    <ul>
-                    <% @current_user.errors.full_messages.each do |msg| %>
-                      <!-- #validation displays extra password missing error twice -->
-                      <li><%= msg %></li>
-                    <% end %>
-                    </ul>
-                  </div>
-                <% end %>
-
-
-                <%= form_for @current_user, url: signup_path do |f| %>
-
-                  <%= f.label :name %><br>
-                  <%= f.text_field :name %><br>
-
-                  <%= f.label :birthdate %><br>
-                  <%= f.date_field :birthdate %><br>
-
-                  <%= f.label :email %><br>
-                  <%= f.text_field :email %><br>
-
-                  <%= f.label :password %><br>
-                  <%= f.password_field :password %>
-
-                  <br></br>
-
-                  <%= f.submit "Get me started" %>
-                <% end %>
