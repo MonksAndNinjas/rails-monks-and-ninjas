@@ -13,6 +13,8 @@
   </div>
 <% end %>
 
+<% #validation displays extra password missing error twice %>
+
 <%= form_for @user, url: signup_path do |f| %>
 
   <%= f.label :name %><br>

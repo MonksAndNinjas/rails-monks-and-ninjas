@@ -5,7 +5,7 @@
 
 ########## What's Next? ###########
 
-  => Setup validation errors for forms and omniauth for sessions and users
+  => omniauth for sessions and user
   => Work on what will be user home page
 
 ######## App Information ##########
