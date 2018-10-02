@@ -3,6 +3,7 @@ class Subscription < ApplicationRecord
 
   validates :name, presence: true
   validates :amount, presence: true
-  validates :due_date, presence: true
-  #need to make validation method that the date is in the right format, otherwise redirect to login.
+  # does it work for the right number
+  validates :due_day, presence: true
+  validates :due_day, :length => { :in => (1..28)}
 end

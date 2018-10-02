@@ -1,4 +1,32 @@
 <h1>Subscriptions</h1>
 
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+
+      <td><strong>Name</strong></td>
+      <td><strong>Amount</strong></td>
+      <td><strong>Due day</strong></td>
+
+    </tr>
+    <% @subscriptions.each do |subscription| %>
+      <tr>
+
+        <td><%= subscription.name %></td>
+        <td><%= subscription.amount %></td>
+        <td><%= subscription.due_day %></td>
+
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br></br>
 
 <%= link_to "Add Subscription", new_subscription_path %>

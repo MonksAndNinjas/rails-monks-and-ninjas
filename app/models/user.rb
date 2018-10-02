@@ -3,7 +3,9 @@ class User < ApplicationRecord
 
   validates :name, presence: true
   validates :birthdate, presence: true
+  # checks for valid format?
   validates :email, presence: true
+  # validates @ and .com
   validates :email, uniqueness: true
   validates :password, presence: true
 

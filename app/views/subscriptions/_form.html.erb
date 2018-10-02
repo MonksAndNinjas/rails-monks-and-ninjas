@@ -21,10 +21,10 @@
   <%= f.text_field :name %><br>
 
   <%= f.label :amount %><br>
-  <%= f.number_field :amount %><br>
+  <%= f.number_field :amount, step: 0.01 , placeholder: "00.00" %><br>
 
-  <%= f.label :pay_day, "Due date" %><br>
-  <%= f.text_field :pay_day, placeholder: "ex: 10/17" %><br>
+  <%= f.label :due_day %><br>
+  <%= f.number_field :due_day, placeholder: "1 - 28" %><br>
 
   <br></br>
 
