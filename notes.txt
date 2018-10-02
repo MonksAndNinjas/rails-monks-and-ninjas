@@ -5,7 +5,6 @@
 
 ########## What's Next? ###########
 
-  => logged in user can't see login screen, redirect to Home
   => add link signup via facebook in signup page
   => displays birthdate in the right format
   => display subscription amount in the right format.

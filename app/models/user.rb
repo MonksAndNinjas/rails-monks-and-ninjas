@@ -3,7 +3,6 @@ class User < ApplicationRecord
 
   validates :name, presence: true
   validates :birthdate, presence: true
-  # checks for valid format?
   validates :email, presence: true
   # validates @ and .com
   validates :email, uniqueness: true
@@ -16,5 +15,15 @@ class User < ApplicationRecord
       user.password = SecureRandom.hex
       user.birthdate = Time.now.strftime("%Y-%m-%d")
     end
+  end
+
+  def birth_year
+    birthdate.to_time.strftime('%Y').to_i
+  end
+
+  def birth_info
+   birthday = birthdate.to_time.strftime('%B %e %Y')
+   age = Time.current.year - birth_year
+   "Born on #{birthday} and is now #{age} years old"
   end
 end
