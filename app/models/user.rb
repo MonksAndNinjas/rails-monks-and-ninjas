@@ -4,7 +4,7 @@ class User < ApplicationRecord
   validates :name, presence: true
   validates :birthdate, presence: true
   validates :email, presence: true
-  # validates @ and .com
+  validates_format_of :email, with: /\A[^@\s]+@([^@\s]+\.)+[^@\s]+\z/
   validates :email, uniqueness: true
   validates :password, presence: true
 
@@ -25,5 +25,13 @@ class User < ApplicationRecord
    birthday = birthdate.to_time.strftime('%B %e %Y')
    age = Time.current.year - birth_year
    "Born on #{birthday} and is now #{age} years old"
+  end
+
+  def display_name
+    name.split.map(&:capitalize).join(' ')
+  end
+
+  def valid_email?
+
   end
 end
