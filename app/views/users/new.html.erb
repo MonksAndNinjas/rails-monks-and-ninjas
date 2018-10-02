@@ -1,6 +1,6 @@
 <h1>Create Profile</h1>
 
-<%= render partial: 'form', locals: {object: @user} %>
+<%= render partial: 'form', locals: {object: @user = User.new, url: @url = signup_path} %>
 
 <br></br>
 

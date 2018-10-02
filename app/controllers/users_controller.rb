@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
 
   def new
-    @user = User.new
   end
 
   def create
@@ -23,7 +22,8 @@ class UsersController < ApplicationController
   end
 
   def update
-
+    @current_user.update(user_params)
+    redirect_to @current_user
   end
 
   private

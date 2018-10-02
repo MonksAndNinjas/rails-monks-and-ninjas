@@ -5,7 +5,7 @@ class Subscription < ApplicationRecord
   validates :amount, presence: true
   validates :amount, length: { minimum: 1 }
   validates :due_day, presence: true
-  validates :due_day, length: { in: (1..28)}
+  validates :due_day, :length => { :in => (1..28)}
 
   include ActionView::Helpers::NumberHelper
 

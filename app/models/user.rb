@@ -30,8 +30,4 @@ class User < ApplicationRecord
   def display_name
     name.split.map(&:capitalize).join(' ')
   end
-
-  def valid_email?
-
-  end
 end
