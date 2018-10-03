@@ -28,6 +28,8 @@ ActiveRecord::Schema.define(version: 2018_10_03_173750) do
   end
 
   create_table "quests", force: :cascade do |t|
+    t.string "title"
+    t.string "description"
     t.integer "user_id"
     t.integer "objective_id"
     t.datetime "created_at", null: false
