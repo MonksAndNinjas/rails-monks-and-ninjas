@@ -2,6 +2,9 @@ class PriorityItemsController < ApplicationController
 
   def index
     @priority_items = @current_user.priority_items
+  end
+
+  def new
     @priority_item = @current_user.priority_items.build
   end
 
