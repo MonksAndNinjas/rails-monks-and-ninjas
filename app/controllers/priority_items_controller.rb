@@ -20,7 +20,7 @@ class PriorityItemsController < ApplicationController
 
   private
 
-  def priority_items_params
-    params.require(:priority_item).permit(:title, :content)
+  def priority_item_params
+    params.require(:priority_item).permit(:title, :description)
   end
 end

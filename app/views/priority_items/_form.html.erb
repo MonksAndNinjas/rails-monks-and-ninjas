@@ -6,13 +6,14 @@
     </h2>
 
     <ul>
-    <% @priority_item.errors.full_messages.each do |item| %>
+    <% @priority_item.errors.full_messages.each do |msg| %>
       <li><%= msg %></li>
     <% end %>
     </ul>
   </div>
 <% end %>
 
+<br></br>
 
 <%= form_for @priority_item do |f| %>
 

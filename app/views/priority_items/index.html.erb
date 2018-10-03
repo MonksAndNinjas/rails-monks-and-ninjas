@@ -8,13 +8,18 @@
   </thead>
 
   <tbody>
-    <% @priority_items.each do |item| %>
-      <tr>
+    <% if @priority_items %>
 
-        <td><%= item.title %></td>
-        <td><%= item.description %></td>
+      <% @priority_items.each do |item| %>
+        <tr>
 
-      </tr>
+          <td>Title: </td>
+          <td><%= item.title %></td>
+          <td><%= item.description %></td>
+
+        </tr>
+      <% end %>
+
     <% end %>
   </tbody>
 </table>
