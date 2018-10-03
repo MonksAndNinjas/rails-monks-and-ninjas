@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
   resources :users, only: [:show, :edit, :update]
   resources :subscriptions, only: [:index, :new, :create, :edit, :update, :destroy]
+  resources :priority_items, only: [:index, :create, :destroy]
 
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
