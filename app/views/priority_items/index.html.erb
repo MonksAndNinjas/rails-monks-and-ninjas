@@ -16,8 +16,7 @@
           <td>Title: </td>
           <td><%= item.title %></td>
           <td><%= item.description %></td>
-
-        </tr>
+          <td><%= link_to "X", item, method: :delete, data: { confirm: "Really?" } %></td>
       <% end %>
 
     <% end %>

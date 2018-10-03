@@ -16,6 +16,8 @@ class PriorityItemsController < ApplicationController
   end
 
   def destroy
+    PriorityItem.find(params[:id]).destroy
+    redirect_to priority_items_path
   end
 
   private
