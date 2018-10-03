@@ -5,8 +5,6 @@
 
 ########## What's Next? ###########
 
-  => add 3 item creation limit for priority list
-  => change table for priority list so it can list in terms of urgency
   => goals
   => Inspirations
   => Discipline

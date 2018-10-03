@@ -1,4 +1,5 @@
 class PriorityItemsController < ApplicationController
+  before_action :reached_item_limit?, only: [:new, :create]
 
   def index
     @priority_items = @current_user.priority_items
@@ -14,7 +15,7 @@ class PriorityItemsController < ApplicationController
     if @priority_item.save
       redirect_to priority_items_path
     else
-      render :index
+      render :new
     end
   end
 
@@ -27,5 +28,9 @@ class PriorityItemsController < ApplicationController
 
   def priority_item_params
     params.require(:priority_item).permit(:title, :description)
+  end
+
+  def reached_item_limit?
+    return redirect_to priority_items_path unless @current_user.priority_items.size < 3
   end
 end
