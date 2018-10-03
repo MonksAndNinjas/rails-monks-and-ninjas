@@ -1,0 +1,26 @@
+<% if @priority_item.errors.any? %>
+  <div id="error_explanation">
+    <h2>
+      <%= pluralize(@priority_item.errors.count, "error") %>
+      prohibited this subscription from being saved:
+    </h2>
+
+    <ul>
+    <% @priority_item.errors.full_messages.each do |item| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
+
+<%= form_for @priority_item do |f| %>
+
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+
+  <%= f.label :description %>
+  <%= f.text_field :description %>
+
+  <%= f.submit %>
+<% end %>

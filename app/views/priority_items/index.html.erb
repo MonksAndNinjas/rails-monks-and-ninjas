@@ -13,9 +13,10 @@
 
         <td><%= item.title %></td>
         <td><%= item.description %></td>
-        <td><%= link_to "X", subscription, method: :delete, data: { confirm: "Really?" } %></td>
 
       </tr>
     <% end %>
   </tbody>
 </table>
+
+<%= render partial: 'form', locals: {object: @priority_item } %>
