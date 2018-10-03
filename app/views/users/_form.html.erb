@@ -15,7 +15,7 @@
 <% end %>
 
 
-<%= form_for @user, url: @url do |f| %>
+<%= form_for @user, url: @url do |f| %><!-- probably don't need @url in render line -->
 
   <%= f.label :name %><br>
   <%= f.text_field :name %><br>

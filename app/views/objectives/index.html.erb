@@ -1,15 +1,37 @@
 <h1>Your Quests</h1>
 
-<% @quests.each do |quest| %>
-  <strong><%= Objective.find_by_id(quest.objective_id).duration %></strong>
-  <strong><%= quest.title %></strong>
-  <strong><%= quest.description %></strong><br>
-<% end %>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+
+      <td><strong>Type</strong></td>
+      <td><strong>Title</strong></td>
+      <td><strong>Description</strong></td>
+
+    </tr>
+    <% @quests.each do |quest| %>
+      <tr>
+
+        <td><%= Objective.find_by_id(quest.objective_id).duration %></td><!-- create helper_method for this line -->
+        <td><%= quest.title %></td>
+        <td><%= quest.description %></td>
+
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 
 <br></br>
 
 <% @objectives.each do |objective| %>
-  <%= link_to "Go on #{objective.duration.capitalize} Quest", new_objective_quest_path(objective) %><br>
+  <%= link_to "Go on #{objective.duration.capitalize} Quest", new_objective_quest_path(objective) %><br><!-- this line too -->
 <% end %>
 
 <br></br>

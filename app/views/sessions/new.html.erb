@@ -1,6 +1,6 @@
 <h1>Log In</h1>
 
-<%= form_for user = User.new, url: login_path do |f| %>
+<%= form_for user = User.new, url: login_path do |f| %><!-- move into partial -->
   <%= f.label :email %><br>
   <%= f.text_field :email %><br>
 

@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   resources :subscriptions, only: [:index, :new, :create, :destroy]
   resources :priority_items, only: [:index, :new, :create, :destroy]
   resources :objectives, only: [:index, :show] do
-    resources :quests, only: [:new, :create]
+    resources :quests, only: [:new, :create, :edit, :update, :destroy]
   end
 
   get '/login', to: 'sessions#new'
