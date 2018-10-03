@@ -9,7 +9,7 @@ class ObjectivesController < ApplicationController
   end
 
   def create
-    @objective = Objective.new(objetive_params)
+    @objective = Objective.new(objective_params)
 
     if @objective.save
       redirect_to objectives_path
@@ -25,5 +25,11 @@ class ObjectivesController < ApplicationController
   end
 
   def destroy
+  end
+
+  private
+
+  def objective_params
+    params.require(:objective).permit(:title, :type, :task)
   end
 end
