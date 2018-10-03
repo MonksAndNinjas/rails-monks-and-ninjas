@@ -5,8 +5,6 @@
 
 ########## What's Next? ###########
 
-  => fix validation for due day no negative and outside of range numbers
-  => attractions index show allow option to delete subscription
   => goals
   => Inspirations
   => Discipline
