@@ -1,8 +1,1 @@
 <h1>Pick a type of quest</h1>
-
-
-<% if "short quest" %>
-  <%= render partial: 'form', locals: {object: @object} %>
-<% else %>
-  <%= render partial: 'form', locals: {object: @objective} %>
-<% end %>

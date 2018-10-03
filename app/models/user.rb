@@ -1,6 +1,8 @@
 class User < ApplicationRecord
   has_many :subscriptions
   has_many :priority_items
+  has_many :quests
+  has_many :objectives, through: :quests
 
   validates :name, presence: true
   validates :birthdate, presence: true
