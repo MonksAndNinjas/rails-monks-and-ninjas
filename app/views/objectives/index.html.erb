@@ -3,26 +3,13 @@
 <% @quests.each do |quest| %>
   <strong><%= Objective.find_by_id(quest.objective_id).duration %></strong>
   <strong><%= quest.title %></strong>
-  <strong><%= quest.description %></strong>
-
-  <br></br>
+  <strong><%= quest.description %></strong><br>
 <% end %>
 
+<br></br>
+
 <% @objectives.each do |objective| %>
-  <% @objective = objective %>
-
-  <%= form_for @quest = @current_user.quests.build, url: quests_path do |f| %>
-    <%= f.number_field :user_id, type: "hidden", value: @current_user.id %>
-    <%= f.number_field :objective_id, type: "hidden", value: @objective.id %>
-
-    <%= f.label :title %>
-    <%= f.text_field :title %>
-
-    <%= f.label :description %>
-    <%= f.text_area :description %>
-
-    <%= f.submit "Go on a #{@objective.duration} quest" %>
-  <% end %><br>
+  <%= link_to "Go on #{objective.duration.capitalize} Quest", new_objective_quest_path(objective) %><br>
 <% end %>
 
 <br></br>

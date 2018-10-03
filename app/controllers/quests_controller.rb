@@ -1,5 +1,7 @@
 class QuestsController < ApplicationController
-  
+  def new
+  end
+
   def create
     @quest = @current_user.quests.build(quest_params)
 

@@ -8,8 +8,8 @@ Rails.application.routes.draw do
   resources :users, only: [:show, :edit, :update]
   resources :subscriptions, only: [:index, :new, :create, :destroy]
   resources :priority_items, only: [:index, :new, :create, :destroy]
-  resources :objectives do
-    resources :quests
+  resources :objectives, only: [:index, :show] do
+    resources :quests, only: [:new, :create]
   end
 
   get '/login', to: 'sessions#new'
