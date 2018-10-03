@@ -1,0 +1,2 @@
+class PriorityItem < ApplicationRecord
+end
