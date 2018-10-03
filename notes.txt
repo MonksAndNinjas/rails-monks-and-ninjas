@@ -5,7 +5,8 @@
 
 ########## What's Next? ###########
 
-  => goals
+  => create model, table(type(short, long term), objective, steps), controller, routes(:new, :create,:index, destroy, edit, update), up to 2 short term goals with up to 2 steps,
+      and one long step with up to 2 steps
   => Inspirations
   => Discipline
   => family
