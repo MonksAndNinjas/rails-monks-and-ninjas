@@ -1,11 +1,25 @@
 <h1>Your Quests</h1>
 
-<p>You can have up to two short term and one long term quest</p>
+<% @quests.each do |quest| %>
+  <strong><%= quest.title %></strong>
+  <strong><%= quest.description %></strong>
+  <strong><%= quest.objective.duration %></strong>
 
-short quest,<br>
-<%= link_to "Go on short quest?", new_objective_path %>
+  <br></br>
+<% end %>
+
+<% @objectives.each do |objective| %>
+  <form action="<%= new_quest_path %>" method="post">
+    <input type="hidden" value="<%= @current_user.id %>" name="quest[user_id]">
+    <input type="hidden" value="<%= objective.id %>" name="quest[objective_id]"><br>
+
+    <input type="submit" name="commit" value="Go on a <%= objective.duration %> quest" data-disable-with="Go on a <%= objective.duration %> quest">
+  </form>
+<% end %>
 
 <br></br>
 
-long quest, <br>
-<%= link_to "Go on long quest?", new_objective_path %>
+<p>
+  You can have up to two short term and one long term quest,
+  type 1 for short term objective and type 2 for long term objective.
+</p>

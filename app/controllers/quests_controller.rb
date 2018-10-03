@@ -4,9 +4,10 @@ class QuestsController < ApplicationController
   end
 
   def create
-    quest = Quest.new(quest_params)
+    @objective = @current_user.objectives.new(id: params[:quest][:objective_id])
+    @quest = Quest.new(quest_params)
 
-    redirect_to objectives_path
+    redirect_to new_objective_path
   end
 
   private
