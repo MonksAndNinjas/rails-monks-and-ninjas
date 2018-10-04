@@ -27,9 +27,18 @@ class InspirationsController < ApplicationController
   end
 
   def update
+    @inspiration = Inspiration.find_by_id(params[:id])
+
+    if @inspiration.update(inspiration_params)
+      redirect_to inspirations_path
+    else
+      render :edit
+    end
   end
 
   def destroy
+    Inspiration.find(params[:id]).destroy
+    redirect_to inspirations_path
   end
 
   private
