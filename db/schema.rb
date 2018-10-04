@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 2018_10_04_030126) do
     t.string "source"
     t.string "image"
     t.string "link"
-    t.string "gif"
+    t.string "video"
     t.string "content"
     t.string "about"
     t.integer "user_id"

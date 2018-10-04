@@ -2,11 +2,28 @@
 
 <p><%= @inspiration.about %></p>
 
+<% if !@inspiration.image.blank? %>
 
-<%= @inspiration.image if @inspiration.image %>
-<%= @inspiration.link if @inspiration.link %>
-<%= @inspiration.content if @inspiration.content %>
-<%= @inspiration.gif if @inspiration.gif %>
+  <strong>Image URL: <a href="<%= @inspiration.image %>"><%= @inspiration.image %></a></strong>
+
+  <br></br>
+<% end %>
+
+<% if !@inspiration.link.blank? %>
+    <strong>Link: <a href="<%= @inspiration.link %>"><%= @inspiration.link %></a></strong>
+
+    <br></br>
+<% end %>
+
+<% if !@inspiration.content.blank? %>
+  <strong>Content: <%= @inspiration.content %></strong>
+
+  <br></br>
+<% end %>
+
+<% if !@inspiration.video.blank? %>
+  <strong>Video: <%= @inspiration.video %></strong>
+<% end %>
 
 <br></br>
 

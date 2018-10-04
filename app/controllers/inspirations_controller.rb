@@ -12,7 +12,7 @@ class InspirationsController < ApplicationController
     @inspiration = @current_user.inspirations.build(inspiration_params)
 
     if @inspiration.save
-      redirect_to inspirations_path
+      redirect_to inspiration_path(@inspiration)
     else
       render :new
     end
@@ -30,7 +30,7 @@ class InspirationsController < ApplicationController
     @inspiration = Inspiration.find_by_id(params[:id])
 
     if @inspiration.update(inspiration_params)
-      redirect_to inspirations_path
+      redirect_to inspiration_path(@inspiration)
     else
       render :edit
     end
@@ -44,6 +44,6 @@ class InspirationsController < ApplicationController
   private
 
   def inspiration_params
-    params.require(:inspiration).permit(:source, :about, :link, :image, :gif, :content)
+    params.require(:inspiration).permit(:source, :about, :link, :image, :video, :content)
   end
 end
