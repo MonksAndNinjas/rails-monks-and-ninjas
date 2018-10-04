@@ -17,7 +17,7 @@ class QuestsController < ApplicationController
 
   def edit
     @quest = @current_user.quests.find_by_id(params[:id])
-    @objective = @current_user
+    @objective = Objective.find_by(id: params[:objective_id])
   end
 
   def update

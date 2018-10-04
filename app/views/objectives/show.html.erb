@@ -1,4 +1,4 @@
-<%= form_for @quest = @current_user.quests.build, url: quests_path do |f| %><!-- move into partial -->
+<%= form_for @quest = @current_user.quests.build, url: quests_path do |f| %><!-- move into partial maybe-->
   <%= f.number_field :user_id, type: "hidden", value: @current_user.id %>
   <%= f.number_field :objective_id, type: "hidden", value: @objective.id %>
 
