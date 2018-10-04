@@ -29,4 +29,10 @@ class InspirationsController < ApplicationController
 
   def destroy
   end
+
+  private
+
+  def inspiration_params
+    params.require(:inspiration).permit(:source, :about, :link, :image, :gif, :content)
+  end
 end

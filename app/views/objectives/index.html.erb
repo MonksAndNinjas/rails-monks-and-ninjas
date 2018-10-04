@@ -1,6 +1,5 @@
 <h1>Your Quests</h1>
 
-
 <table>
   <thead>
     <tr>
@@ -25,6 +24,7 @@
         <td><%= link_to "X", objective_quest_path(quest.objective_id, quest.id), method: :delete, data: { confirm: "Really?" } %>
           /<%= link_to "E", edit_objective_quest_path(quest.objective_id, quest.id) %></td>
         </td>
+
       </tr>
     <% end %>
   </tbody>
@@ -35,9 +35,3 @@
 <% @objectives.each do |objective| %>
   <%= link_to "Go on #{objective.duration.capitalize} Quest", new_objective_quest_path(objective) %><br><!-- this line too -->
 <% end %>
-
-<br></br>
-
-<p>
-  You can have up to two short term and one long term quest.
-</p>

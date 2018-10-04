@@ -5,9 +5,8 @@
 
 ########## What's Next? ###########
 
-  => Inspirations
+  => Inspirations - add to index view, edit, update, and destroy
   => Discipline
-  => family
 
 ######## App Information ##########
 
