@@ -2,6 +2,7 @@ class User < ApplicationRecord
   has_many :subscriptions
   has_many :priority_items
   has_many :inspirations
+  has_many :disciplines
   has_many :quests
   has_many :objectives, through: :quests
 
@@ -28,7 +29,7 @@ class User < ApplicationRecord
   def birth_info
    birthday = birthdate.to_time.strftime('%B %e %Y')
    age = Time.current.year - birth_year
-   
+
    "Born on #{birthday} and is now #{age} years old"
   end
 

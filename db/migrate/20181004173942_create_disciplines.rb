@@ -4,6 +4,7 @@ class CreateDisciplines < ActiveRecord::Migration[5.2]
       t.string :title
       t.string :content
       t.string :duration
+      t.belongs_to :user
 
       t.timestamps
     end
