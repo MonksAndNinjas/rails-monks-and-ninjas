@@ -6,6 +6,6 @@ class ObjectivesController < ApplicationController
   end
 
   def show
-    @objective = Objective.find_by(id: params[:id])
+    @objective = Objective.find_by_slug(id: params[:id])
   end
 end

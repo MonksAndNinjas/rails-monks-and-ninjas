@@ -19,10 +19,12 @@
     <% @quests.each do |quest| %>
       <tr>
 
-        <td><%= Objective.find_by_id(quest.objective_id).duration %></td><!-- create helper_method for this line -->
+        <td><%= Objective.find_by_id(quest.objective_id).duration.capitalize %> Term</td><!-- create helper_method for this line -->
         <td><%= quest.title %></td>
         <td><%= quest.description %></td>
-
+        <td><%= link_to "X", objective_quest_path(quest.objective_id, quest.id), method: :delete, data: { confirm: "Really?" } %>
+          /<%= link_to "E", edit_objective_quest_path(quest.objective_id, quest.id) %></td>
+        </td>
       </tr>
     <% end %>
   </tbody>

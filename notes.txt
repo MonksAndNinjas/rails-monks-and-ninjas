@@ -5,7 +5,6 @@
 
 ########## What's Next? ###########
 
-  => create :slug, create edit and delete action
   => Inspirations
   => Discipline
   => family
