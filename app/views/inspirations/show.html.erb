@@ -2,25 +2,29 @@
 
 <p><%= @inspiration.about %></p>
 
-<% if @inspiration.image %>
+<% if !@inspiration.image.blank? %>
+  <label>Image: </label>
   <strong><a href="<%= @inspiration.image %>"><%= @inspiration.image %></a></strong>
 
   <br></br>
 <% end %>
 
-<% if @inspiration.link %>
+<% if !@inspiration.link.blank? %>
+  <label>Link: </label>
   <strong><a href="<%= @inspiration.link %>"><%= @inspiration.link %></a></strong>
 
   <br></br>
 <% end %>
 
-<% if @inspiration.content %>
+<% if !@inspiration.content.blank? %>
+  <label>Content: </label>
   <strong><%= @inspiration.content %></strong>
 
   <br></br>
 <% end %>
 
-<% if @inspiration.video %>
+<% if !@inspiration.video.blank? %>
+<label>Video: </label>
   <strong><a href="<%= @inspiration.video %>"><%= @inspiration.video %></a></strong>
 <% end %>
 

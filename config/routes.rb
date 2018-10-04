@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   resources :priority_items, only: [:index, :new, :create, :destroy]
   resources :inspirations, only: [:index, :new, :create, :show, :edit, :update, :destroy]
   resources :disciplines, only: [:index, :new, :create, :destroy]
-  resources :objectives, only: [:index, :show] do
+  resources :objectives, only: [:index] do
     resources :quests, only: [:new, :create, :edit, :update, :destroy]
   end
 
