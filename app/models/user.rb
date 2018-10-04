@@ -26,10 +26,15 @@ class User < ApplicationRecord
     birthdate.to_time.strftime('%Y').to_i
   end
 
-  def birth_info
-   birthday = birthdate.to_time.strftime('%B %e %Y')
-   age = Time.current.year - birth_year
+  def birthday
+    birthdate.to_time.strftime('%B %e %Y')
+  end
 
+  def age
+    Time.current.year - birth_year
+  end
+
+  def birth_info
    "Born on #{birthday} and is now #{age} years old"
   end
 

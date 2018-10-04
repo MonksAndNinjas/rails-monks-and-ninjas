@@ -2,30 +2,13 @@
 
 <p><%= @inspiration.about %></p>
 
-<% if !@inspiration.image.blank? %>
-  <label>Image: </label>
-  <strong><a href="<%= @inspiration.image %>"><%= @inspiration.image %></a></strong>
-
-  <br></br>
-<% end %>
-
-<% if !@inspiration.link.blank? %>
-  <label>Link: </label>
-  <strong><a href="<%= @inspiration.link %>"><%= @inspiration.link %></a></strong>
-
-  <br></br>
-<% end %>
-
-<% if !@inspiration.content.blank? %>
-  <label>Content: </label>
-  <strong><%= @inspiration.content %></strong>
-
-  <br></br>
-<% end %>
-
-<% if !@inspiration.video.blank? %>
-<label>Video: </label>
-  <strong><a href="<%= @inspiration.video %>"><%= @inspiration.video %></a></strong>
+ <% @inspiration.attributes.keys.each do |key| %>
+  <% if key == "image" || key == "link" || key == "content" || key == "video" %>
+    <%= display_label_if_exists(@inspiration["#{key}"], "#{key}") %><br>
+    <%= display_attribute_if_exists(@inspiration["#{key}"], "#{key}") %>
+    <!-- how to make <br> not return if key empty-->
+    <br></br>
+  <% end %>
 <% end %>
 
 <%= link_to "Edit Inspiration", edit_inspiration_path(@inspiration) %><br>
