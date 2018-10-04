@@ -1,5 +1,11 @@
 <h1>Inspirations</h1>
 
+<ul>
+<% @inspirations.each do |inspiration| %>
+    <li><%= link_to inspiration.source, inspiration_path(inspiration) %></li>
+<% end %>
+</ul>
+
 <br></br>
 
 <%= link_to "Add Inspiration", new_inspiration_path %>

@@ -19,9 +19,11 @@ class InspirationsController < ApplicationController
   end
 
   def show
+    @inspiration = Inspiration.find_by(id: params[:id])
   end
 
   def edit
+    @inspiration = Inspiration.find_by(id: params[:id])
   end
 
   def update

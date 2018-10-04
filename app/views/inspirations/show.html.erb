@@ -1,0 +1,13 @@
+<h1><%= @inspiration.source %></h1>
+
+<p><%= @inspiration.about %></p>
+
+
+<%= @inspiration.image if @inspiration.image %>
+<%= @inspiration.link if @inspiration.link %>
+<%= @inspiration.content if @inspiration.content %>
+<%= @inspiration.gif if @inspiration.gif %>
+
+<br></br>
+
+<%= link_to "Edit Inspiration", edit_inspiration_path(@inspiration) %>
