@@ -10,7 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_03_173750) do
+ActiveRecord::Schema.define(version: 2018_10_04_030126) do
+
+  create_table "inspirations", force: :cascade do |t|
+    t.string "source"
+    t.string "image"
+    t.string "link"
+    t.string "gif"
+    t.string "content"
+    t.string "about"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "objectives", force: :cascade do |t|
     t.string "duration"
