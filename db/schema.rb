@@ -19,8 +19,10 @@ ActiveRecord::Schema.define(version: 2018_10_04_030126) do
     t.string "gif"
     t.string "content"
     t.string "about"
+    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_inspirations_on_user_id"
   end
 
   create_table "objectives", force: :cascade do |t|

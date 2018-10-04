@@ -5,9 +5,17 @@ class InspirationsController < ApplicationController
   end
 
   def new
+    @inspiration = @current_user.inspirations.build
   end
 
   def create
+    @inspiration = @current_user.inspirations.build(inspiration_params)
+
+    if @inspiration.save
+      redirect_to inspirations_path
+    else
+      render :new
+    end
   end
 
   def show

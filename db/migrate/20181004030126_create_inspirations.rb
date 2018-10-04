@@ -7,6 +7,7 @@ class CreateInspirations < ActiveRecord::Migration[5.2]
       t.string :gif
       t.string :content
       t.string :about
+      t.belongs_to :user
 
       t.timestamps
     end
