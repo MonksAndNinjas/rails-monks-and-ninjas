@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   before_action :current_user
-  before_action :require_login, except: [:home, :new, :create]
+  before_action :require_login, except: [:home]
 
   def logged_in?
     !!current_user

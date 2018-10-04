@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  skip_before_action :require_login, except: [:show, :edit, :update]
 
   def new
   end

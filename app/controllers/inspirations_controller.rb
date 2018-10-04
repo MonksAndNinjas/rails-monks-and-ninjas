@@ -14,7 +14,7 @@ class InspirationsController < ApplicationController
     if @inspiration.save
       redirect_to inspiration_path(@inspiration)
     else
-      render :new
+     render :new
     end
   end
 
@@ -30,7 +30,7 @@ class InspirationsController < ApplicationController
     @inspiration = Inspiration.find_by_id(params[:id])
 
     if @inspiration.update(inspiration_params)
-      redirect_to inspiration_path(@inspiration)
+      redirect_to inspiration_path(@inspiration )
     else
       render :edit
     end

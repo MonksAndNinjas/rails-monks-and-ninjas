@@ -2,30 +2,27 @@
 
 <p><%= @inspiration.about %></p>
 
-<% if !@inspiration.image.blank? %>
-
-  <strong>Image URL: <a href="<%= @inspiration.image %>"><%= @inspiration.image %></a></strong>
-
-  <br></br>
-<% end %>
-
-<% if !@inspiration.link.blank? %>
-    <strong>Link: <a href="<%= @inspiration.link %>"><%= @inspiration.link %></a></strong>
-
-    <br></br>
-<% end %>
-
-<% if !@inspiration.content.blank? %>
-  <strong>Content: <%= @inspiration.content %></strong>
+<% if @inspiration.image %>
+  <strong><a href="<%= @inspiration.image %>"><%= @inspiration.image %></a></strong>
 
   <br></br>
 <% end %>
 
-<% if !@inspiration.video.blank? %>
-  <strong>Video: <%= @inspiration.video %></strong>
+<% if @inspiration.link %>
+  <strong><a href="<%= @inspiration.link %>"><%= @inspiration.link %></a></strong>
+
+  <br></br>
 <% end %>
 
-<br></br>
+<% if @inspiration.content %>
+  <strong><%= @inspiration.content %></strong>
+
+  <br></br>
+<% end %>
+
+<% if @inspiration.video %>
+  <strong><a href="<%= @inspiration.video %>"><%= @inspiration.video %></a></strong>
+<% end %>
 
 <%= link_to "Edit Inspiration", edit_inspiration_path(@inspiration) %><br>
 <%= link_to "X", @inspiration, method: :delete, data: { confirm: "Really?" } %>

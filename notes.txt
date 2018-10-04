@@ -5,7 +5,7 @@
 
 ########## What's Next? ###########
 
-  => Discipline
+  => refactor everything
 
 ######## App Information ##########
 

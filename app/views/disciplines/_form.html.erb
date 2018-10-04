@@ -1,0 +1,32 @@
+<% if @discipline.errors.any? %>
+  <div id="error_explanation">
+    <h2>
+      <%= pluralize(@discipline.errors.count, "error") %>
+      prohibited this discipline from being saved:
+    </h2>
+
+    <ul>
+    <% @discipline.errors.full_messages.each do |msg| %>
+      <!-- #validation displays extra password missing error twice -->
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
+
+<%= form_for @discipline do |f| %>
+
+  <%= f.label :title %><br>
+  <%= f.text_field :title %><br>
+
+  <%= f.label :content %><br>
+  <%= f.text_field :content %><br>
+
+  <%= f.label :duration %><br>
+  <%= f.text_field :duration %><br>
+
+  <br></br>
+
+  <%= f.submit %>
+<% end %>
