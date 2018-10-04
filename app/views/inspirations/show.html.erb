@@ -10,4 +10,5 @@
 
 <br></br>
 
-<%= link_to "Edit Inspiration", edit_inspiration_path(@inspiration) %>
+<%= link_to "Edit Inspiration", edit_inspiration_path(@inspiration) %><br>
+<%= link_to "X", @inspiration, method: :delete, data: { confirm: "Really?" } %>

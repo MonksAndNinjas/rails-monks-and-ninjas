@@ -5,7 +5,7 @@
 
 ########## What's Next? ###########
 
-  => Inspirations - add to index view, edit, update, and destroy, add extra of same attribute
+  => Inspirations - add extra of same attribute
   => Discipline
 
 ######## App Information ##########
