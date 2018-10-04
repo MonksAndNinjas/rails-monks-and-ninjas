@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   has_many :subscriptions
   has_many :priority_items
+  has_many :inspirations
   has_many :quests
   has_many :objectives, through: :quests
 
