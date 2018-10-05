@@ -1,32 +1,6 @@
 <h1>Subscriptions</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <tr>
-
-      <td><strong>Name</strong></td>
-      <td><strong>Amount</strong></td>
-      <td><strong>Due day</strong></td>
-
-    </tr>
-    <% @subscriptions.each do |subscription| %>
-      <tr>
-
-        <td><%= subscription.name %></td>
-        <td><%= subscription.payment %></td>
-        <td><%= subscription.due_day %></td>
-        <td><%= link_to "X", subscription, method: :delete, data: { confirm: "Really?" } %></td>
-
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<%= render partial: 'table', locals: {subscriptions: @subscriptions} %>
 
 <br></br>
 

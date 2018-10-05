@@ -1,12 +1,12 @@
-<% if @priority_item.errors.any? %>
+<% if object.errors.any? %>
   <div id="error_explanation">
     <h2>
-      <%= pluralize(@priority_item.errors.count, "error") %>
+      <%= pluralize(object.errors.count, "error") %>
       prohibited this subscription from being saved:
     </h2>
 
     <ul>
-    <% @priority_item.errors.full_messages.each do |msg| %>
+    <% object.errors.full_messages.each do |msg| %>
       <li><%= msg %></li>
     <% end %>
     </ul>
@@ -15,7 +15,7 @@
 
 <br></br>
 
-<%= form_for @priority_item do |f| %>
+<%= form_for object do |f| %>
 
   <%= f.label :title %>
   <%= f.text_field :title %>

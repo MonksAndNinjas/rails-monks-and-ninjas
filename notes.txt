@@ -5,7 +5,8 @@
 
 ########## What's Next? ###########
 
-  => refactor everything
+  => still refactor, maybe use concerns for controller refactoring
+  => validation messages for all
 
 ######## App Information ##########
 

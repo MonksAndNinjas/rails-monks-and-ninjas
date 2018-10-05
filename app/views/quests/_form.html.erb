@@ -1,12 +1,12 @@
-<% if @quest.errors.any? %>
+<% if object.errors.any? %>
   <div id="error_explanation">
     <h2>
-      <%= pluralize(@quest.errors.count, "error") %>
+      <%= pluralize(object.errors.count, "error") %>
       prohibited this subscription from being saved:
     </h2>
 
     <ul>
-    <% @quest.errors.full_messages.each do |msg| %>
+    <% object.errors.full_messages.each do |msg| %>
       <!-- #validation displays extra password missing error twice -->
       <li><%= msg %></li>
     <% end %>
@@ -14,7 +14,7 @@
   </div>
 <% end %>
 
-<%= form_for @quest, url: @url do |f| %>
+<%= form_for object, url: url do |f| %>
   <%= f.number_field :user_id, type: "hidden", value: current_user.id %>
   <%= f.number_field :objective_id, type: "hidden", value: objective.id %>
 

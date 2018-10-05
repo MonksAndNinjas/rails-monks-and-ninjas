@@ -1,13 +1,13 @@
-<% if @inspiration.errors.any? %>
+<% if object.errors.any? %>
   <div id="error_explanation">
     <h2>
-      <%= pluralize(@inspiration.errors.count, "error") %>
+      <%= pluralize(object.errors.count, "error") %>
       prohibited this inspiration from being saved:
     </h2>
 
     <ul>
-    <% @inspiration.errors.full_messages.each do |msg| %>
-      <!-- #validation displays extra password missing error twice -->
+    <% object.errors.full_messages.each do |msg| %>
+
       <li><%= msg %></li>
     <% end %>
     </ul>
@@ -15,7 +15,7 @@
 <% end %>
 
 
-<%= form_for @inspiration do |f| %>
+<%= form_for object do |f| %>
 
   <%= f.label :source %><br>
   <%= f.text_field :source, placeholder: "required" %><br>

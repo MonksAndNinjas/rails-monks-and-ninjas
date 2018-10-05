@@ -2,14 +2,14 @@
 
 <p><%= @inspiration.about %></p>
 
- <% @inspiration.attributes.keys.each do |key| %>
-  <% if key == "image" || key == "link" || key == "content" || key == "video" %>
-    <%= display_label_if_exists(@inspiration["#{key}"], "#{key}") %><br>
-    <%= display_attribute_if_exists(@inspiration["#{key}"], "#{key}") %>
-    <!-- how to make <br> not return if key empty-->
-    <br></br>
-  <% end %>
+<% @inspiration.attributes.keys.each do |key| %>
+
+  <%= display_label_if_exists(@inspiration["#{key}"], "#{key}") if valid_attribute_key?(key) %><br>
+  <%= display_attribute_if_exists(@inspiration["#{key}"], "#{key}") if valid_attribute_key?(key) %><br>
+
 <% end %>
+
+<br></br>
 
 <%= link_to "Edit Inspiration", edit_inspiration_path(@inspiration) %><br>
 <%= link_to "X", @inspiration, method: :delete, data: { confirm: "Really?" } %>
