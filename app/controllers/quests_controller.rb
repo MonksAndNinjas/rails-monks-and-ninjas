@@ -1,35 +1,29 @@
 class QuestsController < ApplicationController
+  helper_method :build_quest
+  helper_method :find_quest
+
   def new
-    @quest = @current_user.quests.build
-    @objective = Objective.find_by(id: params[:objective_id])
+    build_quest(objective_id: params[:objective_id])
   end
 
   def create
-    @quest = @current_user.quests.build(quest_params)
-    @objective = Objective.find_by(id: params[:objective_id])
+    build_quest(quest_params, params[:objective_id])
 
-    return render :new unless @quest.save
-
-    redirect_to objectives_path
+    render_new_or_redirect_if_saved(@quest, "objectives")
   end
 
   def edit
-    @quest = @current_user.quests.find_by_id(params[:id])
-    @objective = Objective.find_by(id: params[:objective_id])
+    find_quest_info(params[:id], params[:objective_id])
   end
 
   def update
-    @quest = @current_user.quests.find_by_id(params[:id])
-    @objective = Objective.find_by(id: params[:objective_id])
+    find_quest_info(params[:id], params[:objective_id])
 
-    return render :edit unless @quest.update(quest_params)
-
-    redirect_to objectives_path
+    render_edit_or_redirect_if_updated(@quest, quest_params, "objectives")
   end
 
   def destroy
-    Quest.find(params[:id]).destroy
-    redirect_to objectives_path
+    delete(params[:id], Quest, "objectives")
   end
 
   private

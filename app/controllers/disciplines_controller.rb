@@ -1,5 +1,4 @@
 class DisciplinesController < ApplicationController
-
   def index
     @disciplines = @current_user.disciplines
   end
@@ -11,14 +10,11 @@ class DisciplinesController < ApplicationController
   def create
     @discipline = @current_user.disciplines.build(discipline_params)
 
-    return render :new unless @discipline.save
-
-    redirect_to disciplines_path
+    render_new_or_redirect_if_saved(@discipline, "discplines")
   end
 
   def destroy
-    Discipline.find(params[:id]).destroy
-    redirect_to disciplines_path
+    delete(params[:id], Discipline, "disciplines")
   end
 
   private

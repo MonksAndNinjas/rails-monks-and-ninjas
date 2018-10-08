@@ -1,5 +1,4 @@
 class InspirationsController < ApplicationController
-
   def index
     @inspirations = @current_user.inspirations
   end
@@ -11,9 +10,7 @@ class InspirationsController < ApplicationController
   def create
     @inspiration = @current_user.inspirations.build(inspiration_params)
 
-    return render :new unless @inspiration.save
-
-    redirect_to inspiration_path(@inspiration)
+    render_new_or_redirect_if_saved(@inspiration, "inspirations")
   end
 
   def show
@@ -27,14 +24,11 @@ class InspirationsController < ApplicationController
   def update
     @inspiration = Inspiration.find_by_id(params[:id])
 
-    return render :edit unless @inspiration.update(inspiration_params)
-
-    redirect_to inspiration_path(@inspiration )
+    render_edit_or_redirect_if_updated(@inspiration, inspiration_params, "inspirations")
   end
 
   def destroy
-    Inspiration.find(params[:id]).destroy
-    redirect_to inspirations_path
+    delete(params[:id], Inspiration, "inspirations")
   end
 
   private

@@ -10,14 +10,11 @@ class SubscriptionsController < ApplicationController
   def create
     @subscription = @current_user.subscriptions.build(subscription_params)
 
-    return render :new unless @subscription.save
-
-    redirect_to subscriptions_path
+    render_new_or_redirect_if_saved(@subscription, "subscriptions")
   end
 
   def destroy
-    Subscription.find(params[:id]).destroy
-    redirect_to subscriptions_path
+    delete(params[:id], Subscription, "subscriptions")
   end
 
   private

@@ -8,11 +8,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
 
-    return render :new unless @user.save
-
-    session[:user_id] = @user.id
-
-    redirect_to @user
+    render_new_or_redirect_and_set_session_if_saved(@user)
   end
 
   def show
@@ -22,9 +18,7 @@ class UsersController < ApplicationController
   end
 
   def update
-    return render :edit unless @current_user.update(user_params)
-
-    redirect_to @current_user
+    render_edit_or_redirect_updated_user(@current_user, user_params)
   end
 
   private
