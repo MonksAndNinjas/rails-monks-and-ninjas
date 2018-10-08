@@ -8,11 +8,9 @@ class QuestsController < ApplicationController
     @quest = @current_user.quests.build(quest_params)
     @objective = Objective.find_by(id: params[:objective_id])
 
-    if @quest.save
-      redirect_to objectives_path
-    else
-      render :new
-    end
+    return render :new unless @quest.save
+
+    redirect_to objectives_path
   end
 
   def edit
@@ -24,11 +22,9 @@ class QuestsController < ApplicationController
     @quest = @current_user.quests.find_by_id(params[:id])
     @objective = Objective.find_by(id: params[:objective_id])
 
-    if @quest.update(quest_params)
-      redirect_to objectives_path
-    else
-      render :edit
-    end
+    return render :edit unless @quest.update(quest_params)
+
+    redirect_to objectives_path
   end
 
   def destroy

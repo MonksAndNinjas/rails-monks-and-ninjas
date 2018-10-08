@@ -11,11 +11,9 @@ class InspirationsController < ApplicationController
   def create
     @inspiration = @current_user.inspirations.build(inspiration_params)
 
-    if @inspiration.save
-      redirect_to inspiration_path(@inspiration)
-    else
-     render :new
-    end
+    return render :new unless @inspiration.save
+
+    redirect_to inspiration_path(@inspiration)
   end
 
   def show
@@ -29,11 +27,9 @@ class InspirationsController < ApplicationController
   def update
     @inspiration = Inspiration.find_by_id(params[:id])
 
-    if @inspiration.update(inspiration_params)
-      redirect_to inspiration_path(@inspiration )
-    else
-      render :edit
-    end
+    return render :edit unless @inspiration.update(inspiration_params)
+
+    redirect_to inspiration_path(@inspiration )
   end
 
   def destroy

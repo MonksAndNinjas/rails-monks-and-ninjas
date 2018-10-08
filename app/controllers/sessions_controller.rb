@@ -2,9 +2,7 @@ class SessionsController < ApplicationController
   skip_before_action :require_login, except: [:destroy]
 
   def new
-    if @current_user
-      redirect_to root_url, notice: "*Already logged in*"
-    end
+    return redirect_to root_url, notice: "*Already logged in*" if @current_user
   end
 
   def create
@@ -30,7 +28,6 @@ class SessionsController < ApplicationController
 
   def destroy
     session.delete :user_id
-
     redirect_to root_url
   end
 end

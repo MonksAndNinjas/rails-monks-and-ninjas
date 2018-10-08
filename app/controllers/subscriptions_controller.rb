@@ -10,11 +10,9 @@ class SubscriptionsController < ApplicationController
   def create
     @subscription = @current_user.subscriptions.build(subscription_params)
 
-    if @subscription.save
-      redirect_to subscriptions_path
-    else
-      render :new
-    end
+    return render :new unless @subscription.save
+
+    redirect_to subscriptions_path
   end
 
   def destroy

@@ -12,11 +12,9 @@ class PriorityItemsController < ApplicationController
   def create
     @priority_item = @current_user.priority_items.build(priority_item_params)
 
-    if @priority_item.save
-      redirect_to priority_items_path
-    else
-      render :new
-    end
+    return render :new unless @priority_item.save
+
+    redirect_to priority_items_path
   end
 
   def destroy

@@ -11,11 +11,9 @@ class DisciplinesController < ApplicationController
   def create
     @discipline = @current_user.disciplines.build(discipline_params)
 
-    if @discipline.save
-      redirect_to disciplines_path
-    else
-      render :new
-    end
+    return render :new unless @discipline.save
+
+    redirect_to disciplines_path
   end
 
   def destroy
