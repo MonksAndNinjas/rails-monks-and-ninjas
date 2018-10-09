@@ -15,12 +15,12 @@ Rails.application.routes.draw do
     resources :family_members, only: [:index, :new, :create]
   end
   resources :subscriptions, only: [:index, :new, :create, :destroy]
-  resources :priority_items, only: [:index, :new, :create, :destroy]
+  resources :priority_items, only: [:index, :new, :create, :destroy]      #these three routes are the same
   resources :disciplines, only: [:index, :new, :create, :destroy]
-  resources :inspirations, only: [:index, :new, :create, :show, :edit, :update, :destroy]
+  resources :inspirations, only: [:index, :new, :create, :show, :edit, :update, :destroy]#don't need to be explicit
 
-  resources :objectives, only: [:index] do
-    resources :quests, only: [:new, :create, :edit, :update, :destroy]
+  resources :objectives, only: [:index] do#add update to this route
+    resources :quests, only: [:new, :create, :edit, :update, :destroy]#take out create, edit, update
   end
 
 end

@@ -6,17 +6,17 @@ class QuestsController < ApplicationController
     build_quest(objective_id: params[:objective_id])
   end
 
-  def create
+  def create#don't know if need
     build_quest(quest_params, params[:objective_id])
 
     render_new_or_redirect_if_saved(@quest, "objectives")
   end
 
-  def edit
+  def edit#don't need
     find_quest_info(params[:id], params[:objective_id])
   end
 
-  def update
+  def update#don't need
     find_quest_info(params[:id], params[:objective_id])
 
     render_edit_or_redirect_if_updated(@quest, quest_params, "objectives")
