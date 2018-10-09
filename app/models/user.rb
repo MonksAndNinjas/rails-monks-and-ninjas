@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  has_many :family_members
   has_many :subscriptions
   has_many :priority_items
   has_many :inspirations

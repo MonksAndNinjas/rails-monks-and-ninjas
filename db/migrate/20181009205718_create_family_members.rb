@@ -7,6 +7,7 @@ class CreateFamilyMembers < ActiveRecord::Migration[5.2]
       t.string :relationship
       t.string :contact
       t.string :relationship_status
+      t.belongs_to :user
 
       t.timestamps
     end
