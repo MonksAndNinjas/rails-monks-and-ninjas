@@ -18,3 +18,5 @@ module SessionHelper
     redirect_to user
   end
 end
+
+# move to user class?

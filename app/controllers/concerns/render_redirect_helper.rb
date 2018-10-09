@@ -21,7 +21,7 @@ module RenderRedirectHelper
 
   def render_edit_or_redirect_updated_user(user, user_params)
     return render :edit unless @current_user.update(user_params)
-
+    #move to model
     redirect_to @current_user
   end
 end
