@@ -9,6 +9,7 @@ class User < ApplicationRecord
 
   accepts_nested_attributes_for :family_members
   accepts_nested_attributes_for :subscriptions
+  accepts_nested_attributes_for :priority_items
 
   validates :name, presence: true
   validates :birthdate, presence: true

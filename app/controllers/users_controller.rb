@@ -26,18 +26,24 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:name, :birthdate, :email, :password,
       family_members_attributes: [
-        :name,
-        :birthdate,
-        :relationship,
-        :location,
-        :contact,
-        :relationship_status
+          :id,
+          :name,
+          :birthdate,
+          :relationship,
+          :location,
+          :contact,
+          :relationship_status
       ],
       subscriptions_attributes: [
-        :name,
-        :amount,
-        :due_day
-      ]
-    )
+          :id,
+          :name,
+          :amount,
+          :due_day
+      ],
+      priority_items_attributes: [
+          :id,
+          :title,
+          :description
+      ])
   end
 end

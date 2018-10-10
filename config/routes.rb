@@ -14,9 +14,8 @@ Rails.application.routes.draw do
   resources :users do
     resources :family_members
     resources :subscriptions
+    resources :priority_items
   end
-  resources :subscriptions, only: [:index, :new, :create, :destroy]
-  resources :priority_items, only: [:index, :new, :create, :destroy]      #these three routes are the same
   resources :disciplines, only: [:index, :new, :create, :destroy]
   resources :inspirations, only: [:index, :new, :create, :show, :edit, :update, :destroy]#don't need to be explicit
 

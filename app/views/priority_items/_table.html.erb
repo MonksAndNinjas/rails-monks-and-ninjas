@@ -17,7 +17,7 @@
 
              => <%= item.description %>&nbsp;&nbsp;&nbsp;&nbsp;
           </td>
-          <td><%= link_to "X", item, method: :delete, data: { confirm: "Really?" } %></td>
+          <td><%= link_to "X", user_priority_item_path(@current_user, item), method: :delete, data: { confirm: "Really?" } %></td>
 
         </tr>
       <% end %>

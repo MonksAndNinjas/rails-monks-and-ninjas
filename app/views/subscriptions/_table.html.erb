@@ -19,7 +19,7 @@
         <td><%= subscription.name %></td>
         <td><%= subscription.payment %></td>
         <td><%= subscription.due_day %></td>
-        <td><%= link_to "X", subscription, method: :delete, data: { confirm: "Really?" } %></td>
+        <td><%= link_to "X", user_subscription_path(@current_user, subscription), method: :delete, data: { confirm: "Really?" } %></td>
 
       </tr>
     <% end %>
