@@ -1,0 +1,24 @@
+<h1>Your family</h1>
+
+<ul>
+<% @family_members.each do |person| %>
+  <li><%= person.name %></li>
+  <ul>
+    <li>
+      <strong>Birthdate: <%= person.birthdate %></strong>
+    </li>
+    <li>
+      <strong>Relationship to you: <%= person.relationship %></strong>
+    </li>
+    <li>
+      <strong>Location: <%= person.location %></strong>
+    </li>
+    <li>
+      <strong>Contact: <%= person.contact %></strong>
+    </li>
+    <li>
+      <strong>Relationship status: <%= person.relationship_status %></strong>
+    </li>
+  </ul>
+<% end %>
+</ul>
