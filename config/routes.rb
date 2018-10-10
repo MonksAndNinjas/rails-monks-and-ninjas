@@ -15,8 +15,8 @@ Rails.application.routes.draw do
     resources :family_members
     resources :subscriptions
     resources :priority_items
+    resources :disciplines
   end
-  resources :disciplines, only: [:index, :new, :create, :destroy]
   resources :inspirations, only: [:index, :new, :create, :show, :edit, :update, :destroy]#don't need to be explicit
 
   resources :objectives, only: [:index] do

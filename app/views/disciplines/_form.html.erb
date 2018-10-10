@@ -14,19 +14,26 @@
   </div>
 <% end %>
 
-
 <%= form_for object do |f| %>
 
-  <%= f.label :title %><br>
-  <%= f.text_field :title %><br>
+  <%= f.fields_for :disciplines do |dis| %>
 
-  <%= f.label :content %><br>
-  <%= f.text_field :content %><br>
+    <% if dis.object.title.blank? %>
+      <%= dis.label :title %><br>
+      <%= dis.text_field :title %><br>
 
-  <%= f.label :duration %><br>
-  <%= f.text_field :duration %><br>
+      <%= dis.label :content %><br>
+      <%= dis.text_field :content %><br>
+
+      <%= dis.label :duration %><br>
+      <%= dis.text_field :duration %><br>
+    <% end %>
+
+  <% end %>
 
   <br></br>
 
-  <%= f.submit %>
+  <%= f.password_field :password %>
+
+  <%= f.submit "Add Discipline"%>
 <% end %>

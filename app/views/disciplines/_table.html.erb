@@ -19,7 +19,7 @@
         <td><%= discipline.title %></td>
         <td><%= discipline.content %></td>
         <td><%= discipline.duration %></td>
-        <td><%= link_to "X", discipline, method: :delete, data: { confirm: "Really?" } %></td>
+        <td><%= link_to "X", user_discipline_path(@current_user, discipline), method: :delete, data: { confirm: "Really?" } %></td>
 
       </tr>
     <% end %>

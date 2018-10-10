@@ -28,6 +28,8 @@ module RenderRedirectHelper
       redirect_to user_subscriptions_path(@current_user)
     elsif params[:user][:priority_items_attributes]
       redirect_to user_priority_items_path(@current_user)
+    elsif params[:user][:disciplines_attributes]
+      redirect_to user_disciplines_path(@current_user)
     else
       redirect_to @current_user
     end
