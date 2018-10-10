@@ -16,24 +16,27 @@
 
 <%= form_for object do |f| %>
 
-  <%= f.fields_for :family_member do |mem| %>
-    <%= mem.label :name %>
-    <%= mem.text_field :name %><br>
+  <%= f.fields_for :family_members do |mem| %>
 
-    <%= mem.label :birthdate %>
-    <%= mem.date_field :birthdate %><br>
+  <% if mem.object.name.blank? %>
+      <%= mem.label :name %>
+      <%= mem.text_field :name %><br>
 
-    <%= mem.label :relationship %>
-    <%= mem.text_field :relationship %><br>
+      <%= mem.label :birthdate %>
+      <%= mem.date_field :birthdate %><br>
 
-    <%= mem.label :location %>
-    <%= mem.text_field :location %><br>
+      <%= mem.label :relationship %>
+      <%= mem.text_field :relationship %><br>
 
-    <%= mem.label :contact %>
-    <%= mem.text_field :contact %><br>
+      <%= mem.label :location %>
+      <%= mem.text_field :location %><br>
 
-    <%= mem.label :relationship_status %>
-    <%= mem.text_field :relationship_status %><br>
+      <%= mem.label :contact %>
+      <%= mem.text_field :contact %><br>
+
+      <%= mem.label :relationship_status %>
+      <%= mem.text_field :relationship_status %>
+    <% end %>
   <% end %>
 
   <br></br>

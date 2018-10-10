@@ -18,18 +18,14 @@ class UsersController < ApplicationController
   end
 
   def update
-    #raise params.inspect
-    #render_edit_or_redirect_updated_user(@current_user, user_params)
-    return render :edit unless @current_user.update(user_params)
-
-    redirect_to @current_user
+    render_edit_or_redirect_updated_user(@current_user, user_params)
   end
 
   private
 
   def user_params
     params.require(:user).permit(:name, :birthdate, :email, :password,
-      family_member: [
+      family_members_attributes: [
         :name,
         :birthdate,
         :relationship,
