@@ -50,6 +50,15 @@ class UsersController < ApplicationController
         :title,
         :content,
         :duration
+      ],
+      inspirations_attributes: [
+        :id,
+        :source,
+        :about,
+        :image,
+        :link,
+        :video,
+        :content
       ])
   end
 end

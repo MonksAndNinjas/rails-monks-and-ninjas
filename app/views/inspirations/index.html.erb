@@ -2,10 +2,10 @@
 
 <ul>
 <% @inspirations.each do |inspiration| %>
-    <li><%= link_to inspiration.source, inspiration_path(inspiration) %></li>
+    <li><%= link_to inspiration.source, user_inspiration_path(@current_user, inspiration) %></li>
 <% end %>
 </ul>
 
 <br></br>
 
-<%= link_to "Add Inspiration", new_inspiration_path %>
+<%= link_to "Add Inspiration", new_user_inspiration_path(@current_user) %>

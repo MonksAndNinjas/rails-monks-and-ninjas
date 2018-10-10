@@ -16,11 +16,11 @@ Rails.application.routes.draw do
     resources :subscriptions
     resources :priority_items
     resources :disciplines
+    resources :inspirations
   end
-  resources :inspirations, only: [:index, :new, :create, :show, :edit, :update, :destroy]#don't need to be explicit
 
-  resources :objectives, only: [:index] do
-    resources :quests, only: [:new, :create, :edit, :update, :destroy]#take out create, edit, update
+  resources :objectives do
+    resources :quests
   end
 
 end

@@ -15,29 +15,38 @@
 <% end %>
 
 
+
 <%= form_for object do |f| %>
 
-  <%= f.label :source %><br>
-  <%= f.text_field :source, placeholder: "required" %><br>
+  <%= f.fields_for :inspirations do |ins| %>
 
-  <%= f.label :about %><br>
-  <%= f.text_field :about, placeholder: "required" %><br>
+  <% if ins.object.source.blank? || ins.object == Inspiration.find_by(id: params[:id])%>
+    <%= ins.label :source %><br>
+    <%= ins.text_field :source, placeholder: "required" %><br>
 
-  <p>What would you like to add?</p>
+    <%= ins.label :about %><br>
+    <%= ins.text_field :about, placeholder: "required" %><br>
 
-  <%= f.label :image %><br>
-  <%= f.text_field :image %><br>
+    <p>What would you like to add?</p>
 
-  <%= f.label :link %><br>
-  <%= f.text_field :link %><br>
+    <%= ins.label :image %><br>
+    <%= ins.text_field :image %><br>
 
-  <%= f.label :video %><br>
-  <%= f.text_field :video %><br>
+    <%= ins.label :link %><br>
+    <%= ins.text_field :link %><br>
 
-  <%= f.label :content %><br>
-  <%= f.text_field :content %><br>
+    <%= ins.label :video %><br>
+    <%= ins.text_field :video %><br>
+
+    <%= ins.label :content %><br>
+    <%= ins.text_field :content %><br>
+    <% end %>
+
+  <% end %>
 
   <br></br>
 
-  <%= f.submit %>
+  <%= f.password_field :password %>
+
+  <%= f.submit "Inspire Me"%>
 <% end %>

@@ -20,7 +20,7 @@
         <%= link_to "Subscriptions", user_subscriptions_path(@current_user) %>&nbsp;&nbsp;
         <%= link_to "Priorities", user_priority_items_path(@current_user) %>&nbsp;&nbsp;
         <%= link_to "Quests", objectives_path %>&nbsp;&nbsp;
-        <%= link_to "Inspirations", inspirations_path %>&nbsp;&nbsp;
+        <%= link_to "Inspirations", user_inspirations_path(@current_user) %>&nbsp;&nbsp;
         <%= link_to "Disciplines", user_disciplines_path(@current_user) %>&nbsp;&nbsp;
         <%= link_to "Log Out", logout_path, method: :delete %>&nbsp;&nbsp;
       <% else %>
