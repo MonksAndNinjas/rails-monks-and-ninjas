@@ -7,7 +7,7 @@ class User < ApplicationRecord
   has_many :quests
   has_many :objectives, through: :quests
 
-  accepts_nested_attributes_for :subscriptions
+  accepts_nested_attributes_for :family_members
 
   validates :name, presence: true
   validates :birthdate, presence: true

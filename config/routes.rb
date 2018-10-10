@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   resources :disciplines, only: [:index, :new, :create, :destroy]
   resources :inspirations, only: [:index, :new, :create, :show, :edit, :update, :destroy]#don't need to be explicit
 
-  resources :objectives, only: [:index] do#add update to this route
+  resources :objectives, only: [:index] do
     resources :quests, only: [:new, :create, :edit, :update, :destroy]#take out create, edit, update
   end
 
