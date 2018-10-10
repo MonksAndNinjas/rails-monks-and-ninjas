@@ -17,7 +17,7 @@
       <% if @current_user %>
 
         <%= link_to "#{@current_user.name}'s profile", @current_user %>&nbsp;&nbsp;
-        <%= link_to "Subscriptions", subscriptions_path %>&nbsp;&nbsp;
+        <%= link_to "Subscriptions", user_subscriptions_path(@current_user) %>&nbsp;&nbsp;
         <%= link_to "Priorities", priority_items_path %>&nbsp;&nbsp;
         <%= link_to "Quests", objectives_path %>&nbsp;&nbsp;
         <%= link_to "Inspirations", inspirations_path %>&nbsp;&nbsp;

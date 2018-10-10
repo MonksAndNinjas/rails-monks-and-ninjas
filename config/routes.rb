@@ -11,8 +11,9 @@ Rails.application.routes.draw do
 
   get '/auth/facebook/callback' => 'sessions#create'
 
-  resources :users, only: [:show, :edit, :update] do
-    resources :family_members, only: [:index, :new, :create]
+  resources :users do
+    resources :family_members
+    resources :subscriptions
   end
   resources :subscriptions, only: [:index, :new, :create, :destroy]
   resources :priority_items, only: [:index, :new, :create, :destroy]      #these three routes are the same

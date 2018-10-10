@@ -32,6 +32,11 @@ class UsersController < ApplicationController
         :location,
         :contact,
         :relationship_status
+      ],
+      subscriptions_attributes: [
+        :name,
+        :amount,
+        :due_day
       ]
     )
   end

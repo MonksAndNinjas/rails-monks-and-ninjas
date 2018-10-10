@@ -3,4 +3,4 @@
 <p>Make sure email is of the right format and not already used.</p>
 <p>Renter password to successfuly edit form</p>
 
-<%= render 'form', locals: {object: @user = @current_user, url: @url = @current_user } %>
+<%= render partial: 'form', locals: {object: @current_user, url: @url = @current_user } %>

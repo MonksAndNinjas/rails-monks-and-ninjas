@@ -21,7 +21,13 @@ module RenderRedirectHelper
 
   def render_edit_or_redirect_updated_user(user, user_params)
     return render :edit unless @current_user.update(user_params)
-    #move to model
-    redirect_to @current_user
+
+    if params[:user][:family_members_attributes]
+      redirect_to user_family_members_path(@current_user)
+    elsif params[:user][:subscriptions_attributes]
+      redirect_to user_subscriptions_path(@current_user)
+    else
+      redirect_to @current_user
+    end
   end
 end

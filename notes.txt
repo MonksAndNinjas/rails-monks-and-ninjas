@@ -8,6 +8,7 @@
   => You must include a nested new route with form that relates to the parent resource
   => You must include a nested index or show route
   => You must include at least one class level ActiveRecord scope method
+  => add delete function to family members
 
 ######## App Information ##########
 
