@@ -52,18 +52,3 @@
             * forms should correctly display validation errors.
                 => your fields should be enclosed within a fields_with_errors class
                 => error messages describing the validation failures must be present within the view.
-
-
-
-                <%= form_for object, url: url do |f| %>
-                  <%= f.number_field :user_id, type: "hidden", value: current_user.id %>
-                  <%= f.number_field :objective_id, type: "hidden", value: objective.id %>
-
-                  <%= f.label :title %>
-                  <%= f.text_field :title %>
-
-                  <%= f.label :description %>
-                  <%= f.text_area :description %>
-
-                  <%= f.submit %>
-                <% end %><br>

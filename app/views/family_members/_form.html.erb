@@ -1,0 +1,44 @@
+<% if object.errors.any? %>
+  <div id="error_explanation">
+    <h2>
+      <%= pluralize(object.errors.count, "error") %>
+      prohibited this user from being saved:
+    </h2>
+
+    <ul>
+    <% object.errors.full_messages.each do |msg| %>
+
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<%= form_for object do |f| %>
+
+  <%= f.fields_for :family_member do |mem| %>
+    <%= mem.label :name %>
+    <%= mem.text_field :name %><br>
+
+    <%= mem.label :birthdate %>
+    <%= mem.date_field :birthdate %><br>
+
+    <%= mem.label :relationship %>
+    <%= mem.text_field :relationship %><br>
+
+    <%= mem.label :location %>
+    <%= mem.text_field :location %><br>
+
+    <%= mem.label :contact %>
+    <%= mem.text_field :contact %><br>
+
+    <%= mem.label :relationship_status %>
+    <%= mem.text_field :relationship_status %><br>
+  <% end %>
+
+  <br></br>
+
+  <%= f.password_field :password %>
+
+  <%= f.submit "Create Family Member"%>
+<% end %>
