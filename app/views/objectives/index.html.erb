@@ -1,9 +1,11 @@
 <h1>Your Quests</h1>
 
+
 <%= render 'table', locals: {object: @quests} %>
 
 <br></br>
 
+
 <% @objectives.each do |objective| %>
-  <%= link_to type_of(objective), new_objective_quest_path(objective) %><br>
+  <%= link_to type_of(objective), new_user_objective_quest_path(@current_user, objective) %><br>
 <% end %>

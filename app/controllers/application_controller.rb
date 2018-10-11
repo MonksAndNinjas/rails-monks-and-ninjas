@@ -2,7 +2,6 @@ class ApplicationController < ActionController::Base
   before_action :current_user
   before_action :require_login, except: [:home]
 
-  include QuestsHelper
   include PriorityItemsHelper
   include DeleteHelper
   include RenderRedirectHelper

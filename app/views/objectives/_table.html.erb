@@ -19,8 +19,8 @@
         <td><%= quest_duration(quest) %> Quest</td>
         <td><%= quest.title %></td>
         <td><%= quest.description %></td>
-        <td><%= link_to "X", objective_quest_path(quest.objective_id, quest.id), method: :delete, data: { confirm: "Really?" } %>
-          /<%= link_to "E", edit_objective_quest_path(quest.objective_id, quest.id) %></td>
+        <td><%= link_to "X", user_objective_quest_path(@current_user, quest.objective_id, quest.id), method: :delete, data: { confirm: "Really?" } %>
+          /<%= link_to "E", edit_user_objective_quest_path(@current_user, quest.objective_id, quest.id) %></td>
         </td>
 
       </tr>

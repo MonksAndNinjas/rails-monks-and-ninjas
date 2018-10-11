@@ -1,28 +1,21 @@
-<% if object.errors.any? %>
-  <div id="error_explanation">
-    <h2>
-      <%= pluralize(object.errors.count, "error") %>
-      prohibited this subscription from being saved:
-    </h2>
+<%= form_for object do |f| %>
 
-    <ul>
-    <% object.errors.full_messages.each do |msg| %>
+    <%= f.fields_for :quests do |quest| %>
+      <% if quest.object.title.blank? || quest.object == Quest.find_by(id: params[:id]) %>
+        <%= quest.label :title %><br>
+        <%= quest.text_field :title %><br>
 
-      <li><%= msg %></li>
+        <%= quest.label :description %><br>
+        <%= quest.text_field :description %><br>
+
+        <%= quest.number_field :objective_id, value: @objective.id, type: "hidden" %>
+      <% end %>
     <% end %>
-    </ul>
-  </div>
+
+
+  <br></br>
+
+  <%= f.password_field :password %>
+
+  <%= f.submit "Add Quest"%>
 <% end %>
-
-<%= form_for object, url: url do |f| %>
-  <%= f.number_field :user_id, type: "hidden", value: current_user.id %>
-  <%= f.number_field :objective_id, type: "hidden", value: objective.id %>
-
-  <%= f.label :title %>
-  <%= f.text_field :title %>
-
-  <%= f.label :description %>
-  <%= f.text_area :description %>
-
-  <%= f.submit %>
-<% end %><br>

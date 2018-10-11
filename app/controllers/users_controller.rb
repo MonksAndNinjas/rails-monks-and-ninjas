@@ -18,6 +18,7 @@ class UsersController < ApplicationController
   end
 
   def update
+    #raise params.inspect
     render_edit_or_redirect_updated_user(@current_user, user_params)
   end
 
@@ -59,6 +60,13 @@ class UsersController < ApplicationController
         :link,
         :video,
         :content
-      ])
+      ],
+      quests_attributes: [
+        :id,
+        :title,
+        :description,
+        :objective_id
+      ]
+    )
   end
 end

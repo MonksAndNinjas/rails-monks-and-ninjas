@@ -12,6 +12,7 @@ class User < ApplicationRecord
   accepts_nested_attributes_for :priority_items
   accepts_nested_attributes_for :disciplines
   accepts_nested_attributes_for :inspirations
+  accepts_nested_attributes_for :quests
 
   validates :name, presence: true
   validates :birthdate, presence: true

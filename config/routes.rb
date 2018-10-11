@@ -17,10 +17,8 @@ Rails.application.routes.draw do
     resources :priority_items
     resources :disciplines
     resources :inspirations
+    resources :objectives do
+      resources :quests
+    end
   end
-
-  resources :objectives do
-    resources :quests
-  end
-
 end
