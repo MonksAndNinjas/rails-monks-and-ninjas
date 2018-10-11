@@ -11,6 +11,7 @@ class ApplicationController < ActionController::Base
   def index
     objective_or_quest?(controller_name)
     @all_of_attribute = @current_user.send(@model)
+    #raise params.inspect
   end
 
   def new

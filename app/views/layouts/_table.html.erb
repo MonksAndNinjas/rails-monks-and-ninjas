@@ -1,0 +1,26 @@
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+
+      <% all_of_attribute[0].attributes.keys[1..-4].each do |attr| %>
+        <td><strong><%= attr %></strong></td>
+      <% end %>
+
+    </tr>
+    <% all_of_attribute.each do |attribute| %>
+    <tr>
+      <% all_of_attribute[0].attributes.keys[1..-4].each do |attr| %>
+        <td><%= attribute[attr] %></td>
+      <% end %>
+        <td><%= link_to "X", "/users/#{@current_user.id}/#{controller_name}/#{attribute.id}", method: :delete, data: { confirm: "Really?" } %></td>
+
+    </tr>
+    <% end %>
+  </tbody>
+</table>

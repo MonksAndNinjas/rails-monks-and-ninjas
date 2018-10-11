@@ -1,7 +1,7 @@
 <h1>Your Quests</h1>
 
 
-<%= render partial: 'table', locals: {all_of_attribute: @all_of_attribute} if !@all_of_attribute.blank? %>
+<%= render partial: 'table', locals: {all_of_attribute: @all_of_attribute} if @all_of_attribute %>
 
 <br></br>
 

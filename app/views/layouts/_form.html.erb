@@ -1,0 +1,27 @@
+<%= form_for object do |f| %>
+
+  <%= f.fields_for :attributes do |attr| %>
+    <% @attribute.attributes.keys[0..-4].each do |key| %>
+
+
+      <%= attr.label "#{key.to_s}" unless key.to_s == "id" %>
+
+      <% a = @attribute.type_for_attribute("#{key.to_s}").class.inspect.split("::")[2] %>
+
+      <% if a == "Date" %>
+        <%= attr.date_field "#{key.to_s}", name: "user[#{controller_name}_attributes][#{key.to_s}]"%><br>
+      <% elsif a == "String" %>
+        <%= attr.text_field "#{key.to_s}", name: "user[#{controller_name}_attributes][#{key.to_s}]" %><br>
+      <% else %>
+        <%= attr.number_field "#{key.to_s}", name: "user[#{controller_name}_attributes][#{key.to_s}]", value: "#{@attribute.id}", type: "hidden" %><br>
+      <% end %>
+
+    <% end %>
+  <% end %>
+
+  <br></br>
+
+  <%= f.password_field :password %>
+
+  <%= f.submit "Create"%>
+<% end %>
