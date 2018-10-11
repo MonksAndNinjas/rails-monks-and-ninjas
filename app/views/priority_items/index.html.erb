@@ -3,8 +3,8 @@
 <p>Most urgent tasks</p>
 
 
-<%= render partial: 'table', locals: {priority_items: @priority_items} if @priority_items %>
+<%= render partial: 'table', locals: {all_of_attribute: @all_of_attribute} if @all_of_attribute %>
 
   <br></br>
 
-<%= dont_display_add_item_link(@priority_items) %>
+<%= dont_display_add_item_link(@all_of_attribute) %>

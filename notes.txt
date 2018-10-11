@@ -5,11 +5,8 @@
 
 ########## What's Next? ###########
 
-  => You must include a nested new route with form that relates to the parent resource
-  => You must include a nested index or show route
   => You must include at least one class level ActiveRecord scope method
-  => add delete function to family members
- => how to handle two nested objectives quests
+  => add edit option function to family members
 
 ######## App Information ##########
 

@@ -18,13 +18,12 @@ class UsersController < ApplicationController
   end
 
   def update
-    #raise params.inspect
     render_edit_or_redirect_updated_user(@current_user, user_params)
   end
 
   private
 
-  def user_params
+  def user_params#refactor
     params.require(:user).permit(:name, :birthdate, :email, :password,
       family_members_attributes: [
         :id,

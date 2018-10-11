@@ -1,7 +1,7 @@
 <h1>Your family</h1>
 
 <ul>
-<% @family_members.each do |person| %>
+<% @all_of_attribute.each do |person| %>
   <li>
     <strong><%= person.name %></strong>
   </li>
@@ -21,7 +21,8 @@
     <li>
       <strong>Relationship status: <%= person.relationship_status %></strong>
     </li>
-  </ul>
+    <strong><%= link_to "X", user_family_member_path(@current_user, person), method: :delete, data: { confirm: "Really?" } %></strong>
+  </ul><br>
 <% end %>
 </ul>
 

@@ -14,7 +14,7 @@
     <nav>
       <%= link_to 'Home', root_url %>&nbsp;&nbsp;
 
-      <% if @current_user %>
+      <% if @current_user #refactor%>
 
         <%= link_to "#{@current_user.name}'s profile", @current_user %>&nbsp;&nbsp;
         <%= link_to "Subscriptions", user_subscriptions_path(@current_user) %>&nbsp;&nbsp;

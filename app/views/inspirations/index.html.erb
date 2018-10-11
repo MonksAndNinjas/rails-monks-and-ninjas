@@ -1,7 +1,7 @@
 <h1>Inspirations</h1>
 
 <ul>
-<% @inspirations.each do |inspiration| %>
+<% @all_of_attribute.each do |inspiration| %>
     <li><%= link_to inspiration.source, user_inspiration_path(@current_user, inspiration) %></li>
 <% end %>
 </ul>
