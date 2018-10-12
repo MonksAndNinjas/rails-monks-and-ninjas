@@ -1,7 +1,7 @@
 module DeleteHelper
   def delete(id, controller, path)
 
-    if controller.to_s == "quests"#maybe refactor
+    if controller.to_s == "quests"# refactor
       path = "objectives"
       model = controller.singularize.capitalize.constantize
     elsif controller.include?("priority")

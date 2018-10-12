@@ -8,7 +8,7 @@ module RenderRedirectHelper
     redirect_to user
   end
 
-  def render_edit_or_redirect_updated_user(user, user_params)
+  def render_edit_or_redirect_updated_user(user, user_params)#refactor
     return render :edit unless @current_user.update(user_params)
 
     path = user_params.keys[1]

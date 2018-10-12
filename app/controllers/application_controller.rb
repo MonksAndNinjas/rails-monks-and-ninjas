@@ -9,9 +9,8 @@ class ApplicationController < ActionController::Base
   include SessionHelper
 
   def index
-    objective_or_quest?(controller_name)
+    objective_or_quest?(controller_name)#move to before action in specific controller
     @all_of_attribute = @current_user.send(@model)
-    #raise params.inspect
   end
 
   def new
@@ -30,7 +29,7 @@ class ApplicationController < ActionController::Base
 
   private
 
-  def objective_or_quest?(controller_name)
+  def objective_or_quest?(controller_name)#move to helper
     @model = controller_name
 
     case @model

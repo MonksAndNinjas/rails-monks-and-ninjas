@@ -52,3 +52,11 @@
             * forms should correctly display validation errors.
                 => your fields should be enclosed within a fields_with_errors class
                 => error messages describing the validation failures must be present within the view.
+
+
+
+                <%= sub.label :amount %><br>
+                <%= sub.number_field :amount, step: 0.01, value: (number_with_precision(sub.object.amount, :precision => 2) || 0) %><br>
+
+                <%= sub.label :due_day %><br>
+                <%= sub.number_field :due_day, placeholder: "Payemnt Due Day(1 - 28)" %><br>

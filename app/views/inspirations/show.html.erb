@@ -4,7 +4,7 @@
 
 <% @inspiration.attributes.keys.each do |key| %>
 
-  <%= display_label_if_exists(@inspiration["#{key}"], "#{key}") if valid_attribute_key?(key) %><br>
+  <%= display_label_if_exists(@inspiration["#{key}"], "#{key}") if valid_attribute_key?(key) %><br><!-- figure out how to not add br if no key -->
   <%= display_attribute_if_exists(@inspiration["#{key}"], "#{key}") if valid_attribute_key?(key) %><br>
 
 <% end %>

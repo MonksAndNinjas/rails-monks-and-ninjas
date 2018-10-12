@@ -1,6 +1,6 @@
 <h1>Disciplines</h1>
 
-<%= render partial: 'layouts/table', locals: {all_of_attribute: @all_of_attribute} if @all_of_attribute %>
+<%= render partial: 'layouts/table', locals: {all_of_attribute: @all_of_attribute} unless @all_of_attribute.blank? %>
 
 <br></br>
 

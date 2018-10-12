@@ -1,5 +1,5 @@
 module ObjectiveHelper
-  def quest_duration(quest)#move to objective mode? or quest mode?
+  def quest_duration(quest)#where does this go
     Objective.find_by_id(quest.objective_id).duration.capitalize
   end
 
