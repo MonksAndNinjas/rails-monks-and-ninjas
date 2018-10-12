@@ -7,20 +7,21 @@ class ApplicationController < ActionController::Base
   include RenderRedirectHelper
   include LoginHelper
   include SessionHelper
+  include ParamHelper
 
   def index
-    objective_or_quest?(controller_name)#move to before action in specific controller
+    set_model(controller_name)
     @all_of_attribute = @current_user.send(@model)
   end
 
   def new
-    objective_or_quest?(controller_name)
+    set_model(controller_name)
     @attribute = @current_user.send(@model).build
   end
 
   def edit
-    objective_or_quest?(controller_name)
-    @attribute = controller_name.singularize.capitalize.constantize.find_by(id: params[:id])#move to application record model
+    set_model(controller_name)
+    @attribute = find_attribute(params[:id])
   end
 
   def destroy
@@ -29,7 +30,7 @@ class ApplicationController < ActionController::Base
 
   private
 
-  def objective_or_quest?(controller_name)#move to helper
+  def set_model(controller_name)
     @model = controller_name
 
     case @model
@@ -41,5 +42,9 @@ class ApplicationController < ActionController::Base
       @model = "quests"
       @objectives = Objective.all
     end
+  end
+
+  def find_attribute(id_param)#move to application record model
+    controller_name.singularize.capitalize.constantize.find_by(id: params[:id])
   end
 end

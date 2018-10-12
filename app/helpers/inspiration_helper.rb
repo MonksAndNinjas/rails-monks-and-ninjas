@@ -1,6 +1,6 @@
 module InspirationHelper
 
-  def display_attribute_if_exists(inspiration_attribute, attribute)#where does this go and maybe refactor
+  def display_attribute_if_exists(inspiration_attribute, attribute)
     if attribute == "content"
       return inspiration_attribute unless inspiration_attribute.blank?
     else

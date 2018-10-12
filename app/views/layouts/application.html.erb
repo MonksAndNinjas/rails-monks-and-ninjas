@@ -12,20 +12,20 @@
   <body>
 
     <nav>
-      <%= link_to 'Home', root_url %>&nbsp;&nbsp;
+      <%= link_to 'Home', root_url %>
 
-      <% if @current_user #refactor%>
+      <% if @current_user %>
 
-        <%= link_to "#{@current_user.name}'s profile", @current_user %>&nbsp;&nbsp;
-        <%= link_to "Subscriptions", user_subscriptions_path(@current_user) %>&nbsp;&nbsp;
-        <%= link_to "Priorities", user_priority_items_path(@current_user) %>&nbsp;&nbsp;
-        <%= link_to "Quests", user_objectives_path(@current_user) %>&nbsp;&nbsp;
-        <%= link_to "Inspirations", user_inspirations_path(@current_user) %>&nbsp;&nbsp;
-        <%= link_to "Disciplines", user_disciplines_path(@current_user) %>&nbsp;&nbsp;
-        <%= link_to "Log Out", logout_path, method: :delete %>&nbsp;&nbsp;
+        <%= link_to "#{@current_user.name}'s profile", @current_user %>
+
+        <% attributes_keys.each do |attr| %>
+          <%= create_attribute_link(attr) %>
+        <% end %>
+
+        <%= link_to "Log Out", logout_path, method: :delete %>
       <% else %>
 
-        <%= link_to 'Sign Up', signup_path %>&nbsp;
+        <%= link_to 'Sign Up', signup_path %>
         <%= link_to 'Log In', login_path %>
       <% end %>
     </nav>

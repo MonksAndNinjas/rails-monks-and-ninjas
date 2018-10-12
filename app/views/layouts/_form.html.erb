@@ -24,7 +24,7 @@
       <% else %>
         <%= attr.number_field "#{key.to_s}", name: "user[#{controller_name}_attributes][#{key.to_s}]", value: "#{@attribute.id}", type: "hidden" %><br>
       <% end %>
-<!-- definitely refactor -->
+<!-- definitely refactor  move into helper-->
     <% end %>
   <% end %>
 
