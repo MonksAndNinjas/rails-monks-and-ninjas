@@ -1,30 +1,13 @@
 <%= form_for object do |f| %>
 
   <%= f.fields_for :attributes do |attr| %>
-    <% @attribute.attributes.keys[0..-3].each do |key| %>
+    <% @attribute.attributes_keys.each do |key| %>
 
+      <%= attr.label "#{key.to_s}" unless @attribute.create_label?(key) %><br>
 
-      <%= attr.label "#{key.to_s}" unless key.to_s == "id" || key.to_s == "user_id" || key.to_s == "objective_id" %>
+      <% a = @attribute.create_field_for(key) %>
+      <%= create_field(key, a, attr, @association) %><br>
 
-
-      <% a = @attribute.column_for_attribute("#{key.to_s}").type.to_s %>
-
-      <% if a.include?("date") %>
-        <%= attr.date_field "#{key.to_s}", name: "user[#{controller_name}_attributes][#{key.to_s}]"%><br>
-      <% elsif a.include?("string") %>
-        <%= attr.text_field "#{key.to_s}", name: "user[#{controller_name}_attributes][#{key.to_s}]" %><br>
-      <% elsif a.include?("decimal") %>
-        <%= attr.number_field "#{key.to_s}", name: "user[#{controller_name}_attributes][#{key.to_s}]" %><br>
-      <% elsif a.include?("integer") && key.to_s != "id" && key.to_s != "user_id" && key.to_s != "objective_id"%>
-        <%= attr.number_field "#{key.to_s}", name: "user[#{controller_name}_attributes][#{key.to_s}]" %><br>
-      <% elsif key.to_s == "user_id" %>
-        <%= attr.number_field "#{key.to_s}", name: "user[#{controller_name}_attributes][#{key.to_s}]", value: "#{@attribute.user_id}", type: "hidden" %><br>
-      <% elsif key.to_s == "objective_id" %>
-        <%= attr.number_field "#{key.to_s}", name: "user[#{controller_name}_attributes][#{key.to_s}]", value: "#{objective.id}", type: "hidden" %><br>
-      <% else %>
-        <%= attr.number_field "#{key.to_s}", name: "user[#{controller_name}_attributes][#{key.to_s}]", value: "#{@attribute.id}", type: "hidden" %><br>
-      <% end %>
-<!-- definitely refactor  move into helper-->
     <% end %>
   <% end %>
 

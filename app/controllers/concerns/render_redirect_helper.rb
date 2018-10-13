@@ -8,33 +8,33 @@ module RenderRedirectHelper
     redirect_to user
   end
 
-  def render_edit_or_redirect_updated_user(user, user_params)#refactor
-    return render :edit unless @current_user.update(user_params)
+  def render_edit_or_redirect_updated_user(user, params)#refactor
+    return render :edit unless user.update(params)
 
-    path = user_params.keys[1]
+    path = params.keys[1]
 
     case path
 
     when "family_member_attributes"
-      redirect_to user_family_members_path(@current_user)#refactor
+      redirect_to user_family_members_path(user)#refactor
 
     when "subscriptions_attributes"
-      redirect_to user_subscriptions_path(@current_user)
+      redirect_to user_subscriptions_path(user)
 
     when "priority_items_attributes"
-      redirect_to user_priority_items_path(@current_user)
+      redirect_to user_priority_items_path(user)
 
     when "disciplines_attributes"
-      redirect_to user_disciplines_path(@current_user)
+      redirect_to user_disciplines_path(user)
 
     when "inspirations_attributes"
-      redirect_to user_inspirations_path(@current_user)
+      redirect_to user_inspirations_path(user)
 
     when "quests_attributes"
-      redirect_to user_objectives_path(@current_user)
+      redirect_to user_objectives_path(user)
 
     else
-      redirect_to @current_user
+      redirect_to user
     end
   end
 end
