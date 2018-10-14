@@ -1,11 +1,5 @@
-<h1>Your Quests</h1>
-
-
-<%= render partial: 'layouts/table', locals: {all_of_attribute: @all_of_attribute} unless @all_of_attribute.blank? %>
-
-<br></br>
-
+<%= render partial: "layouts/index", locals: {controller_name: "quests"} %>
 
 <% @objectives.each do |objective| %>
-  <%= link_to type_of(objective), new_user_objective_quest_path(@current_user, objective) %><br>
+  <%= link_to objective.type, new_user_objective_quest_path(@current_user, objective) %><br>
 <% end %>

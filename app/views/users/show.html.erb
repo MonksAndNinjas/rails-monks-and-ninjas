@@ -1,14 +1,11 @@
 <h1><%= @current_user.display_name %></h1><br>
 
-<strong><%= @current_user.birth_info %></strong>
+<strong><%= @current_user.display_birth_info %></strong>
 
 <br></br>
 
 <strong><%= @current_user.email %></strong>
 
-
 <br></br>
 
 <%= link_to 'Edit Profile', edit_user_url %><br>
-
-<%= link_to 'Family', user_family_members_path(@current_user) %>

@@ -6,7 +6,7 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(permited_params)
+    @user = User.new(user_params)
 
     render_new_or_redirect_and_set_session_if_saved(@user)
   end
@@ -18,6 +18,6 @@ class UsersController < ApplicationController
   end
 
   def update
-    render_edit_or_redirect_updated_user(@current_user, permited_params)
+    render_edit_or_redirect_updated_user(@current_user, user_params)
   end
 end

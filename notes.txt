@@ -7,7 +7,6 @@
 
   => You must include at least one class level ActiveRecord scope method
   => add edit option function to family members
-  => refactor
 
 ######## App Information ##########
 
@@ -62,26 +61,28 @@
                 <%= sub.number_field :due_day, placeholder: "Payemnt Due Day(1 - 28)" %><br>
 
 
-
-
-                if a.include?("date")
-                  attr.date_field "#{key.to_s}", name: "user[#{controller_name}_attributes][#{key.to_s}]"
-
-                elsif a.include?("string")
-                  attr.text_field "#{key.to_s}", name: "user[#{controller_name}_attributes][#{key.to_s}]"
-
-                elsif a.include?("decimal")
-                  attr.number_field "#{key.to_s}", name: "user[#{controller_name}_attributes][#{key.to_s}]"
-
-                elsif a.include?("integer") && key.to_s != "id" && key.to_s != "user_id" && key.to_s != "objective_id"
-                 <%= attr.number_field "#{key.to_s}", name: "user[#{controller_name}_attributes][#{key.to_s}]"
-
-                elsif key.to_s == "user_id"
-                  attr.number_field "#{key.to_s}", name: "user[#{controller_name}_attributes][#{key.to_s}]", value: "#{@attribute.user_id}", type: "hidden"
-
-                elsif key.to_s == "objective_id"
-                  attr.number_field "#{key.to_s}", name: "user[#{controller_name}_attributes][#{key.to_s}]", value: "#{objective.id}", type: "hidden"
-
-                else
-                  attr.number_field "#{key.to_s}", name: "user[#{controller_name}_attributes][#{key.to_s}]", value: "#{@attribute.id}", type: "hidden"
-                end
+                <ul>
+                <% @all_of_nested_attribute.each do |person| #change to table%>
+                  <li>
+                    <strong><%= person.name %></strong>
+                  </li>
+                  <ul>
+                    <li>
+                      <strong>Birthdate: <%= person.birthdate %></strong>
+                    </li>
+                    <li>
+                      <strong>Relationship to you: <%= person.relationship %></strong>
+                    </li>
+                    <li>
+                      <strong>Location: <%= person.location %></strong>
+                    </li>
+                    <li>
+                      <strong>Contact: <%= person.contact %></strong>
+                    </li>
+                    <li>
+                      <strong>Relationship status: <%= person.relationship_status %></strong>
+                    </li>
+                    <strong><%= link_to "X", user_family_member_path(@current_user, person), method: :delete, data: { confirm: "Really?" } %></strong>
+                  </ul><br>
+                <% end %>
+                </ul>

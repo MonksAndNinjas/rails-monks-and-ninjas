@@ -1,6 +1,5 @@
-module ParamHelper
-#make this so it writes itself
-  def permited_params
+module UserParamsHelper
+  def user_params
     params.require(:user).permit(:name, :birthdate, :email, :password,
 
       family_members_attributes: [

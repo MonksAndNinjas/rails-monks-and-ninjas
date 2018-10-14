@@ -1,21 +1,17 @@
 module DeleteHelper
-  def delete(id, controller, path)
-
-    #controller passes in controller_name
-
+# need to know what kind of method label for module and also when to use private
+  def find_and_delete_using(id, controller, path)
     case controller
-    when "quests"#maybe refactor
+    #filters
+    when "objectives"
+      controller = "quests"
+    when "quests"
       path = "objectives"
-      model = controller.singularize.capitalize.constantize
-    when "priority_itmes"
-      model = PriorityItem
-    when "family_members"
-      model = FamilyMember
-    else
-      model = controller.singularize.capitalize.constantize
     end
-
+    #set
+    model = controller.singularize.camelize.constantize
     model.find(id).destroy
-    redirect_to(controller: "#{path}", action: 'index')
+    #redirect
+    return redirect_to(controller: "#{path}", action: 'index')
   end
 end

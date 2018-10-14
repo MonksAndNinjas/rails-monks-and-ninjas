@@ -1,0 +1,25 @@
+<ul>
+<% @all_of_nested_attribute.each do |person| #change to table%>
+  <li>
+    <strong><%= person.name %></strong>
+  </li>
+  <ul>
+    <li>
+      <strong>Birthdate: <%= person.birthdate %></strong>
+    </li>
+    <li>
+      <strong>Relationship to you: <%= person.relationship %></strong>
+    </li>
+    <li>
+      <strong>Location: <%= person.location %></strong>
+    </li>
+    <li>
+      <strong>Contact: <%= person.contact %></strong>
+    </li>
+    <li>
+      <strong>Relationship status: <%= person.relationship_status %></strong>
+    </li>
+    <strong><%= link_to "X", user_family_member_path(@current_user, person), method: :delete, data: { confirm: "Really?" } %></strong>
+  </ul><br>
+<% end %>
+</ul>

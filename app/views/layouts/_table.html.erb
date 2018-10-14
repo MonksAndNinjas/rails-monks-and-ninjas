@@ -7,18 +7,22 @@
 
   <tbody>
     <tr>
-      <!-- make more presentable -->
-      <% all_of_attribute[0].attributes.keys[1..-4].each do |attr| #create helper method for dealing with this%>
-        <td><strong><%= attr %></strong></td>
-      <% end %>
+
+    <% all_of_nested_attribute[0].attributes.keys[1..-4].each do |attr| #create helper method for dealing with this%>
+      <td><strong><%= attr %></strong></td>
+    <% end %>
 
     </tr>
-    <% all_of_attribute.each do |attribute| %>
+    <% all_of_nested_attribute.each do |attribute| %>
     <tr>
-      <% all_of_attribute[0].attributes.keys[1..-4].each do |attr| %>
-        <td><%= attribute[attr] %></td>
-      <% end %>
-        <td><%= link_to "X", "/users/#{@current_user.id}/#{controller_name}/#{attribute.id}", method: :delete, data: { confirm: "Really?" } %></td>
+
+    <% all_of_nested_attribute[0].attributes.keys[1..-4].each do |attr| %>
+      <td><%= attribute[attr] %></td>
+    <% end %>
+      <td><%= link_to "X", "/users/#{@current_user.id}/#{controller_name}/#{attribute.id}", method: :delete, data: { confirm: "Really?" } %>
+          <%= display_edit_link?(attribute) %>
+      </td>
+      </td>
 
     </tr>
     <% end %>

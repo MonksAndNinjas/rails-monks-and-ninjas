@@ -30,6 +30,16 @@ class User < ApplicationRecord
     end
   end
 
+  def display_birth_info
+   "Born on #{birthday} and is now #{age} years old"
+  end
+
+  def display_name
+    name.split.map(&:capitalize).join(' ')
+  end
+
+  private
+
   def birth_year
     birthdate.to_time.strftime('%Y').to_i
   end
@@ -40,13 +50,5 @@ class User < ApplicationRecord
 
   def age
     Time.current.year - birth_year
-  end
-
-  def birth_info
-   "Born on #{birthday} and is now #{age} years old"
-  end
-
-  def display_name
-    name.split.map(&:capitalize).join(' ')
   end
 end

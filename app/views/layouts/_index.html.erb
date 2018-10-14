@@ -1,0 +1,7 @@
+<h1><%= controller_name %></h1>
+
+<%= render partial: 'layouts/table', locals: {all_of_nested_attribute: @all_of_nested_attribute} unless @all_of_nested_attribute.blank? %>
+
+<br></br>
+
+<%= link_to "Add #{controller_name.singularize.capitalize}", "/users/#{@current_user.id}/#{controller_name}/new" unless controller_name == "quests" || controller_name == "priority_items" %>

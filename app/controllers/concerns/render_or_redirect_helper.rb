@@ -1,4 +1,4 @@
-module RenderRedirectHelper
+module RenderOrRedirectHelper
 
   def render_new_or_redirect_and_set_session_if_saved(user)
     return render :new unless user.save
@@ -8,15 +8,15 @@ module RenderRedirectHelper
     redirect_to user
   end
 
-  def render_edit_or_redirect_updated_user(user, params)#refactor
-    return render :edit unless user.update(params)
+  def render_edit_or_redirect_updated_user(user, user_params)
+    return render :edit unless user.update(user_params)
 
-    path = params.keys[1]
+    nested_attribute = user_params.keys[1]
 
-    case path
+    case nested_attribute
 
     when "family_member_attributes"
-      redirect_to user_family_members_path(user)#refactor
+      redirect_to user_family_members_path(user)
 
     when "subscriptions_attributes"
       redirect_to user_subscriptions_path(user)
@@ -32,6 +32,9 @@ module RenderRedirectHelper
 
     when "quests_attributes"
       redirect_to user_objectives_path(user)
+
+    when "family_members_attributes"
+      redirect_to user_family_members_path(user)
 
     else
       redirect_to user

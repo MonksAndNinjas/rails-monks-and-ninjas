@@ -1,15 +1,15 @@
-<h1><%= @inspiration.source %></h1>
+<h1><%= @nested_attribute.source %></h1>
 
-<p><%= @inspiration.about %></p>
+<p><%= @nested_attribute.about %></p>
 
-<% @inspiration.attributes.keys.each do |key| %>
+<% @nested_attribute.attributes.keys.each do |key| %>
 
-  <%= display_label_if_exists(@inspiration["#{key}"], "#{key}") if valid_attribute_key?(key) %><br><!-- figure out how to not add br if no key -->
-  <%= display_attribute_if_exists(@inspiration["#{key}"], "#{key}") if valid_attribute_key?(key) %><br>
+  <%= display_label_if_exists(@nested_attribute["#{key}"], "#{key}") if valid_nested_attribute_key?(key) %><br><!-- figure out how to not add br if no key -->
+  <%= display_nested_attribute_if_exists(@nested_attribute["#{key}"], "#{key}") if valid_nested_attribute_key?(key) %><br>
 
 <% end %>
 
 <br></br>
 
-<%= link_to "Edit Inspiration", edit_user_inspiration_path(@current_user, @inspiration) %><br>
-<%= link_to "X", user_inspiration_path(@current_user, @inspiration), method: :delete, data: { confirm: "Really?" } %>
+<%= link_to "Edit Inspiration", edit_user_inspiration_path(@current_user, @nested_attribute) %><br>
+<%= link_to "X", user_inspiration_path(@current_user, @nested_attribute), method: :delete, data: { confirm: "Really?" } %>
