@@ -3,8 +3,8 @@
 <p><%= @nested_attribute.about %></p>
 
 <% @nested_attribute.attributes.keys.each do |key| %>
-
-  <%= display_label_if_exists(@nested_attribute["#{key}"], "#{key}") if valid_nested_attribute_key?(key) %><br><!-- figure out how to not add br if no key -->
+  <!-- figure out how to not add br if no key -->
+  <%= display_label_if_exists(@nested_attribute["#{key}"], "#{key}") if valid_nested_attribute_key?(key) %><br>
   <%= display_nested_attribute_if_exists(@nested_attribute["#{key}"], "#{key}") if valid_nested_attribute_key?(key) %><br>
 
 <% end %>

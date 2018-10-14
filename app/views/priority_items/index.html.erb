@@ -1,3 +1,3 @@
-<%= render "layouts/index" %>
+<%= render partial: "layouts/index", locals: { list_or_table: @list_or_table = "table" } %>
 
 <%= dont_display_add_item_link(@all_of_nested_attribute) %>

@@ -2,7 +2,7 @@
 <% all_of_nested_attribute.each do |attr| %>
 
 
-  <% if controller_name == "inspirations" %>
+  <% if valid_controller?("links") %>
 
   <li>
     <strong><%= link_to attr.source, "/users/#{@current_user.id}/#{controller_name}/#{attr.id}" %></strong>
@@ -12,11 +12,12 @@
 
   <% all_of_nested_attribute[0].attributes.keys[1..-4].each do |key| %>
   <li>
-    <strong><%= key %>: <%= attr["#{key}"] unless controller_name == "inspiration" %></strong>
+    <strong><%= key %>: <%= attr["#{key}"] unless valid_controller?("links") %></strong>
   </li>
   <% end %>
 
   <ul>
+    <strong><%= link_to "E", "/users/#{@current_user.id}/#{controller_name}/#{attr.id}/edit" if valid_controller?("edit") %></strong>
     <strong><%= link_to "X", "/users/#{@current_user.id}/#{controller_name}/#{attr.id}", method: :delete, data: { confirm: "Really?" } %></strong>
   </ul><br>
 

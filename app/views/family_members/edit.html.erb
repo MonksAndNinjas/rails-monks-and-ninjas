@@ -1,0 +1,3 @@
+<h1>Edit <%= @nested_attribute.name %></h1>
+
+<%= render partial: 'layouts/form', locals: {object: @current_user, :nested_attributes => @nested_attribute } %>

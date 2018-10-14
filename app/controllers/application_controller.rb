@@ -42,6 +42,7 @@ class ApplicationController < ActionController::Base
   end
 
   def set_model_for(controller_name)
+
     @model = controller_name
     #filters
     case @model

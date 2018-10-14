@@ -1,12 +1,10 @@
 module LabelAndFieldCreatorHelper
   def create_field_using(key, data_type, attr)
-    #filter all ids and label proper data type        refactor?
-    data_type = "integer" if data_type.include?("integer")
-    data_type = "user_id" if key.to_s == "user_id"
-    data_type = "objective_id" if  key.to_s == "objective_id"
-    data_type = "id" if key.to_s == "id"
+    @data_type = data_type
+    #filter all ids and label proper data type
+    valid_data_type?(key)
 
-    case data_type
+    case @data_type
     #after filter pick type of field
     when "date"
       return attr.date_field "#{key.to_s}", name: "user[#{controller_name}_attributes][#{key.to_s}]"

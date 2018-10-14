@@ -10,9 +10,9 @@ module CreateLinksHelper
   end
 
   def display_edit_link?(attribute)
-    return link_to "E", double_nested_route(attribute) if attribute.attribute_present?("objective_id")
-
-    return link_to "E", single_nested_route(attribute) if controller == "inspirations"
+    return link_to "E", double_nested_route(attribute) if valid_controller?("objective_id")
+    #filters here
+    return link_to "E", single_nested_route(attribute) if valid_controller?("edit")
   end
 
   private
@@ -20,7 +20,7 @@ module CreateLinksHelper
   def set_nested_attribute_link_parameters(attr)
     @attr_name = attr.gsub("_"," ").capitalize
 
-    return @attr_path = "/users/#{@current_user.id}/#{attr}" unless attr == "quests"
+    return @attr_path = "/users/#{@current_user.id}/#{attr}" unless attr == "quests"  #filter here
 
     @attr_path = "/users/#{@current_user.id}/objectives"
   end

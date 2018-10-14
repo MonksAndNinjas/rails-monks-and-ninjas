@@ -20,8 +20,8 @@
       <td><%= attribute[attr] %></td>
     <% end %>
       <td>
-        <%= link_to "X", "/users/#{@current_user.id}/#{controller_name}/#{attribute.id}", method: :delete, data: { confirm: "Really?" } %>
         <%= display_edit_link?(attribute) %>
+        <%= link_to "X", "/users/#{@current_user.id}/#{controller_name}/#{attribute.id}", method: :delete, data: { confirm: "Really?" } %>
       </td>
 
     </tr>
