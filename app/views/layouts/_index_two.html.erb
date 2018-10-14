@@ -1,5 +1,7 @@
 <h1><%= controller_name %></h1>
 
-<%= render partial: "layouts/list", locals: { nested_attribute: @all_of_nested_attribute } %>
+<%= render partial: "layouts/list", locals: { all_of_nested_attribute: @all_of_nested_attribute } unless @all_of_nested_attribute.blank? %>
 
 <br></br>
+
+<%= link_to "Add #{controller_name.singularize.capitalize}", "/users/#{@current_user.id}/#{controller_name}/new" %>

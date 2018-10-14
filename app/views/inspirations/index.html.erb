@@ -1,11 +1,1 @@
 <%= render "layouts/index_two" %>
-<!-- header and then list for attribute -->
-<ul>
-<% @all_of_nested_attribute.each do |inspiration| #make table as well?%>
-    <li><%= link_to inspiration.source, user_inspiration_path(@current_user, inspiration) %></li>
-<% end %>
-</ul>
-
-<br></br>
-<!-- break and then create link -->
-<%= link_to "Add Inspiration", new_user_inspiration_path(@current_user) %>
