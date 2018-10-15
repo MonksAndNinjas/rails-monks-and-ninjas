@@ -18,7 +18,7 @@
       <%= link_to "#{@current_user.name}'s profile", @current_user %>
 
     <% nested_attributes_keys.each do |attr| %>
-      <%= create_nested_attribute_link(attr) %>
+      <%= display_nested_attribute_link(attr) %>
     <% end %>
 
       <%= link_to "Log Out", logout_path, method: :delete %>

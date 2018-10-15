@@ -1,5 +1,5 @@
 module RenderOrRedirectHelper
-
+#handles redirect for user login and validates
   def render_new_or_redirect_and_set_session_if_saved(user)
     return render :new unless user.save
 
@@ -7,7 +7,7 @@ module RenderOrRedirectHelper
 
     redirect_to user
   end
-
+#handles redirects after creations or edits of nested attributes or user
   def render_edit_or_redirect_updated_user(user, user_params)
     return render :edit unless user.update(user_params)
 

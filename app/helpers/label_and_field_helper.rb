@@ -1,11 +1,16 @@
-module LabelAndFieldCreatorHelper
-  def create_field_using(key, data_type, attr)
+module LabelAndFieldHelper
+#for inspiration show page
+  def display_label?(inspiration_attribute, key)
+    return "#{key.to_s.capitalize}:" unless inspiration_attribute.blank?
+  end
+#for _form
+  def display_field_using(key, data_type, attr)
     @data_type = data_type
-    #filter all ids and label proper data type
+#set data type
     valid_data_type?(key)
 
     case @data_type
-    #after filter pick type of field
+#after filter pick type of field
     when "date"
       return attr.date_field "#{key.to_s}", name: "user[#{controller_name}_attributes][#{key.to_s}]"
 
@@ -23,28 +28,9 @@ module LabelAndFieldCreatorHelper
 
     when "objective_id"
       return attr.number_field "#{key.to_s}", name: "user[#{controller_name}_attributes][#{key.to_s}]", value: "#{params[:objective_id]}", type: "hidden"
-
+#dependant on params[:objective_id]
     when "id"
       return attr.number_field "#{key.to_s}", name: "user[#{controller_name}_attributes][#{key.to_s}]", value: "#{@nested_attribute.id}", type: "hidden"
     end
-  end
-  #for inspirations
-  def display_nested_attribute_if_exists(inspiration_attribute, attribute)
-
-    case attribute
-
-    when "content"
-      return inspiration_attribute unless inspiration_attribute.blank?
-    else
-      return link_to inspiration_attribute, inspiration_attribute unless inspiration_attribute.blank?
-    end
-  end
-
-  def display_label_if_exists(inspiration_attribute, attribute)
-    return "#{attribute.capitalize}:" unless inspiration_attribute.blank?
-  end
-
-  def valid_nested_attribute_key?(key)
-    !!(key == "image" || key == "link" || key == "content" || key == "video")
   end
 end

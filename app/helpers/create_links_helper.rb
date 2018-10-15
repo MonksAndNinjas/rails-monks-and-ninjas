@@ -1,36 +1,31 @@
 module CreateLinksHelper
-  def nested_attributes_keys
-    @current_user.nested_attributes_options.keys.collect { |key| key.to_s.gsub(":","") }
-  end
-
-  def create_nested_attribute_link(attr)
+#nav bar link
+  def display_nested_attribute_link(attr)
     set_nested_attribute_link_parameters(attr)
-    #do I need return?
+
     return link_to @attr_name, @attr_path
   end
-
+#new link
+  def display_add_item_link?(priority_items)
+      return link_to "Add Item", new_user_priority_item_path(@current_user) unless priority_items.size > 2
+  end
+#edit link
   def display_edit_link?(attribute)
     return link_to "E", double_nested_route(attribute) if valid_controller?("objective_id")
-    #filters here
+
     return link_to "E", single_nested_route(attribute) if valid_controller?("edit")
   end
+#show link
+  def display_nested_attribute?(inspiration_attribute, attribute)
 
-  private
+    case attribute
 
-  def set_nested_attribute_link_parameters(attr)
-    @attr_name = attr.gsub("_"," ").capitalize
+    when "content"
+      return inspiration_attribute unless inspiration_attribute.blank?
 
-    return @attr_path = "/users/#{@current_user.id}/#{attr}" unless attr == "quests"  #filter here
+    else
+      return link_to inspiration_attribute, inspiration_attribute unless inspiration_attribute.blank?
 
-    @attr_path = "/users/#{@current_user.id}/objectives"
-  end
-
-  def double_nested_route(attribute)
-    #figure out how to make it not dependent of objective_id, the abstract version of it
-    "/users/#{@current_user.id}/#{controller_name}/#{attribute.objective_id}/#{attribute.class.to_s.downcase.pluralize}/#{attribute.id}/edit"
-  end
-
-  def single_nested_route(attribute)
-    "/users/#{@current_user.id}/#{controller}/#{attribute.id}/edit"
+    end
   end
 end

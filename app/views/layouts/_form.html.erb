@@ -1,13 +1,12 @@
 <%= form_for object do |f| %>
 
   <%= f.fields_for :nested_attributes do |attr| %>
-    <% @nested_attribute.nested_attributes_keys.each do |key| %>
+    <% nested_attributes.attr_keys.each do |key| %>
 
-      <%= attr.label "#{key.to_s}" unless @nested_attribute.create_label?(key) %><br>
+      <% data_type = nested_attributes.get_data_type_for(key) %>
 
-      <% data_type = @nested_attribute.get_data_type_for(key) %>
-
-      <%= create_field_using(key, data_type, attr) %><br>
+      <%= attr.label "#{key.to_s}" unless valid_label?(key) %><br>
+      <%= display_field_using(key, data_type, attr) %><br>
 
     <% end %>
   <% end %>

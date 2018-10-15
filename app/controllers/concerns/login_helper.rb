@@ -12,12 +12,12 @@ module LoginHelper
     user = user.try(:authenticate, params[:user][:password])
 
     return redirect_to login_path unless user
-    # redirects to /login if not a valid user
+# redirects to /login if not a valid user
     session[:user_id] = user.id
 
     redirect_to user
   end
-  #below is for before_action :require_login
+# below is for before_action :require_login
   def logged_in?
     !!current_user
   end

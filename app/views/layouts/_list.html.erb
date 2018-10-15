@@ -4,22 +4,22 @@
 
   <% if valid_controller?("links") %>
 
-  <li>
-    <strong><%= link_to attr.source, "/users/#{@current_user.id}/#{controller_name}/#{attr.id}" %></strong>
-  </li>
+    <li>
+      <strong><%= link_to attr.source, "/users/#{@current_user.id}/#{controller_name}/#{attr.id}" %></strong>
+    </li>
 
   <% else %>
 
-  <% all_of_nested_attribute[0].attributes.keys[1..-4].each do |key| %>
-  <li>
-    <strong><%= key %>: <%= attr["#{key}"] unless valid_controller?("links") %></strong>
-  </li>
-  <% end %>
+    <% nested_attribute_keys.each do |key| %>
+    <li>
+      <strong><%= key %>: <%= attr["#{key}"] unless valid_controller?("links") %></strong>
+    </li>
+    <% end %>
 
-  <ul>
-    <strong><%= link_to "E", "/users/#{@current_user.id}/#{controller_name}/#{attr.id}/edit" if valid_controller?("edit") %></strong>
-    <strong><%= link_to "X", "/users/#{@current_user.id}/#{controller_name}/#{attr.id}", method: :delete, data: { confirm: "Really?" } %></strong>
-  </ul><br>
+    <ul>
+      <strong><%= link_to "E", "/users/#{@current_user.id}/#{controller_name}/#{attr.id}/edit" if valid_controller?("edit") %></strong>
+      <strong><%= link_to "X", "/users/#{@current_user.id}/#{controller_name}/#{attr.id}", method: :delete, data: { confirm: "Really?" } %></strong>
+    </ul><br>
 
   <% end %>
 <% end %>
