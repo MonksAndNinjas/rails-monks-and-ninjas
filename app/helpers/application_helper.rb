@@ -1,4 +1,6 @@
 module ApplicationHelper
+#various types of assistive methods
+  private
 #assist list and table partials
   def nested_attribute_keys
     @all_of_nested_attribute[0].attributes.keys[1..-4]
@@ -23,5 +25,9 @@ module ApplicationHelper
 #assist inspirations and family members edit link
   def single_nested_route(attribute)
     "/users/#{@current_user.id}/#{controller}/#{attribute.id}/edit"
+  end
+#assist putting in presentable format
+  def proper_format(object)
+    object.gsub("_"," ").split.map(&:capitalize).join(' ')
   end
 end

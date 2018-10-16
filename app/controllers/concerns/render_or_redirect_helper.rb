@@ -1,5 +1,7 @@
 module RenderOrRedirectHelper
 #handles redirect for user login and validates
+  private
+
   def render_new_or_redirect_and_set_session_if_saved(user)
     return render :new unless user.save
 

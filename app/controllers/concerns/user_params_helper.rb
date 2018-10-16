@@ -1,4 +1,7 @@
 module UserParamsHelper
+  #all of user's permittable attributes
+  private
+
   def user_params
     params.require(:user).permit(:name, :birthdate, :email, :password,
 

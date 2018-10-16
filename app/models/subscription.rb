@@ -5,10 +5,10 @@ class Subscription < ApplicationRecord
   validates :amount, presence: true
   validates :due_day, presence: true
   validates :due_day, inclusion: 1..28
-
-  #include ActionView::Helpers::NumberHelper
-
-  #def payment
-  #  number_with_precision(amount, :precision => 2 )
-  #end
+#allows to use method number_with_precision
+  include ActionView::Helpers::NumberHelper
+#display in proper format for amount x.xx
+  def payment
+    number_with_precision(amount, :precision => 2 )
+  end
 end

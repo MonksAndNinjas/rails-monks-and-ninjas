@@ -32,7 +32,7 @@ class ApplicationController < ActionController::Base
   end
 
   private
-
+#for show and edit views
   def find_nested_attribute
     controller_name.singularize.camelize.constantize.find_by(id: params[:id])
   end

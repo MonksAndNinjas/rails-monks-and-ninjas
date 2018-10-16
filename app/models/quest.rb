@@ -4,8 +4,8 @@ class Quest < ApplicationRecord
 
   validates :title, presence: true
   validates :description, presence: true
-
-  #def quest_duration(quest)#where does this go
-  #  Objective.find_by_id(quest.objective_id).duration.capitalize
-  #end
+#for displaying in objectives#index page with partial _table
+  def quest_duration
+    Objective.find_by_id(self.objective_id).duration.capitalize
+  end
 end

@@ -1,7 +1,9 @@
 module LabelAndFieldHelper
+#responsible for displaying proper label and field for form.
+  private
 #for inspiration show page
   def display_label?(inspiration_attribute, key)
-    return "#{key.to_s.capitalize}:" unless inspiration_attribute.blank?
+    return "<span>#{key.to_s.capitalize}:</span><br>".html_safe unless inspiration_attribute.blank?
   end
 #for _form
   def display_field_using(key, data_type, attr)
@@ -18,7 +20,7 @@ module LabelAndFieldHelper
       return attr.text_field "#{key.to_s}", name: "user[#{controller_name}_attributes][#{key.to_s}]"
 
     when "decimal"
-      return attr.number_field "#{key.to_s}", name: "user[#{controller_name}_attributes][#{key.to_s}]"
+      return attr.number_field "#{key.to_s}", name: "user[#{controller_name}_attributes][#{key.to_s}]", step: 0.01, value: (number_with_precision(@nested_attribute.amount, :precision => 2) || 0)
 
     when "integer"
       return attr.number_field "#{key.to_s}", name: "user[#{controller_name}_attributes][#{key.to_s}]"

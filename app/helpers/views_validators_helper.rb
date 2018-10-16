@@ -1,4 +1,6 @@
 module ViewsValidatorsHelper
+#validates for views
+  private
 #used for _list, _index, _form, and inspirations/show
   def valid_controller?(toggle_reason = nil)
 #reason for toggling can be due to; links, objective_id, or edit
@@ -48,7 +50,7 @@ module ViewsValidatorsHelper
   end
 #validates for inspirations show page
   def valid_nested_attribute_key?(key)
-    !!(key == "image" || key == "link" || key == "content" || key == "video")
+    !!(key == "image" || key == "link" || key == "content" || key == "video" || key == "about")
   end
 #should label be created in _form
   def valid_label?(key)

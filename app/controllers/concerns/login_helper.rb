@@ -1,4 +1,7 @@
 module LoginHelper
+#responsible for anything involving logging in and checking for every view
+  private
+
   def omniauth_login_path(auth_hash)
     user = User.find_or_create_by_omniauth(auth_hash)
 

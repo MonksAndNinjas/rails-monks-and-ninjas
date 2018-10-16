@@ -1,4 +1,6 @@
 module CreateLinksHelper
+#creates links for new, edit, show, and navbar
+  private
 #nav bar link
   def display_nested_attribute_link(attr)
     set_nested_attribute_link_parameters(attr)
@@ -7,6 +9,7 @@ module CreateLinksHelper
   end
 #new link
   def display_add_item_link?(priority_items)
+      #abstract out priority_items
       return link_to "Add Item", new_user_priority_item_path(@current_user) unless priority_items.size > 2
   end
 #edit link
@@ -21,10 +24,10 @@ module CreateLinksHelper
     case attribute
 
     when "content"
-      return inspiration_attribute unless inspiration_attribute.blank?
+      return "<span> #{inspiration_attribute} </span><br>".html_safe unless inspiration_attribute.blank?
 
     else
-      return link_to inspiration_attribute, inspiration_attribute unless inspiration_attribute.blank?
+      return "<span> #{link_to inspiration_attribute, inspiration_attribute} </span><br>".html_safe unless inspiration_attribute.blank?
 
     end
   end

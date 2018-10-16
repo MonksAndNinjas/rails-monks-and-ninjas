@@ -6,7 +6,6 @@
 ########## What's Next? ###########
 
   => You must include at least one class level ActiveRecord scope method
-  => add edit option function to family members
 
 ######## App Information ##########
 
@@ -49,40 +48,11 @@
             * standard user authentication, including signup, login, logout, and passwords.
             * authentication system must also allow login from some other service. Facebook, Twitter, Foursquare, Github, etc.
             * forms should correctly display validation errors.
+
+
+
                 => your fields should be enclosed within a fields_with_errors class
                 => error messages describing the validation failures must be present within the view.
-
-
-
-                <%= sub.label :amount %><br>
-                <%= sub.number_field :amount, step: 0.01, value: (number_with_precision(sub.object.amount, :precision => 2) || 0) %><br>
-
-                <%= sub.label :due_day %><br>
-                <%= sub.number_field :due_day, placeholder: "Payemnt Due Day(1 - 28)" %><br>
-
-
-                <ul>
-                <% @all_of_nested_attribute.each do |person| #change to table%>
-                  <li>
-                    <strong><%= person.name %></strong>
-                  </li>
-                  <ul>
-                    <li>
-                      <strong>Birthdate: <%= person.birthdate %></strong>
-                    </li>
-                    <li>
-                      <strong>Relationship to you: <%= person.relationship %></strong>
-                    </li>
-                    <li>
-                      <strong>Location: <%= person.location %></strong>
-                    </li>
-                    <li>
-                      <strong>Contact: <%= person.contact %></strong>
-                    </li>
-                    <li>
-                      <strong>Relationship status: <%= person.relationship_status %></strong>
-                    </li>
-                    <strong><%= link_to "X", user_family_member_path(@current_user, person), method: :delete, data: { confirm: "Really?" } %></strong>
-                  </ul><br>
-                <% end %>
-                </ul>
+                <li>
+                  <strong><%= link_to attr.source, "/users/#{@current_user.id}/#{controller_name}/#{attr.id}" %></strong>
+                </li><br>

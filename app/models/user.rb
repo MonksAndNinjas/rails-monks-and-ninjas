@@ -29,7 +29,7 @@ class User < ApplicationRecord
       user.birthdate = Time.now.strftime("%Y-%m-%d")
     end
   end
-
+#from here down is for displaying user info in presentable format
   def display_birth_info
    "Born on #{birthday} and is now #{age} years old"
   end

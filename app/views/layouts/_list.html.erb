@@ -2,21 +2,32 @@
 <% all_of_nested_attribute.each do |attr| %>
 
 
-  <% if valid_controller?("links") %>
 
-    <li>
-      <strong><%= link_to attr.source, "/users/#{@current_user.id}/#{controller_name}/#{attr.id}" %></strong>
-    </li>
+  <% if valid_controller?("links") %>
+<!-- does it need to only list links to nested_attribute show page (which is just inspirations here) -->
+
+    <strong>
+      <button class="button" onclick="myFunction(<%= attr.id.to_s %>)"><%= attr.source %></button><br>
+    </strong>
+
+    <div id="<%= attr.id %>" style="display: none">
+    <% attr.attributes.keys.each do |key| %>
+      <%= display_label?(attr["#{key}"], "#{key}") if valid_nested_attribute_key?(key) %>
+      <%= display_nested_attribute?(attr["#{key}"], "#{key}") if valid_nested_attribute_key?(key) %>
+    <% end %>
+    </div>
 
   <% else %>
-
+<!-- or does it need to list all of the nested_attribute's info no links -->
     <% nested_attribute_keys.each do |key| %>
     <li>
-      <strong><%= key %>: <%= attr["#{key}"] unless valid_controller?("links") %></strong>
+      <strong><%= proper_format(key) %>: <%= attr["#{key}"] unless valid_controller?("links") %></strong>
     </li>
+
     <% end %>
 
     <ul>
+  <!-- delete and edit -->
       <strong><%= link_to "E", "/users/#{@current_user.id}/#{controller_name}/#{attr.id}/edit" if valid_controller?("edit") %></strong>
       <strong><%= link_to "X", "/users/#{@current_user.id}/#{controller_name}/#{attr.id}", method: :delete, data: { confirm: "Really?" } %></strong>
     </ul><br>
