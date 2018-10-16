@@ -4,7 +4,7 @@
     <% nested_attributes.attr_keys.each do |key| %>
 
       <% data_type = nested_attributes.get_data_type_for(key) %>
-<!-- create label and field -->
+<!-- find data type then create label and field -->
       <%= attr.label "#{key.to_s}" unless valid_label?(key) %><br>
       <%= display_field_using(key, data_type, attr) %><br>
 

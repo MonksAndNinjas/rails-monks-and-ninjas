@@ -5,7 +5,7 @@ module CreateLinksHelper
   def display_nested_attribute_link(attr)
     set_nested_attribute_link_parameters(attr)
 
-    return link_to @attr_name, @attr_path
+    return link_to @attr_name, @attr_path, class: "work"
   end
 #new link
   def display_add_item_link?(priority_items)

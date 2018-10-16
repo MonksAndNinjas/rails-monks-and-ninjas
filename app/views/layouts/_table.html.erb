@@ -6,27 +6,34 @@
   </thead>
 
   <tbody>
-    <tr>
 <!-- creates label first -->
-    <% nested_attribute_keys.each do |key| %>
-      <% key = "quest_type" if key == "user_id" && controller_name == "objectives" %>
-<!-- move out conditional and this bottom method -->
-      <td><strong><%= proper_format(key) %></strong></td>
-    <% end %>
-
-    </tr>
-    <% all_of_nested_attribute.each do |attribute| %>
     <tr>
+      <% nested_attribute_keys.each do |key| %>
+        <% key = "quest_type" if key == "user_id" && controller_name == "objectives" %>
+<!-- move out conditional and this bottom method -->
+        <td>
+          <strong>
+            <%= proper_format(key) %>
+          </strong>
+        </td>
+      <% end %>
+    </tr>
+
+    <tr>
+      <% all_of_nested_attribute.each do |attribute| %>
 <!-- then returns value of key -->
-    <% nested_attribute_keys.each do |key| %>
-    <td><strong>
-      <%=  attribute.quest_duration if key == "user_id" && controller_name == "objectives" %>
-      <%= attribute.payment if key == "amount" && controller_name = "subsriptions" %>
+        <% nested_attribute_keys.each do |key| %>
+          <td>
+            <strong>
+              <%=  attribute.quest_duration if key == "user_id" && controller_name == "objectives" %>
+              <%= attribute.payment if key == "amount" && controller_name = "subsriptions" %>
 <!-- move out these conditionals to validate helper -->
-      <%= attribute[key] unless (key == "user_id" && controller_name == "objectives") || (key == "amount" && controller_name = "subsriptions") %></strong></td>
-    <% end %>
-      <td>
+              <%= attribute[key] unless (key == "user_id" && controller_name == "objectives") || (key == "amount" && controller_name = "subsriptions") %>
+            </strong>
+          </td>
+        <% end %>
 <!-- delete and edit -->
+      <td>
         <%= display_edit_link?(attribute) %>
         <%= link_to "X", "/users/#{@current_user.id}/#{controller_name}/#{attribute.id}", method: :delete, data: { confirm: "Really?" } %>
       </td>
