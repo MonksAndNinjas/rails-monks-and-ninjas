@@ -14,6 +14,11 @@
         <%= display_nested_attribute?(attr["#{key}"], "#{key}") if valid_nested_attribute_key?(key) %>
 <!-- if the value is not blank it will display the information -->
       <% end %>
+
+      <ul>
+        <%= link_to show_svg('edit-icon.svg'), "/users/#{@current_user.id}/#{controller_name}/#{attr.id}/edit", class: "shadow" %>
+        <%= link_to "X", "/users/#{@current_user.id}/#{controller_name}/#{attr.id}", method: :delete, data: { confirm: "Really?" }, class: "comp-font red"%>
+      </ul>
     </div>
 
   <% else %>
@@ -25,7 +30,7 @@
     <% end %>
 <!-- delete and edit -->
     <ul>
-      <strong><%= link_to show_svg('edit-icon.svg'), "/users/#{@current_user.id}/#{controller_name}/#{attr.id}/edit", class: "shadow" if valid_controller?("edit") %></strong>        
+      <strong><%= link_to show_svg('edit-icon.svg'), "/users/#{@current_user.id}/#{controller_name}/#{attr.id}/edit", class: "shadow" if valid_controller?("edit") %></strong>
       <strong><%= link_to "X", "/users/#{@current_user.id}/#{controller_name}/#{attr.id}", method: :delete, data: { confirm: "Really?" }, class: "comp-font red"%></strong>
     </ul><br>
 

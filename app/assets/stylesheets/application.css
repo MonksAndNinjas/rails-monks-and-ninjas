@@ -103,3 +103,26 @@
    color: #16fbf3;
    font-size: 1.75em;
  }
+
+ .border {
+   border-bottom:1px dashed #ffdbcb;
+   box-shadow: : 80px 80px 6px rgba(14,32,56,.5);
+ }
+
+ .center {
+   text-align: center;
+ }
+
+ ul.navigation
+{
+    background:#fff;
+}
+ul.navigation li a
+{
+    text-decoration:none;
+}
+nav.navigation a.on
+{
+    background:yellow;
+    padding:2px 6px;
+}

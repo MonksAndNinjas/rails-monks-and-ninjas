@@ -12,7 +12,7 @@
         <% key = "quest_type" if key == "user_id" && controller_name == "objectives" %>
 <!-- move out conditional and this bottom method -->
         <td>
-          <strong class="comp-font">
+          <strong class="comp-font border">
             <%= proper_format(key) %>
           </strong>
         </td>
@@ -23,12 +23,12 @@
       <% all_of_nested_attribute.each do |attribute| %>
 <!-- then returns value of key -->
         <% nested_attribute_keys.each do |key| %>
-          <td>
+          <td class="center">
             <strong class="comp-font">
               <%=  attribute.quest_duration if key == "user_id" && controller_name == "objectives" %>
               <%= attribute.payment if key == "amount" && controller_name == "subsriptions" %>
 <!-- move out these conditionals to validate helper -->
-              <%= attribute[key] unless (key == "user_id" && controller_name == "objectives") || (key == "amount" && controller_name = "subsriptions") %>
+              <%= attribute[key] unless (key == "user_id" && controller_name == "objectives") || (key == "amount" && controller_name == "subsriptions") %>
             </strong>
           </td>
         <% end %>

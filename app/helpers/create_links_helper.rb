@@ -5,7 +5,16 @@ module CreateLinksHelper
   def display_nested_attribute_link(attr)
     set_nested_attribute_link_parameters(attr)
 
-    return link_to @attr_name, @attr_path, class: "scratch-font"
+
+
+    if controller_name == attr
+      return link_to @attr_name, @attr_path, class: "comp-font shadow"
+   else
+      return link_to @attr_name, @attr_path, class: "scratch-font"
+    end
+
+
+  #  return link_to @attr_name, @attr_path, class: "scratch-font"
   end
 #new link
   def display_add_item_link?(priority_items)
