@@ -5,7 +5,7 @@
 
 ########## What's Next? ###########
 
-  => make sketch and input as background for home page
+  => make sure inspirations can see edit when drop down box, no link to show page
   => make edit values appear
   => You must include at least one class level ActiveRecord scope method
 

@@ -4,7 +4,7 @@
   <% if valid_controller?("links") %>
 <!-- button for toggle hide/show when in inspirations -->
     <strong>
-      <button class="button" onclick="myFunction(<%= attr.id.to_s %>)"><%= attr.source %></button><br><!-- refactor the usage of attr -->
+      <button class="button comp-font" onclick="myFunction(<%= attr.id.to_s %>)"><%= attr.source %></button><br><!-- refactor the usage of attr -->
     </strong>
 <!-- when button pushed display the following  -->
     <div id="<%= attr.id %>" style="display: none">
@@ -20,13 +20,13 @@
 <!-- or does it need to list all of the nested_attribute's info no links -->
     <% nested_attribute_keys.each do |key| %>
       <li>
-        <strong><%= proper_format(key) %>: <%= attr["#{key}"] unless valid_controller?("links") %></strong>
+        <strong class="comp-font"><%= proper_format(key) %>: <%= attr["#{key}"] unless valid_controller?("links") %></strong>
       </li>
     <% end %>
 <!-- delete and edit -->
     <ul>
-      <strong><%= link_to "E", "/users/#{@current_user.id}/#{controller_name}/#{attr.id}/edit" if valid_controller?("edit") %></strong>
-      <strong><%= link_to "X", "/users/#{@current_user.id}/#{controller_name}/#{attr.id}", method: :delete, data: { confirm: "Really?" } %></strong>
+      <strong><%= link_to show_svg('edit-icon.svg'), "/users/#{@current_user.id}/#{controller_name}/#{attr.id}/edit", class: "shadow" if valid_controller?("edit") %></strong>        
+      <strong><%= link_to "X", "/users/#{@current_user.id}/#{controller_name}/#{attr.id}", method: :delete, data: { confirm: "Really?" }, class: "comp-font red"%></strong>
     </ul><br>
 
   <% end %>

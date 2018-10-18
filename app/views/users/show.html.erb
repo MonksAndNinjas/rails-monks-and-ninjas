@@ -1,11 +1,11 @@
-<h1 class="work"><%= @current_user.display_name %></h1><br>
+<h1 class="scratch-font"><%= @current_user.display_name %></h1><br>
 
-<strong><%= @current_user.display_birth_info %></strong>
-
-<br></br>
-
-<strong><%= @current_user.email %></strong>
+<strong class="comp-font"><%= @current_user.display_birth_info %></strong>
 
 <br></br>
 
-<%= link_to 'Edit Profile', edit_user_url %><br>
+<strong class="comp-font"><%= @current_user.email %></strong>
+
+<br></br>
+
+<%= link_to show_svg('edit-icon.svg'), edit_user_url, class: "shadow" %><br>

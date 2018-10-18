@@ -1,7 +1,7 @@
-<h1 class="work"><%= proper_format(controller_name) %></h1>
+<h1 class="scratch-font"><%= proper_format(controller_name) %></h1>
 
 <%= render partial: "layouts/#{list_or_table}", locals: { all_of_nested_attribute: @all_of_nested_attribute } unless @all_of_nested_attribute.blank? %>
 
 <br></br>
 
-<%= link_to "Add #{controller_name.singularize.capitalize}", "/users/#{@current_user.id}/#{controller_name}/new" if valid_controller? %>
+<%= link_to "+", "/users/#{@current_user.id}/#{controller_name}/new", class: "comp-font blue" if valid_controller? %>

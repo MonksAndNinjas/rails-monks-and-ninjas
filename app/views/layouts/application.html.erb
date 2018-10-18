@@ -13,20 +13,20 @@
 
     <nav>
 <!-- always display home -->
-      <%= link_to 'Home', root_url, class: "work"%>
+      <%= link_to 'Home', root_url, class: "scratch-font" %>
 
     <% if @current_user %>
-      <%= link_to "#{@current_user.name}'s profile", @current_user, class: "work" %>
+      <%= link_to "#{@current_user.name}'s profile", @current_user, class: "scratch-font" %>
 <!-- display links to index page of all nested attributes if logged in -->
     <% nested_attributes_keys.each do |attr| %>
       <%= display_nested_attribute_link(attr) %>
     <% end %>
 <!-- display logout -->
-      <%= link_to "Log Out", logout_path, method: :delete, class: "work" %>
+      <%= link_to "Log Out", logout_path, method: :delete, class: "scratch-font" %>
     <% else %>
 <!-- display links to sign up or log in if not logged in -->
-      <%= link_to 'Sign Up', signup_path, class: "work" %>
-      <%= link_to 'Log In', login_path, class: "work"%>
+      <%= link_to 'Sign Up', signup_path, class: "scratch-font" %>
+      <%= link_to 'Log In', login_path, class: "scratch-font"%>
     <% end %>
     </nav>
 

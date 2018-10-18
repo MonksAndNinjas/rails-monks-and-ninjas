@@ -12,7 +12,7 @@
         <% key = "quest_type" if key == "user_id" && controller_name == "objectives" %>
 <!-- move out conditional and this bottom method -->
         <td>
-          <strong>
+          <strong class="comp-font">
             <%= proper_format(key) %>
           </strong>
         </td>
@@ -24,9 +24,9 @@
 <!-- then returns value of key -->
         <% nested_attribute_keys.each do |key| %>
           <td>
-            <strong>
+            <strong class="comp-font">
               <%=  attribute.quest_duration if key == "user_id" && controller_name == "objectives" %>
-              <%= attribute.payment if key == "amount" && controller_name = "subsriptions" %>
+              <%= attribute.payment if key == "amount" && controller_name == "subsriptions" %>
 <!-- move out these conditionals to validate helper -->
               <%= attribute[key] unless (key == "user_id" && controller_name == "objectives") || (key == "amount" && controller_name = "subsriptions") %>
             </strong>
@@ -35,7 +35,7 @@
 <!-- delete and edit -->
       <td>
         <%= display_edit_link?(attribute) %>
-        <%= link_to "X", "/users/#{@current_user.id}/#{controller_name}/#{attribute.id}", method: :delete, data: { confirm: "Really?" } %>
+        <%= link_to "X", "/users/#{@current_user.id}/#{controller_name}/#{attribute.id}", method: :delete, data: { confirm: "Really?" }, class: "comp-font red"%>
       </td>
 
     </tr>
