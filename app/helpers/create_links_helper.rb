@@ -1,21 +1,6 @@
 module CreateLinksHelper
-#creates links for new, edit, show, and navbar
+#creates links for new, edit, show
   private
-#nav bar link
-  def display_nested_attribute_link(attr)
-    set_nested_attribute_link_parameters(attr)
-
-
-
-    if controller_name == attr
-      return link_to @attr_name, @attr_path, class: "comp-font shadow"
-   else
-      return link_to @attr_name, @attr_path, class: "scratch-font"
-    end
-
-
-  #  return link_to @attr_name, @attr_path, class: "scratch-font"
-  end
 #new link
   def display_add_item_link?(priority_items)
       #abstract out priority_items
@@ -24,7 +9,7 @@ module CreateLinksHelper
 #edit link
   def display_edit_link?(attribute)
     return link_to show_svg('edit-icon.svg'), double_nested_route(attribute), class: "shadow" if valid_controller?("objective_id")
-
+    # doesn't seem to work
     return link_to show_svg('edit-icon.svg'), single_nested_route(attribute), class: "shadow" if valid_controller?("edit")
   end
 #show link
@@ -37,7 +22,6 @@ module CreateLinksHelper
 
     else
       return "<span class=#{"comp-font"}> #{link_to inspiration_attribute, inspiration_attribute} </span><br>".html_safe unless inspiration_attribute.blank?
-
     end
   end
 end

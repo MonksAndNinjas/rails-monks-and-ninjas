@@ -15,7 +15,10 @@
 //= require turbolinks
 //= require_tree .
 
-function myFunction(attr) {
+
+// Makes the button in Inspirations#index transparent, making only the words visible
+
+function button_style(attr) {
     var x = document.getElementById(attr);
     if (x.style.display === "none") {
         x.style.display = "block";

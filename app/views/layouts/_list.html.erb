@@ -1,38 +1,34 @@
 <ul>
 <% all_of_nested_attribute.each do |attr| %>
-<!-- does it need to only list links to nested_attribute show page (which is just inspirations here) -->
+
   <% if valid_controller?("links") %>
-<!-- button for toggle hide/show when in inspirations -->
-    <strong>
-      <button class="button comp-font" onclick="myFunction(<%= attr.id.to_s %>)"><%= attr.source %></button><br><!-- refactor the usage of attr -->
-    </strong>
-<!-- when button pushed display the following  -->
+<!-- display info and button for toggle hide/show when in inspirations -->
+
+    <button class="button comp-font" onclick="button_style(<%= attr.id.to_s %>)"><%= attr.source %></button><br>
+
+
     <div id="<%= attr.id %>" style="display: none">
       <% attr.attributes.keys.each do |key| %>
-<!-- key and value for inspiration attributes -->
-        <%= display_label?(attr["#{key}"], "#{key}") if valid_nested_attribute_key?(key) %>
-        <%= display_nested_attribute?(attr["#{key}"], "#{key}") if valid_nested_attribute_key?(key) %>
-<!-- if the value is not blank it will display the information -->
+        <%= display_inspirations_info_using(attr, key) %>
       <% end %>
 
-      <ul>
-        <%= link_to show_svg('edit-icon.svg'), "/users/#{@current_user.id}/#{controller_name}/#{attr.id}/edit", class: "shadow" %>
-        <%= link_to "X", "/users/#{@current_user.id}/#{controller_name}/#{attr.id}", method: :delete, data: { confirm: "Really?" }, class: "comp-font red"%>
-      </ul>
+      <%= link_to show_svg('edit-icon.svg'), "/users/#{@current_user.id}/#{controller_name}/#{attr.id}/edit", class: "shadow" %>
+      <%= link_to "X", "/users/#{@current_user.id}/#{controller_name}/#{attr.id}", method: :delete, data: { confirm: "Really?" }, class: "comp-font red"%>
     </div>
 
   <% else %>
-<!-- or does it need to list all of the nested_attribute's info no links -->
+<!-- else make list for all of the nested_attribute's info no links -->
     <% nested_attribute_keys.each do |key| %>
       <li>
         <strong class="comp-font"><%= proper_format(key) %>: <%= attr["#{key}"] unless valid_controller?("links") %></strong>
       </li>
     <% end %>
 <!-- delete and edit -->
-    <ul>
-      <strong><%= link_to show_svg('edit-icon.svg'), "/users/#{@current_user.id}/#{controller_name}/#{attr.id}/edit", class: "shadow" if valid_controller?("edit") %></strong>
-      <strong><%= link_to "X", "/users/#{@current_user.id}/#{controller_name}/#{attr.id}", method: :delete, data: { confirm: "Really?" }, class: "comp-font red"%></strong>
-    </ul><br>
+
+    <%= link_to show_svg('edit-icon.svg'), "/users/#{@current_user.id}/#{controller_name}/#{attr.id}/edit", class: "shadow" if valid_controller?("edit") %>
+    <%= link_to "X", "/users/#{@current_user.id}/#{controller_name}/#{attr.id}", method: :delete, data: { confirm: "Really?" }, class: "comp-font red"%>
+
+    <br></br>
 
   <% end %>
 <% end %>

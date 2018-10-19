@@ -4,13 +4,11 @@
       <th colspan="3"></th>
     </tr>
   </thead>
-
   <tbody>
-<!-- creates label first -->
+<!-- creates label first / move out conditional -->
     <tr>
       <% nested_attribute_keys.each do |key| %>
         <% key = "quest_type" if key == "user_id" && controller_name == "objectives" %>
-<!-- move out conditional and this bottom method -->
         <td>
           <strong class="comp-font border">
             <%= proper_format(key) %>
@@ -19,26 +17,25 @@
       <% end %>
     </tr>
 
-    <tr>
-      <% all_of_nested_attribute.each do |attribute| %>
-<!-- then returns value of key -->
+    <% all_of_nested_attribute.each do |attribute| %>
+      <tr>
+<!-- then returns value of key / move out these conditionals to validate helper -->
         <% nested_attribute_keys.each do |key| %>
           <td class="center">
             <strong class="comp-font">
               <%=  attribute.quest_duration if key == "user_id" && controller_name == "objectives" %>
               <%= attribute.payment if key == "amount" && controller_name == "subsriptions" %>
-<!-- move out these conditionals to validate helper -->
               <%= attribute[key] unless (key == "user_id" && controller_name == "objectives") || (key == "amount" && controller_name == "subsriptions") %>
             </strong>
           </td>
         <% end %>
 <!-- delete and edit -->
-      <td>
-        <%= display_edit_link?(attribute) %>
-        <%= link_to "X", "/users/#{@current_user.id}/#{controller_name}/#{attribute.id}", method: :delete, data: { confirm: "Really?" }, class: "comp-font red"%>
-      </td>
-
-    </tr>
+        <td>
+          <%= display_edit_link?(attribute) %>
+          <%= link_to "X", "/users/#{@current_user.id}/#{controller_name}/#{attribute.id}", method: :delete, data: { confirm: "Really?" }, class: "comp-font red"%>
+        </td>
+      </tr>
     <% end %>
+
   </tbody>
 </table>

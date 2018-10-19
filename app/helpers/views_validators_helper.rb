@@ -6,31 +6,27 @@ module ViewsValidatorsHelper
 #reason for toggling can be due to; links, objective_id, or edit
     case controller_name
 
-    when "family_members"
-      return true unless toggle_reason == "links" || toggle_reason == "objective_id"
-
-      false
-    when "inspirations"
-      return true unless toggle_reason == "objective_id"
-
+    when "priority_items"
       false
     when "quests"
       false
 
     when "objectives"
       return false unless toggle_reason == "objective_id"
-
       true
-    when "priority_items"
+    when "inspirations"
+      return true unless toggle_reason == "objective_id"
+      false
+
+    when "family_members"
+      return true unless toggle_reason == "links" || toggle_reason == "objective_id"
       false
 
     when "disciplines"
       return true unless toggle_reason == "edit" || toggle_reason == "objective_id"
-
       false
     when "subscriptions"
       return true unless toggle_reason == "edit" || toggle_reason == "objective_id"
-
       false
     end
   end
