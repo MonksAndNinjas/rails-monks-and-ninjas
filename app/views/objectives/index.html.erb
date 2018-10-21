@@ -1,5 +1,7 @@
 <%= render partial: "layouts/index", locals: { controller_name: "quests", :list_or_table => "table" } %>
 <!-- short or long quest? -->
-<% @objectives.each do |objective| %>
-  <%= link_to objective.type, new_user_objective_quest_path(@current_user, objective), class: "scratch-font" %><br>
-<% end %>
+<div id="objective-links">
+  <% @objectives.each do |objective| %>
+    <%= link_to objective.type, new_user_objective_quest_path(@current_user, objective), class: "scratch-font" %><br>
+    <% end %>
+</div>

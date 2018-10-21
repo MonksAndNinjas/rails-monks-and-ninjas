@@ -44,12 +44,24 @@ module ViewsValidatorsHelper
       @data_type = "id"
     end
   end
-#validates for inspirations show page
-  def valid_nested_attribute_key?(key)
+#for _table
+  def valid_for_quests?(key)
+    !!(key == "user_id" && controller_name == "objectives")
+  end
+#for _table
+  def valid_for_subscriptions?(key)
+    !!(key == "amount" && controller_name == "subsriptions")
+  end
+#for _table
+  def invalid_for_remaining_attributes?(key)
+    valid_for_quests?(key) || valid_for_subscriptions?(key)
+  end
+#for _list
+  def valid_inspiration?(key)
     !!(key == "image" || key == "link" || key == "content" || key == "video" || key == "about")
   end
-#should label be created in _form
-  def valid_label?(key)
-    !!(key.to_s == "id" || key.to_s == "user_id" || key.to_s == "objective_id")
+#for _form to not display label for ids
+  def invalid_label?(key)
+    !!(key == "id" || key == "objective_id" || key == "user_id")
   end
 end

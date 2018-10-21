@@ -1,4 +1,4 @@
-<h1 class="scratch-font"><%= @current_user.display_name %></h1><br>
+<h1><%= @current_user.display_name %></h1><br>
 
 <strong class="comp-font"><%= @current_user.display_birth_info %></strong>
 
@@ -8,4 +8,4 @@
 
 <br></br>
 
-<%= link_to show_svg('edit-icon.svg'), edit_user_url, class: "shadow" %><br>
+<%= link_to show_svg('edit-icon.svg'), edit_user_url %><br>

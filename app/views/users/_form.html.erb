@@ -17,19 +17,19 @@
 
 <%= form_for object, url: @url do |f| %>
 
-  <%= f.label :name, class: "comp-font" %><br>
-  <%= f.text_field :name, class: "input" %><br>
+  <%= f.label :name %><br>
+  <%= f.text_field :name %><br>
 
-  <%= f.label :birthdate, class: "comp-font" %><br>
-  <%= f.date_field :birthdate, class: "input" %><br>
+  <%= f.label :birthdate %><br>
+  <%= f.date_field :birthdate %><br>
 
-  <%= f.label :email, class: "comp-font" %><br>
-  <%= f.text_field :email, class: "input" %><br>
+  <%= f.label :email %><br>
+  <%= f.text_field :email %><br>
 
-  <%= f.label :password, class: "comp-font" %><br>
-  <%= f.password_field :password, class: "input" %>
+  <%= f.label :password %><br>
+  <%= f.password_field :password %>
 
   <br></br>
 
-  <%= f.submit class: "button comp-font" %>
+  <%= f.submit class: "button" %>
 <% end %>

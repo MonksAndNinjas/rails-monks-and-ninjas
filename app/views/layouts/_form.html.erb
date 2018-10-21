@@ -5,7 +5,7 @@
 
       <% data_type = nested_attributes.get_data_type_for(key) %>
 <!-- find data type then create label and field -->
-      <%= attr.label "#{key.to_s}", class: "comp-font" unless valid_label?(key) %><br>
+      <%= attr.label "#{key.to_s}" unless invalid_label?(key)  %><br>
       <%= display_field_using(key, data_type, attr) %><br>
 
     <% end %>
@@ -13,7 +13,7 @@
 
   <br></br>
 
-  <%= f.password_field :password, placeholder: "password", class: "input" %>
+  <%= f.password_field :password, placeholder: "password" %>
 
-  <%= f.submit "Create", class: "button comp-font" %>
+  <%= f.submit "Create", class: "button" %>
 <% end %>

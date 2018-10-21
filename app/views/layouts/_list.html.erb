@@ -4,12 +4,15 @@
   <% if valid_controller?("links") %>
 <!-- display info and button for toggle hide/show when in inspirations -->
 
-    <button class="button comp-font" onclick="button_style(<%= attr.id.to_s %>)"><%= attr.source %></button><br>
+    <button class="button" onclick="button_style(<%= attr.id.to_s %>)"><%= attr.source %></button><br>
 
 
     <div id="<%= attr.id %>" style="display: none">
       <% attr.attributes.keys.each do |key| %>
-        <%= display_inspirations_info_using(attr, key) %>
+        <%= display_label?(attr["#{key}"], "#{key}") if valid_inspiration?(key) %>
+        <ul>
+          <%= display_nested_attribute?(attr["#{key}"], "#{key}") if valid_inspiration?(key) %>
+        </ul>
       <% end %>
 
       <%= link_to show_svg('edit-icon.svg'), "/users/#{@current_user.id}/#{controller_name}/#{attr.id}/edit", class: "shadow" %>
@@ -17,19 +20,24 @@
     </div>
 
   <% else %>
-<!-- else make list for all of the nested_attribute's info no links -->
-    <% nested_attribute_keys.each do |key| %>
+<!-- else make list for all of the nested_attribute's info no links ; look up info on how to apply css to last child-->
+    <div>
+      <% nested_attribute_keys.each do |key| %>
       <li>
-        <strong class="comp-font"><%= proper_format(key) %>: <%= attr["#{key}"] unless valid_controller?("links") %></strong>
+        <strong>
+          <%= proper_format(key) %>: <%= attr["#{key}"] unless valid_controller?("links") %>
+        </strong>
       </li>
-    <% end %>
+      <% end %>
 <!-- delete and edit -->
 
-    <%= link_to show_svg('edit-icon.svg'), "/users/#{@current_user.id}/#{controller_name}/#{attr.id}/edit", class: "shadow" if valid_controller?("edit") %>
-    <%= link_to "X", "/users/#{@current_user.id}/#{controller_name}/#{attr.id}", method: :delete, data: { confirm: "Really?" }, class: "comp-font red"%>
-
-    <br></br>
+      <%= link_to show_svg('edit-icon.svg'), "/users/#{@current_user.id}/#{controller_name}/#{attr.id}/edit", class: "shadow" if valid_controller?("edit") %>
+      <%= link_to "X", "/users/#{@current_user.id}/#{controller_name}/#{attr.id}", method: :delete, data: { confirm: "Really?" }, class: "comp-font red"%>
+    </div>
 
   <% end %>
+
+  <br></br>
+  
 <% end %>
 </ul>

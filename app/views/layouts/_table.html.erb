@@ -10,7 +10,7 @@
       <% nested_attribute_keys.each do |key| %>
         <% key = "quest_type" if key == "user_id" && controller_name == "objectives" %>
         <td>
-          <strong class="comp-font border">
+          <strong class="border">
             <%= proper_format(key) %>
           </strong>
         </td>
@@ -22,10 +22,10 @@
 <!-- then returns value of key / move out these conditionals to validate helper -->
         <% nested_attribute_keys.each do |key| %>
           <td class="center">
-            <strong class="comp-font">
-              <%=  attribute.quest_duration if key == "user_id" && controller_name == "objectives" %>
-              <%= attribute.payment if key == "amount" && controller_name == "subsriptions" %>
-              <%= attribute[key] unless (key == "user_id" && controller_name == "objectives") || (key == "amount" && controller_name == "subsriptions") %>
+            <strong>
+              <%=  attribute.quest_duration if valid_for_quests?(key) %>
+              <%= attribute.payment if valid_for_subscriptions?(key) %>
+              <%= attribute[key] unless invalid_for_remaining_attributes?(key) %>
             </strong>
           </td>
         <% end %>

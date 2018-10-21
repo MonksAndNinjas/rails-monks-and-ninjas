@@ -18,10 +18,10 @@ module CreateLinksHelper
     case attribute
 
     when "content"
-      return "<span class=#{"comp-font"}> #{inspiration_attribute} </span><br>".html_safe unless inspiration_attribute.blank?
+      return "<li> #{inspiration_attribute} </strong><br>".html_safe unless inspiration_attribute.blank?
 
     else
-      return "<span class=#{"comp-font"}> #{link_to inspiration_attribute, inspiration_attribute} </span><br>".html_safe unless inspiration_attribute.blank?
+      return "<li> #{link_to inspiration_attribute, inspiration_attribute} </li><br>".html_safe unless inspiration_attribute.blank?
     end
   end
 end

@@ -30,7 +30,7 @@
    src:url('liner BMP14.ttf') format('truetype');
  }
 
- .scratch-font {
+ nav a, h1, #objective-links a {
    font-family: 'Scratch';
    font-size: x-large;
    text-decoration-line: none;
@@ -41,24 +41,30 @@
    text-shadow: 0px 1px 0px rgba(255,255,255,.3), 0px -1px 0px rgba(0,0,0,.7);
  }
 
- .comp-font {
+ button.button, form input.button, label, li, strong, .comp-font {
    font-family: 'Liner';
-   color: #ffdbcb;
-   text-shadow: 80px 80px 6px rgba(14,32,56, 1);
-   font-weight: bold;
-   font-style: normal;
    font-size: large;
    text-decoration-line: none;
+   font-weight: bold;
+   font-style: normal;
+   color: #ffdbcb;
+   text-shadow: 80px 80px 6px rgba(14,32,56, 1);
  }
 
- .shadow {
-   box-shadow: 80px 80px 6px rgba(14,32,56,.5);
-   margin: 20px;
+ .red {
+   color: #fb3928;
+   font-size: 1.25em;
  }
+
+ .blue {
+   color: #16fbf3;
+   font-size: 1.75em;
+ }
+
 
  /*///////////// form /////////////////*/
 
- .input {
+ input {
    background-color: black;
    box-shadow: 80px 80px 6px rgba(14,32,56,.5);
    font-family: 'Liner';
@@ -66,45 +72,48 @@
    font-weight: bold;
    font-style: normal;
    font-size: large;
-   /*background: transparent;
-   border: none;      later add this*/
-}
+ }
+
+ .shadow {
+   box-shadow: 80px 80px 6px rgba(14,32,56,.5);
+   margin: 20px;
+ }
 
 /*///////////// background //////////////*/
 
-body {
-  background: url("lion_background.jpg") no-repeat center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;     /* figure out screen format for all major browsers and laptop/computers */
-  background-size: cover;
-}
+ body {
+   background: url("lion_background.jpg") no-repeat center fixed;
+   -webkit-background-size: cover;
+   -moz-background-size: cover;
+   -o-background-size: cover;     /* figure out screen format for all major browsers and laptop/computers */
+   background-size: cover;
+ }
 
 /*///////////// nav bar //////////////////*/
 
-nav a:hover {
-  font-family: 'Liner';
-  color: #ffdbcb;
-  text-shadow: 80px 80px 6px rgba(14,32,56, 1);
-  font-weight: bold;
-  font-style: normal;
-  font-size: large;
-}
+ nav a:hover {
+    font-family: 'Liner';
+    color: #ffdbcb;
+    text-shadow: 80px 80px 6px rgba(14,32,56, 1);
+    font-weight: bold;
+    font-style: normal;
+    font-size: large;
+  }
 
-ul.navigation {
-   background:#fff;
-}
+  ul.navigation {
+     background:#fff;
+  }
 
-ul.navigation li a  {
-   text-decoration:none;
-}
+  ul.navigation li a  {
+     text-decoration:none;
+  }
 
-nav.navigation a.on {
-   background:yellow;
-   padding:2px 6px;
-}
+  nav.navigation a.on {
+     background:yellow;
+     padding:2px 6px;
+  }
 
-/*///////////// table ///////////////////*/
+/*///////////// table ////////////// check if needs to be .border and .center  /////*/
 
  .button {
    background-color: Transparent;
@@ -118,25 +127,13 @@ nav.navigation a.on {
    text-decoration: none;
    display: inline-block;
    font-size: 16px;
- }
+  }
 
- .border {
-   border-bottom:1px dashed #ffdbcb;
-   box-shadow: : 80px 80px 6px rgba(14,32,56,.5);
- }
+   .border {
+     border-bottom:1px dashed #ffdbcb;
+     box-shadow: : 80px 80px 6px rgba(14,32,56,.5);
+   }
 
- .center {
-   text-align: center;
- }
-
-/*////////////// links ////////////////*/
-
- .red {
-   color: #fb3928;
-   font-size: 1.25em;
- }
-
- .blue {
-   color: #16fbf3;
-   font-size: 1.75em;
- }
+   .center {
+     text-align: center;
+   }
