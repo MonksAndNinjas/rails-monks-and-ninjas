@@ -14,6 +14,8 @@ class ApplicationController < ActionController::Base
   end
 
   def new
+    #raise params.inspect
+    flash[:messages]
     set_model_for(controller_name)
     @nested_attribute = @current_user.send(@model).build
   end

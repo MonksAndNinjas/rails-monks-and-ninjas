@@ -3,6 +3,7 @@ module LoginHelper
   private
 
   def omniauth_login_path(auth_hash)
+  
     user = User.find_or_create_by_omniauth(auth_hash)
 
     session[:user_id] = user.id
@@ -11,6 +12,7 @@ module LoginHelper
   end
 
   def normal_login_path(params)
+  #  raise params.inspect
     user = User.find_by(email: params[:user][:email])
     user = user.try(:authenticate, params[:user][:password])
 

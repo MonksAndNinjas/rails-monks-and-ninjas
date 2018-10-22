@@ -3,6 +3,7 @@ module RenderOrRedirectHelper
   private
 
   def render_new_or_redirect_and_set_session_if_saved(user)
+
     return render :new unless user.save
 
     session[:user_id] = user.id
@@ -11,7 +12,20 @@ module RenderOrRedirectHelper
   end
 #handles redirects after creations or edits of nested attributes or user
   def render_edit_or_redirect_updated_user(user, user_params)
-    return render :edit unless user.update(user_params)
+
+    if !user.update(user_params)
+        messages = @current_user.errors.full_messages.collect { |msg| msg }
+        if params[:user][:extraparam] == "quests"
+          return redirect_to "/users/#{@current_user.id}/objectives/#{params[:user][:quests_attributes][:objective_id]}/#{params[:user][:extraparam]}/new", set: flash[:messages] = messages
+
+        elsif params[:user][:extraparam] == "inspirations" || params[:user][:extraparam] == "family_members" || params[:user][:extraparam] == "subscriptions" || params[:user][:extraparam] == "disciplines" || params[:user][:extraparam] == "priority_items"
+        
+              return redirect_to "/users/#{@current_user.id}/#{params[:user][:extraparam]}/new", set: flash[:messages] = messages# unless user.update(user_params)
+
+        else
+          return render :edit
+        end
+    end
 
     nested_attribute = user_params.keys[1]
 

@@ -1,3 +1,19 @@
+<% if !errors.blank? %>
+<div>
+  <h2 class="shadow">
+    <%= pluralize(errors.count, "error") %>
+    <%= "prohibited this #{@current_user} from being saved:" %>
+  </h2>
+
+  <ul>
+  <% errors.each do |msg| %>
+<!-- maybe write something here to allow me to go back to my new page since user was not updated -->
+    <li><%= msg %></li>
+  <% end %>
+  </ul>
+</div>
+<% end %>
+
 <%= form_for user do |f| %>
 
   <%= f.fields_for :nested_attributes do |attr| %>
@@ -12,6 +28,8 @@
   <% end %>
 
   <br></br>
+
+  <%= f.hidden_field :extraparam, :value => "#{controller_name}" %>
 
   <%= f.password_field :password, placeholder: "password" %>
 
