@@ -1,6 +1,6 @@
 <h1>Log In</h1>
 
-<%= render 'form' %>
+<%= render partial: 'form', locals: {:errors => flash[:messages] } %>
 
 <br></br>
 

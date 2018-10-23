@@ -18,6 +18,7 @@ class UsersController < ApplicationController
   end
 
   def update
+    flash[:messages]
     render_edit_or_redirect_updated_user(@current_user, user_params)
   end
 end

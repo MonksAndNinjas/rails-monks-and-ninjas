@@ -2,6 +2,7 @@ class SessionsController < ApplicationController
   skip_before_action :require_login, except: [:destroy]
 
   def new
+    flash[:messages]
     return redirect_to root_url, notice: "*Already logged in*" if @current_user
   end
 

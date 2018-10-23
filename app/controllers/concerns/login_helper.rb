@@ -3,7 +3,7 @@ module LoginHelper
   private
 
   def omniauth_login_path(auth_hash)
-  
+
     user = User.find_or_create_by_omniauth(auth_hash)
 
     session[:user_id] = user.id
@@ -15,8 +15,10 @@ module LoginHelper
   #  raise params.inspect
     user = User.find_by(email: params[:user][:email])
     user = user.try(:authenticate, params[:user][:password])
+    #raise params.inspect
+    error = "Incorrect Email or Password"
 
-    return redirect_to login_path unless user
+    return redirect_to login_path, set: flash[:messages] = error unless user
 # redirects to /login if not a valid user
     session[:user_id] = user.id
 

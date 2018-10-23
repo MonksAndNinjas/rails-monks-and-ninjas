@@ -1,17 +1,17 @@
-<% if object.errors.any? %>
-  <div id="error_explanation">
-    <h2>
-      <%= pluralize(object.errors.count, "error") %>
-      prohibited <%= @current_user.name if @current_user %> from being saved:
-    </h2>
+<% if errors != nil %>
+<div>
+  <h2 class="shadow">
+    <%= pluralize(errors.count, "error") %>
+    <%= "prohibited #{object.name} from being saved:" %>
+  </h2>
 
-    <ul>
-    <% object.errors.full_messages.each do |msg| %>
-<!-- maybe write something here to allow me to go back to my new page since user was not updated -->
-      <li><%= msg %></li>
-    <% end %>
-    </ul>
-  </div>
+  <ul>
+  <% errors.each do |msg| %>
+
+    <li class="red"><%= msg %></li>
+  <% end %>
+  </ul>
+</div>
 <% end %>
 
 
@@ -30,6 +30,9 @@
   <%= f.password_field :password %>
 
   <br></br>
+
+  <%= f.hidden_field :controller, :value => "#{controller_name}" %>
+  <%= f.hidden_field :action, :value => "#{action_name}" %>
 
   <%= f.submit class: "button" %>
 <% end %>

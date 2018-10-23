@@ -1,14 +1,14 @@
-<% if !errors.blank? %>
+<% if errors != nil %>
 <div>
   <h2 class="shadow">
     <%= pluralize(errors.count, "error") %>
-    <%= "prohibited this #{@current_user} from being saved:" %>
+    <%= "prohibited #{@current_user.name} from being saved:" %>
   </h2>
 
   <ul>
   <% errors.each do |msg| %>
 <!-- maybe write something here to allow me to go back to my new page since user was not updated -->
-    <li><%= msg %></li>
+    <li class="red"><%= msg %></li>
   <% end %>
   </ul>
 </div>
@@ -29,9 +29,14 @@
 
   <br></br>
 
-  <%= f.hidden_field :extraparam, :value => "#{controller_name}" %>
+  <%= f.hidden_field :controller, :value => "#{controller_name}" %>
+  <%= f.hidden_field :action, :value => "#{action_name}" %>
 
   <%= f.password_field :password, placeholder: "password" %>
 
-  <%= f.submit "Create", class: "button" %>
+  <% if action_name == "new" %>
+    <%= f.submit "Create", class: "button" %>
+  <% elsif action_name == "edit" %>
+    <%= f.submit "Update", class: "button" %>
+  <% end %>
 <% end %>

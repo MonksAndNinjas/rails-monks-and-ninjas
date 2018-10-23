@@ -5,6 +5,7 @@
 
 ########## What's Next? ###########
 
+  => add z values to the body of html
   => You must include at least one class level ActiveRecord scope method
 
 ######## App Information ##########
@@ -48,11 +49,3 @@
             * standard user authentication, including signup, login, logout, and passwords.
             * authentication system must also allow login from some other service. Facebook, Twitter, Foursquare, Github, etc.
             * forms should correctly display validation errors.
-
-
-
-                => your fields should be enclosed within a fields_with_errors class
-                => error messages describing the validation failures must be present within the view.
-                <li>
-                  <strong><%= link_to attr.source, "/users/#{@current_user.id}/#{controller_name}/#{attr.id}" %></strong>
-                </li><br>
