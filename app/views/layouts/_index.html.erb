@@ -4,4 +4,5 @@
 
 <br></br>
 
-<%= link_to "+", "/users/#{@current_user.id}/#{controller_name}/new", class: "comp-font blue" if valid_controller? %>
+
+<%= link_to "+", "/#{users_path}/#{controller_name}/new", class: "comp-font blue" if valid_controller? %>

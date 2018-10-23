@@ -50,11 +50,11 @@ module ViewsValidatorsHelper
   end
 #for _table
   def valid_for_subscriptions?(key)
-    !!(key == "amount" && controller_name == "subsriptions")
+    !!(key == "amount" && controller_name == "subscriptions")
   end
 #for _table
   def invalid_for_remaining_attributes?(key)
-    valid_for_quests?(key) || valid_for_subscriptions?(key)
+    !!(valid_for_quests?(key) || valid_for_subscriptions?(key))
   end
 #for _list
   def valid_inspiration?(key)

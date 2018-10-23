@@ -14,10 +14,10 @@ module LabelAndFieldHelper
     case @data_type
 #after filter pick type of field
     when "date"
-      return attr.date_field "#{key.to_s}", name: "user[#{controller_name}_attributes][#{key.to_s}]"
+      return attr.date_field "#{key.to_s}", name: "user[#{controller_name}_attributes][#{key.to_s}]", value: @nested_attribute["#{key.to_s}"]
 
     when "string"
-      return attr.text_field "#{key.to_s}", name: "user[#{controller_name}_attributes][#{key.to_s}]"
+      return attr.text_field "#{key.to_s}", name: "user[#{controller_name}_attributes][#{key.to_s}]", value: @nested_attribute["#{key.to_s}"]
 
     when "decimal"
       return attr.number_field "#{key.to_s}", name: "user[#{controller_name}_attributes][#{key.to_s}]",

@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   before_action :require_login, except: [:home]
 # how to include all helpers in one command
   include DeleteHelper
-  include RenderOrRedirectHelper
+  include RedirectHelper
   include LoginHelper
   include UserParamsHelper
 # all of the crud options are listed here for nested_attributes

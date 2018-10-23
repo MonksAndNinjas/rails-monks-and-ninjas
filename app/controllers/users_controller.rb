@@ -8,7 +8,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
 
-    render_new_or_redirect_and_set_session_if_saved(@user)
+    redirect_and_set_session_if_saved(@user)
   end
 
   def show
@@ -19,6 +19,6 @@ class UsersController < ApplicationController
 
   def update
     flash[:messages]
-    render_edit_or_redirect_updated_user(@current_user, user_params)
+    redirect_updated_user(@current_user, user_params)
   end
 end

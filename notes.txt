@@ -5,7 +5,8 @@
 
 ########## What's Next? ###########
 
-  => add z values to the body of html
+  => image format for web browsers
+  => make table more presentable
   => You must include at least one class level ActiveRecord scope method
 
 ######## App Information ##########

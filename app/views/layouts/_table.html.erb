@@ -32,7 +32,7 @@
 <!-- delete and edit -->
         <td>
           <%= display_edit_link?(attribute) %>
-          <%= link_to "X", "/users/#{@current_user.id}/#{controller_name}/#{attribute.id}", method: :delete, data: { confirm: "Really?" }, class: "comp-font red"%>
+          <%= link_to "X", "/#{user_attr_path(controller_name, attribute)}", method: :delete, data: { confirm: "Really?" }, class: "comp-font red"%>
         </td>
       </tr>
     <% end %>

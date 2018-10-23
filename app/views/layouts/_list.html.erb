@@ -15,8 +15,8 @@
         </ul>
       <% end %>
 
-      <%= link_to show_svg('edit-icon.svg'), "/users/#{@current_user.id}/#{controller_name}/#{attr.id}/edit", class: "shadow" %>
-      <%= link_to "X", "/users/#{@current_user.id}/#{controller_name}/#{attr.id}", method: :delete, data: { confirm: "Really?" }, class: "comp-font red"%>
+      <%= link_to show_svg('edit-icon.svg'), "/#{user_attr_path(controller_name, attr)}/edit", class: "shadow" %>
+      <%= link_to "X", "/#{user_attr_path(controller_name, attr)}", method: :delete, data: { confirm: "Really?" }, class: "comp-font red"%>
     </div>
 
   <% else %>
@@ -30,14 +30,14 @@
       </li>
       <% end %>
 <!-- delete and edit -->
-
-      <%= link_to show_svg('edit-icon.svg'), "/users/#{@current_user.id}/#{controller_name}/#{attr.id}/edit", class: "shadow" if valid_controller?("edit") %>
-      <%= link_to "X", "/users/#{@current_user.id}/#{controller_name}/#{attr.id}", method: :delete, data: { confirm: "Really?" }, class: "comp-font red"%>
+<!-- refactor -->
+      <%= link_to show_svg('edit-icon.svg'), "/#{user_attr_path(controller_name, attr)}/edit", class: "shadow" if valid_controller?("edit") %>
+      <%= link_to "X", "/#{user_attr_path(controller_name, attr)}", method: :delete, data: { confirm: "Really?" }, class: "comp-font red"%>
     </div>
 
   <% end %>
 
   <br></br>
-  
+
 <% end %>
 </ul>

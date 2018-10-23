@@ -1,17 +1,17 @@
 <% if errors != nil %>
-<div>
-  <h2 class="shadow">
-    <%= pluralize(errors.count, "error") %>
-    <%= "prohibited #{@current_user.name} from being saved:" %>
-  </h2>
+  <div>
+    <h2 class="shadow">
+      <%= pluralize(errors.count, "error") %>
+      <%= "prohibited #{@current_user.name} from being saved:" %>
+    </h2>
 
-  <ul>
-  <% errors.each do |msg| %>
+    <ul>
+      <% errors.each do |msg| %>
 <!-- maybe write something here to allow me to go back to my new page since user was not updated -->
-    <li class="red"><%= msg %></li>
-  <% end %>
-  </ul>
-</div>
+        <li class="red"><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
 <% end %>
 
 <%= form_for user do |f| %>
@@ -28,12 +28,12 @@
   <% end %>
 
   <br></br>
-
+<!-- adds controller and action to assist in redirecting to appropriate path -->
   <%= f.hidden_field :controller, :value => "#{controller_name}" %>
   <%= f.hidden_field :action, :value => "#{action_name}" %>
 
-  <%= f.password_field :password, placeholder: "password" %>
-
+  <%= f.password_field :password, placeholder: "enter password" %>
+<!-- what button displays based on type of form -->
   <% if action_name == "new" %>
     <%= f.submit "Create", class: "button" %>
   <% elsif action_name == "edit" %>
