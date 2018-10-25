@@ -32,7 +32,8 @@
   <%= f.hidden_field :controller, :value => "#{controller_name}" %>
   <%= f.hidden_field :action, :value => "#{action_name}" %>
 
-  <%= f.password_field :password, placeholder: "enter password" %>
+  <%= f.label :password, id: "password-label" %><br>
+  <%= f.password_field :password, placeholder: "enter password", id: "password-input" %>
 <!-- what button displays based on type of form -->
   <% if action_name == "new" %>
     <%= f.submit "Create", class: "button" %>

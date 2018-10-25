@@ -24,8 +24,10 @@
     <div>
       <% nested_attribute_keys.each do |key| %>
       <li>
-        <strong>
-          <%= proper_format(key) %>: <%= attr["#{key}"] unless valid_controller?("links") %>
+        <strong class="pink">
+          <%= proper_format(key) %>:&nbsp;</strong>
+          <strong>
+          <%= attr["#{key}"] unless valid_controller?("links") %>
         </strong>
       </li>
       <% end %>

@@ -1,6 +1,6 @@
 module NavBarHelper
 #nav bar link
-  def display_nested_attribute_link(attr)
+  def display_nested_attribute_link(attr)                
     set_nested_attribute_link_parameters(attr)
 #refactor this code along with the one in navbar
     if controller_name == attr

@@ -5,9 +5,8 @@
 
 ########## What's Next? ###########
 
-  => image format for web browsers
-  => make table more presentable
   => You must include at least one class level ActiveRecord scope method
+  => Add seed data
 
 ######## App Information ##########
 

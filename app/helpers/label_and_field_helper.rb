@@ -3,7 +3,7 @@ module LabelAndFieldHelper
   private
 #for inspiration show page
   def display_label?(inspiration_attribute, key)
-    return "<li>#{key.to_s.capitalize}:</li><br>".html_safe unless inspiration_attribute.blank?
+    return "<li class='pink'>#{key.to_s.capitalize}:</li><br>".html_safe unless inspiration_attribute.blank?
   end
 #for _form
   def display_field_using(key, data_type, attr)

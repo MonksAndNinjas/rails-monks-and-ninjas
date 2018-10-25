@@ -30,13 +30,22 @@ class User < ApplicationRecord
     end
   end
 #from here down is for displaying user info show page in presentable format
-  def display_birth_info
-   "Born on #{birthday} and is now #{age} years old"
+#  def display_birth_info
+#   "Born on #{birthday} and is now #{age} years old"
+#  end
+
+  def birthday
+    birthdate.to_time.strftime('%B %e %Y')
   end
 
   def display_name
     name.split.map(&:capitalize).join(' ')
   end
+
+  def age
+    Time.current.year - birth_year
+  end
+
 
   private
 
@@ -44,11 +53,11 @@ class User < ApplicationRecord
     birthdate.to_time.strftime('%Y').to_i
   end
 
-  def birthday
-    birthdate.to_time.strftime('%B %e %Y')
-  end
+  #def birthday
+  #  birthdate.to_time.strftime('%B %e %Y')
+  #end
 
-  def age
-    Time.current.year - birth_year
-  end
+#  def age
+#    Time.current.year - birth_year
+#  end
 end

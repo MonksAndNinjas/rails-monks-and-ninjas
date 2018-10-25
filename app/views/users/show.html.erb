@@ -1,10 +1,10 @@
 <h1><%= @current_user.display_name %></h1><br>
 
-<strong class="comp-font"><%= @current_user.display_birth_info %></strong>
-
+<strong class="comp-font"><span class="pink">Born</span> on <span class="pink"><%= @current_user.birthday %></span> and is now <span class="pink"><%= @current_user.age %></span> yesars old!</strong>
+<!-- clean this up -->
 <br></br>
 
-<strong class="comp-font"><%= @current_user.email %></strong>
+<strong class="comp-font pink"><%= @current_user.email %></strong>
 
 <br></br>
 

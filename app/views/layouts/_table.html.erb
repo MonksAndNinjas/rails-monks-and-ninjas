@@ -10,7 +10,7 @@
       <% nested_attribute_keys.each do |key| %>
         <% key = "quest_type" if key == "user_id" && controller_name == "objectives" %>
         <td>
-          <strong class="border">
+          <strong class="border pink">
             <%= proper_format(key) %>
           </strong>
         </td>

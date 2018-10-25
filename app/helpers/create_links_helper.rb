@@ -18,10 +18,13 @@ module CreateLinksHelper
     case attribute
 
     when "content"
-      return "<li> #{inspiration_attribute} </strong><br>".html_safe unless inspiration_attribute.blank?
+      return "<li> #{inspiration_attribute} </li><br>".html_safe unless inspiration_attribute.blank?
+
+    when "about"
+      return "<li> #{inspiration_attribute} </li><br>".html_safe unless inspiration_attribute.blank?
 
     else
-      return "<li> #{link_to inspiration_attribute, inspiration_attribute} </li><br>".html_safe unless inspiration_attribute.blank?
+      return "<li id='inspiration-link'> #{link_to inspiration_attribute, inspiration_attribute} </li><br>".html_safe unless inspiration_attribute.blank?
     end
   end
 end

@@ -20,7 +20,7 @@ module RedirectHelper
   def redirect_updated_user(user, user_params)
     #store update result
     success = user.update(user_params)
-    #set values
+    #set action
     action = params[:user][:action]
     #set messages
     messages = user_errors if !success
