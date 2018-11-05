@@ -6,9 +6,9 @@ module RedirectHelper
 #store update result
     success = user.save
 #set messages
-    messages = user_errors if !success
+    messages = user_errors(user) if !success
 #go to appropriate path
-    return redirect_to new_user_url, set: flash[:messages] = messages unless success
+    return redirect_to signup_path, set: flash[:messages] = messages unless success
 
     session[:user_id] = user.id
 
@@ -23,7 +23,7 @@ module RedirectHelper
     #set action
     action = params[:user][:action]
     #set messages
-    messages = user_errors if !success
+    messages = user_errors(user) if !success
     #set appropriate path
     path = user_params.keys[1]
     path = "#{action}_#{controller}"  if !success && controller == "users"
@@ -75,8 +75,8 @@ module RedirectHelper
 
 
 #assists in assembling appropriate path and listed in order of ascending line number
-  def user_errors
-    @current_user.errors.full_messages.collect { |msg| msg }
+  def user_errors(user)
+    user.errors.full_messages.collect { |msg| msg }
   end
 #assists in quests new and edit paths
   def quest_new_page

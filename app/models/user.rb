@@ -29,10 +29,6 @@ class User < ApplicationRecord
       user.birthdate = Time.now.strftime("%Y-%m-%d")
     end
   end
-#from here down is for displaying user info show page in presentable format
-#  def display_birth_info
-#   "Born on #{birthday} and is now #{age} years old"
-#  end
 
   def birthday
     birthdate.to_time.strftime('%B %e %Y')
@@ -45,19 +41,14 @@ class User < ApplicationRecord
   def age
     Time.current.year - birth_year
   end
-
+#aims to keep user link up to 17 characters to not effect the nav bar
+  def display_user_link
+    name.truncate(17)
+  end
 
   private
 
   def birth_year
     birthdate.to_time.strftime('%Y').to_i
   end
-
-  #def birthday
-  #  birthdate.to_time.strftime('%B %e %Y')
-  #end
-
-#  def age
-#    Time.current.year - birth_year
-#  end
 end

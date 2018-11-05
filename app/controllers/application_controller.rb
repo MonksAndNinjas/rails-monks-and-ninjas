@@ -37,6 +37,7 @@ class ApplicationController < ActionController::Base
 #for show and edit views
   def find_nested_attribute
     controller_name.singularize.camelize.constantize.find_by(id: params[:id])
+    #maybe can be turned into scope method
   end
 #for priority itmes, only 3 items can be created
   def reached_item_limit?

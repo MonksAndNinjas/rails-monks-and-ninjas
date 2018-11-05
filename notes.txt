@@ -5,7 +5,7 @@
 
 ########## What's Next? ###########
 
-  => You must include at least one class level ActiveRecord scope method
+  => Add warning for changing profile info if using facebook to signup
   => Add seed data
 
 ######## App Information ##########

@@ -1,21 +1,28 @@
 <% if errors != nil %>
 <div>
-  <h2 class="shadow">
-    <%= pluralize(errors.count, "error") %>
-    <%= "prohibited #{object.name} from being saved:" %>
-  </h2>
 
-  <ul>
-  <% errors.each do |msg| %>
+    <% if errors.kind_of?(Array) %>
+    <h2 class="shadow">
+        <%= pluralize(errors.count, "error") %>
+        <%= "prohibited #{object.name} from being saved:" %>
+      </h2>
 
-    <li class="red"><%= msg %></li>
-  <% end %>
-  </ul>
+      <ul>
+        <% errors.each do |msg| %>
+
+        <li class="red"><%= msg %></li>
+        <% end %>
+      </ul>
+    <% elsif errors.kind_of?(String) %>
+    <h2 class="red shadow">
+      <%= errors %>
+    </h2>
+    <% end %>
 </div>
 <% end %>
 
 
-<%= form_for object, url: @url do |f| %>
+<%= form_for object, url: url do |f| %>
 
   <%= f.label :name %><br>
   <%= f.text_field :name %><br>

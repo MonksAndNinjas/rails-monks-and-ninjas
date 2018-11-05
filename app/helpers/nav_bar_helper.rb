@@ -1,6 +1,6 @@
 module NavBarHelper
 #nav bar link
-  def display_nested_attribute_link(attr)                
+  def display_nested_attribute_link(attr)
     set_nested_attribute_link_parameters(attr)
 #refactor this code along with the one in navbar
     if controller_name == attr
@@ -20,9 +20,9 @@ module NavBarHelper
 
   def display_user_link
     if controller_name == "users" && params[:action] == "show"
-      return link_to "#{@current_user.name}'s profile", @current_user, class: "comp-font shadow"
+      return link_to "#{@current_user.display_user_link}'s profile", @current_user, class: "comp-font shadow"
     else
-      return link_to "#{@current_user.name}'s profile", @current_user
+      return link_to "#{@current_user.display_user_link}'s profile", @current_user
     end
   end
 
