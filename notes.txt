@@ -5,7 +5,6 @@
 
 ########## What's Next? ###########
 
-  => Add warning for changing profile info if using facebook to signup
   => Add seed data
 
 ######## App Information ##########

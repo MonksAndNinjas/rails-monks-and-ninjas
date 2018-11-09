@@ -5,9 +5,6 @@ module LoginHelper
   def omniauth_login_path(auth_hash)
     user = User.find_or_create_by_omniauth(auth_hash)
 
-    error = "You may have changed your log in information. Try logging in"
-    return redirect_to signup_path, set: flash[:messages] = error unless user.save
-
     session[:user_id] = user.id
 
     redirect_to user
