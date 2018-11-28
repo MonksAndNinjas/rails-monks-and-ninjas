@@ -18,156 +18,154 @@
 /*///////////// Fonts ///////////// */
 
 /* set web fonts */
- @font-face {
-   font-family: 'Scratch';
-   src:url('scratch.ttf') format('truetype');
-}
-
 @font-face {
    font-family: 'Liner';
    src:url('liner BMP14.ttf') format('truetype');
  }
-/* apply font to appropriate tags */
- nav a, h1, #objective-links a {
-   font-family: 'Scratch';
-   font-size: x-large;
-   text-decoration: none;
-   font-weight: normal;
-   font-style: normal;
-   padding-right: 15px;
-   color: white;
-   text-shadow: 0px 1px 0px rgba(255,255,255,.3), 0px -1px 0px rgba(0,0,0,.7);
- }
+/* Links */
+nav a, #objective-links a, .comp-font {
+ font-family: 'Liner';
+ font-size: large;
+ text-decoration: none;
+ font-weight: bold;
+ font-style: normal;
+ padding-right: 15px;
+ color: turquoise;
+ text-shadow: 0px 1px 0px rgba(255,255,255,.3), 0px -1px 0px rgba(0,0,0,.7);
+}
+/* Other elements */
+h1, h2, li {
+ font-family: 'Liner';
+ font-size: large;
+ text-decoration: none;
+ font-weight: bold;
+ font-style: normal;
+ color: #ffdbcb;
+ text-shadow: 80px 80px 6px rgba(14,32,56, 1);
+}
 
- button.button, h2, form input.button, label, li, strong, .comp-font {
-   font-family: 'Liner';
-   font-size: large;
-   text-decoration: none;
-   font-weight: bold;
-   font-style: normal;
-   color: #ffdbcb;
-   text-shadow: 80px 80px 6px rgba(14,32,56, 1);
- }
+/*/////////////  Colors ////////////////*/
 
- #inspiration-link a {
-   color: #16fbf3;
-   text-shadow: 80px 80px 6px rgba(14,32,56, 1);
- }
-/* set color for font */
- .red {
-   color: #ff1111;
-   font-size: 1.25em;
- }
+/* error messages and delete */
+.red {
+ color: coral;
+ font-size: 1.25em;
+}
+/* add button color */
+.blue {
+ color: #16fbf3;
+ font-size: 1.75em;
+}
+/* list and table colors */
+.pink {
+ color: #ffabcb;
+}
 
- .blue {
-   color: #16fbf3;
-   font-size: 1.75em;
- }
+/*///////////// Form /////////////////*/
 
- .pink {
-   color: #ffabcb;
- }
-
-
- /*///////////// Form /////////////////*/
-
+/* form */
+button.button, form input.button, strong, label {
+  font-family: 'Liner';
+  font-size: large;
+  text-decoration: none;
+  font-weight: bold;
+  font-style: normal;
+  color: #ffdbcb;
+  text-shadow: 80px 80px 6px rgba(14,32,56, 1);
+}
 /* form field style */
- input {
-   background-color: black;
-   box-shadow: 80px 80px 6px rgba(14,32,56,.5);
-   font-family: 'Liner';
-   color: green;
-   font-weight: bold;
-   font-style: normal;
-   font-size: large;
-   margin-top: 6px;
-   margin-bottom: 6px;
- }
+input {
+ background-color: black;
+ box-shadow: 80px 80px 6px rgba(14,32,56,.5);
+ font-family: 'Liner';
+ color: green;
+ font-weight: bold;
+ font-style: normal;
+ font-size: large;
+ margin-top: 6px;
+ margin-bottom: 6px;
+}
 
- #password-label {
-   padding: 0;
- }
+#password-label {
+ padding: 0;
+}
 
- #password-input {
-   padding: 0;
- }
-
- .shadow {
-   box-shadow: 80px 80px 6px rgba(14,32,56,.5);
-   margin: 20px;
- }
+#password-input {
+ padding: 0;
+}
 
 /*///////////// Background //////////////*/
 
- body {
-   background: url("lion_background.jpg") no-repeat center fixed;
-   background-size: cover;
- }
+body {
+ background: url("lion_background.jpg") no-repeat center fixed;
+ background-size: cover;
+}
 
-/*///////////// Nav Bar  compare this to comp-font attributes //////////////////*/
+/*///////////// On hover style links //////////////////*/
 
- nav a:hover {
-    font-family: 'Liner';
-    color: #ffdbcb;
-    text-shadow: 80px 80px 6px rgba(14,32,56, 1);
-    font-weight: bold;
-    font-style: normal;
-    font-size: large;
-  }
-/* when mouse hovers over nav link it will change font */
-  ul.navigation {
-     background:#fff;
-  }
+nav a:hover, div #objective-links a:hover {
+  font-family: 'Liner';
+  color: honeydew;
+  text-shadow: 80px 80px 6px rgba(14,32,56, 1);
+  font-weight: bold;
+  font-style: normal;
+  font-size: large;
+}
 
-  ul.navigation li a  {
-     text-decoration:none;
-  }
+ul.navigation {
+   background:#fff;
+}
 
-  nav.navigation a.on {
-     background:yellow;
-     padding: 2px, 6px;
-  }
+ul.navigation li a  {
+   text-decoration:none;
+}
+
+nav.navigation a.on {
+   background: yellow;
+}
+
+.nav-link {
+ color: snow;
+}
 
 /*///////////// Table ////////////////*/
 
- .button {
-   background-color: Transparent;
-   background-repeat: no-repeat;
-   cursor: pointer;
-   overflow: hidden;
-   outline: none;
-   border: none;
-   padding: 6px 32px;
-   text-decoration: none;
-   display: inline-block;
-   font-size: 16px;
- }
+.button {
+ background-color: Transparent;
+ background-repeat: no-repeat;
+ cursor: pointer;
+ overflow: hidden;
+ outline: none;
+ border: none;
+ padding: 6px 32px;
+ text-decoration: none;
+ display: inline-block;
+ font-size: 16px;
+}
 
- .border {
-   border-bottom: 1px dashed #ffdbcb;
-   box-shadow: 80px 80px 6px rgba(14,32,56,.5);
- }
+.border {
+ border-bottom: 1px dashed #ffdbcb;
+ box-shadow: 80px 80px 6px rgba(14,32,56,.5);
+}
 
- .center {
-   text-align: center;
-   padding-left: 10px;
-   padding-right: 10px;
- }
+.center {
+ text-align: center;
+ padding-left: 10px;
+ padding-right: 10px;
+}
 
 /*/////////////// Display /////////////////*/
 
-/* how the tags mentioned will display */
- nav {
-   position: absolute;
-   left: 25px;
- }
+nav {
+ text-align: center;
+}
 
- #container {
-   position: relative;
-   top: 100px;
-   left: 450px;
-   width: 600px;
-   height: 600px;
-   float: left;
-   overflow: scroll;
- }
+#container {
+ position: relative;
+ padding-top: 50px;
+ padding-bottom: 50px;
+ left: 450px;
+ height: 100%;
+ float: left;
+ overflow: auto;
+}

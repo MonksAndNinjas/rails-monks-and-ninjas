@@ -4,11 +4,13 @@
 <% if @current_user %>
   <%= display_user_link %>
 
+    <%= link_to "Log Out", logout_path, method: :delete %>
+
+  <br></br>
+
   <% nested_attributes_keys.each do |attr| %>
     <%= display_nested_attribute_link(attr) %>
   <% end %>
-
-  <%= link_to "Log Out", logout_path, method: :delete %>
 <% else %>
 <!-- display links to sign up or log in if not logged in -->
   <%= display_sign_up %>

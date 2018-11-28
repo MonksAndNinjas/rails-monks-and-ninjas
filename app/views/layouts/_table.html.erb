@@ -5,10 +5,10 @@
     </tr>
   </thead>
   <tbody>
-<!-- creates label first / move out conditional -->
+<!-- creates labels first -->
     <tr>
       <% nested_attribute_keys.each do |key| %>
-        <% key = "quest_type" if key == "user_id" && controller_name == "objectives" %>
+        <% key = "quest_type" if quest_controller?(key) %>
         <td>
           <strong class="border pink">
             <%= proper_format(key) %>
@@ -19,9 +19,10 @@
 
     <% all_of_nested_attribute.each do |attribute| %>
       <tr>
-<!-- then returns value of key / move out these conditionals to validate helper -->
+<!-- then returns value of key -->
         <% nested_attribute_keys.each do |key| %>
           <td class="center">
+<!-- adjusts display of values depending on it's corresponding type of value -->
             <strong>
               <%=  attribute.quest_duration if valid_for_quests?(key) %>
               <%= attribute.payment if valid_for_subscriptions?(key) %>
@@ -32,7 +33,8 @@
 <!-- delete and edit -->
         <td>
           <%= display_edit_link?(attribute) %>
-          <%= link_to "X", "/#{user_attr_path(controller_name, attribute)}", method: :delete, data: { confirm: "Really?" }, class: "comp-font red"%>
+          <%= link_to "X", "/#{user_attr_path(controller_name, attribute)}",
+            method: :delete, data: { confirm: "Really?" }, class: "comp-font red"%>
         </td>
       </tr>
     <% end %>

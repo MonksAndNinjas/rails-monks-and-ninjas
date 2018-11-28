@@ -1,3 +1,4 @@
 <h1>Edit <%= @nested_attribute.name %></h1>
 
-<%= render partial: 'layouts/form', locals: { user: @current_user, :nested_attributes => @nested_attribute, :errors => flash[:messages] }  %>
+<%= render partial: 'layouts/form',
+  locals: { user: @current_user, :nested_attributes => @nested_attribute, :errors => flash[:messages] }  %>

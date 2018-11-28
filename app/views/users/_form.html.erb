@@ -2,7 +2,7 @@
 <div>
 
     <% if errors.kind_of?(Array) %>
-    <h2 class="shadow">
+      <h2>
         <%= pluralize(errors.count, "error") %>
         <%= "prohibited #{object.name} from being saved:" %>
       </h2>
@@ -14,7 +14,7 @@
         <% end %>
       </ul>
     <% elsif errors.kind_of?(String) %>
-    <h2 class="red shadow">
+    <h2 class="red">
       <%= errors %>
     </h2>
     <% end %>

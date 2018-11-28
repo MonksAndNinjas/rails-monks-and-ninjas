@@ -1,6 +1,6 @@
 <% if errors != nil %>
   <div>
-    <h2 class="shadow">
+    <h2>
       <%= pluralize(errors.count, "error") %>
       <%= "prohibited #{@current_user.name} from being saved:" %>
     </h2>
@@ -33,7 +33,7 @@
   <%= f.hidden_field :action, :value => "#{action_name}" %>
 
   <%= f.label :password, id: "password-label" %><br>
-  <%= f.password_field :password, placeholder: "enter password", id: "password-input" %>
+  <%= f.password_field :password, id: "password-input" %>
 <!-- what button displays based on type of form -->
   <% if action_name == "new" %>
     <%= f.submit "Create", class: "button" %>

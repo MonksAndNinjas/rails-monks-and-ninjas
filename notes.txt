@@ -13,9 +13,6 @@
   > What I want =>
                 Something for assisting in my day to day life.
 
-  > The feel =>
-            Latino Themes (photos, drawings, writings, etc). Weird contradictions and Spanish lingo mixed in.
-
   > Elements =>
             * To do list ---------- class: list ----------- attributes: name, family_members (divided by family members)
                         => Groceries list type for to do list where it has attributes: name, quantity

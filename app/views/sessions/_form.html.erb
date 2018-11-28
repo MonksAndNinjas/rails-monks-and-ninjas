@@ -1,17 +1,16 @@
 <% if errors != nil %>
 <div>
-  <h2 class="red shadow">
+  <h2 class="red">
     <%= errors %>
   </h2>
 </div>
 <% end %>
 
-
 <%= form_for User.new, url: login_path do |f| %>
-  <%= f.label :email, class: "shadow" %><br>
+  <%= f.label :email %><br>
   <%= f.text_field :email %><br>
 
-  <%= f.label :password, class: "shadow" %><br>
+  <%= f.label :password %><br>
   <%= f.password_field :password %>
 
   <br></br>

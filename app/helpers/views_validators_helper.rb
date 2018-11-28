@@ -1,5 +1,5 @@
 module ViewsValidatorsHelper
-#validates for views
+
   private
 #used for _list, _index, _form, and inspirations/show
   def valid_controller?(toggle_reason = nil)
@@ -10,18 +10,15 @@ module ViewsValidatorsHelper
       false
     when "quests"
       false
-
     when "objectives"
       return false unless toggle_reason == "objective_id"
       true
     when "inspirations"
       return true unless toggle_reason == "objective_id"
       false
-
     when "family_members"
       return true unless toggle_reason == "links" || toggle_reason == "objective_id"
       false
-
     when "disciplines"
       return true unless toggle_reason == "edit" || toggle_reason == "objective_id"
       false
@@ -63,5 +60,9 @@ module ViewsValidatorsHelper
 #for _form to not display label for ids
   def invalid_label?(key)
     !!(key == "id" || key == "objective_id" || key == "user_id")
+  end
+#for _table
+  def quest_controller?(key)
+    !!(key == "user_id" && controller_name == "objectives")
   end
 end

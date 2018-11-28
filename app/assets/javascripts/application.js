@@ -19,10 +19,10 @@
 // Makes the button in Inspirations#index transparent, making only the words visible
 
 function button_style(attr) {
-    var x = document.getElementById(attr);
-    if (x.style.display === "none") {
-        x.style.display = "block";
-    } else {
-        x.style.display = "none";
-    }
+  var x = document.getElementById(attr);
+  if (x.style.display === "none") {
+      x.style.display = "block";
+  } else {
+      x.style.display = "none";
+  }
 }
