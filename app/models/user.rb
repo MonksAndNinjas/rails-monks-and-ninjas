@@ -19,7 +19,7 @@ class User < ApplicationRecord
   validates :email, presence: true
   validates_format_of :email, with: /\A[^@\s]+@([^@\s]+\.)+[^@\s]+\z/
   validates :email, uniqueness: true
-  validates :password, presence: true
+  validates :password, presence: true, if: :password
 
   has_secure_password
 # maybe take advantage of using password confirmation for user editing and creating

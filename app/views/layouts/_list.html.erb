@@ -16,7 +16,7 @@
       <%= link_to show_svg('edit-icon.svg'), "/#{user_attr_path(controller_name, attr)}/edit" %>
       <%= link_to "X", "/#{user_attr_path(controller_name, attr)}",
         method: :delete, data: { confirm: "Really?" }, class: "comp-font red"%>
-    </div>
+    </div><br>
 
   <% else %>
 <!-- else make list for all of the nested_attribute's info no links -->

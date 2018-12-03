@@ -25,32 +25,33 @@ module RedirectHelper
     #set messages
     messages = user_errors(user) if !success
     #set appropriate path
-    path = user_params.keys[1]
+    #bind inspect.params
+    path = controller
     path = "#{action}_#{controller}"  if !success && controller == "users"
     path = "#{action}_#{controller}"  if !success && controller == "quests"
     path = "error_#{action}"  if !success && non_quest_attribute
 
     case path
 #first set of paths are for attribute index pages
-    when "family_member_attributes"
+    when "family_members"
       redirect_to user_family_members_path(user)
 
-    when "subscriptions_attributes"
+    when "subscriptions"
       redirect_to user_subscriptions_path(user)
 
-    when "priority_items_attributes"
+    when "priority_items"
       redirect_to user_priority_items_path(user)
 
-    when "disciplines_attributes"
+    when "disciplines"
       redirect_to user_disciplines_path(user)
 
-    when "inspirations_attributes"
+    when "inspirations"
       redirect_to user_inspirations_path(user)
 
-    when "quests_attributes"
+    when "quests"
       redirect_to user_objectives_path(user)
 
-    when "family_members_attributes"
+    when "family_members"
       redirect_to user_family_members_path(user)
 #next set of paths are for invalid update to user for quests new and edit
     when "new_quests"

@@ -1,9 +1,7 @@
 <h1><%= proper_format(controller_name) %></h1>
 
 <%= render partial: "layouts/#{list_or_table}",
-  locals: { all_of_nested_attribute: @all_of_nested_attribute } unless @all_of_nested_attribute.blank? %>
-
-<br></br>
+  locals: { all_of_nested_attribute: @all_of_nested_attribute } unless @all_of_nested_attribute.blank? %><br>
 
 
 <%= link_to "+", "/#{users_path}/#{controller_name}/new", class: "comp-font blue" if valid_controller? %>
