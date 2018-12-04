@@ -11,6 +11,8 @@ Rails.application.routes.draw do
 
   get '/auth/facebook/callback' => 'sessions#create'
 
+  get '/oldest_family_member', to: 'users#oldest'
+
   resources :users do
     resources :family_members
     resources :subscriptions

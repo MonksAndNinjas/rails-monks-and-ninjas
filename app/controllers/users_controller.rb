@@ -18,6 +18,9 @@ class UsersController < ApplicationController
   def edit
   end
 
+  def oldest
+  end
+
   def update
     flash[:messages]
     redirect_updated_user(@current_user, user_params)

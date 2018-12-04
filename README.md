@@ -18,7 +18,7 @@ Make sure to read notes in all files and primary code for views will be in layou
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/MonksAndNinjas/monks-and-ninjas-sinatra. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/MonksAndNinjas/rails-monks-and-ninjas. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
 ## License
 
