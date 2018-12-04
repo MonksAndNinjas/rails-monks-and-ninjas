@@ -1,13 +1,13 @@
 class ApplicationController < ActionController::Base
-# do I need forgery protection
+#do I need forgery protection
   before_action :current_user
   before_action :require_login, except: [:home]
-# how to include all helpers in one command
+#how to include all helpers in one command
   include DeleteHelper
   include RedirectHelper
   include LoginHelper
   include UserParamsHelper
-# all of the crud options are listed here for nested_attributes
+#all of the crud options are listed here for nested_attributes
   def index
     set_model_for(controller_name)
     @all_of_nested_attribute = @current_user.send(@model)
@@ -37,7 +37,6 @@ class ApplicationController < ActionController::Base
 #for show and edit views
   def find_nested_attribute
     controller_name.singularize.camelize.constantize.find_by(id: params[:id])
-    #maybe can be turned into scope method
   end
 #for priority itmes, only 3 items can be created
   def reached_item_limit?
@@ -47,7 +46,7 @@ class ApplicationController < ActionController::Base
   def set_model_for(controller_name)
 
     @model = controller_name
-    #filters
+#filters
     case @model
 
     when "quests"

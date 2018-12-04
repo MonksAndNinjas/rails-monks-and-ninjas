@@ -8,10 +8,10 @@ class SessionsController < ApplicationController
 
   def create
     if auth_hash = request.env["omniauth.auth"]
-      # user logs in or signs up via facebook
+#user logs in or signs up via facebook
       omniauth_login_path(auth_hash)
     else
-      # user logs in normal route
+#user logs in normal route
       normal_login_path(params)
     end
   end

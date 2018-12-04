@@ -4,16 +4,16 @@ module DeleteHelper
 #assists in deleting object belonging to nested_attribute model
   def find_and_delete_using(id, controller, path)
     case controller
-    #filters
+#filters
     when "objectives"
       controller = "quests"
     when "quests"
       path = "objectives"
     end
-    #set
+#set
     model = controller.singularize.camelize.constantize
     model.find(id).destroy
-    #redirect
+#redirect
     return redirect_to(controller: "#{path}", action: 'index')
   end
 end

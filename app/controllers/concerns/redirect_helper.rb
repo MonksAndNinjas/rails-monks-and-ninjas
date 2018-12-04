@@ -18,14 +18,13 @@ module RedirectHelper
 
 #handles redirects after creations or edits of nested attributes or user
   def redirect_updated_user(user, user_params)
-    #store update result
+#store update result
     success = user.update(user_params)
-    #set action
+#set action
     action = params[:user][:action]
-    #set messages
+#set messages
     messages = user_errors(user) if !success
-    #set appropriate path
-    #bind inspect.params
+#set appropriate path
     path = controller
     path = "#{action}_#{controller}"  if !success && controller == "users"
     path = "#{action}_#{controller}"  if !success && controller == "quests"

@@ -2,6 +2,6 @@
 <!-- short or long quest? -->
 <div id="objective-links">
   <% @objectives.each do |objective| %>
-    <%= link_to objective.type, new_user_objective_quest_path(@current_user, objective), class: "scratch-font" %><br>
+    <%= link_to objective.type, new_user_objective_quest_path(@current_user, objective) %><br>
     <% end %>
 </div>

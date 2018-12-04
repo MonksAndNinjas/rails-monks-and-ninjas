@@ -1,5 +1,5 @@
 module UserParamsHelper
-  #all of user's permittable attributes
+#all of user's permittable attributes
   private
 
   def user_params

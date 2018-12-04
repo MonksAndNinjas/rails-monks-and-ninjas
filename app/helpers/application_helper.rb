@@ -19,7 +19,7 @@ module ApplicationHelper
   end
 #assist objective and quests edit link
   def double_nested_route(attribute)
-    #figure out how to make it not dependent of objective_id, the abstract version of it
+#figure out how to make it not dependent of objective_id, the abstract version of it
     "/#{users_path}/#{controller_name}/#{attribute.objective_id}/#{attribute.class.to_s.downcase.pluralize}/#{edit_path(attribute)}"
   end
 #assist inspirations and family members edit link

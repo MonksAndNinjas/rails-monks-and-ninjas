@@ -5,7 +5,7 @@
 
 ########## What's Next? ###########
 
-  => Add seed data
+  * Finished for now *
 
 ######## App Information ##########
 
