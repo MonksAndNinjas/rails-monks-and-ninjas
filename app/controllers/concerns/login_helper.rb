@@ -20,7 +20,7 @@ module LoginHelper
 #redirects to /login if not a valid user
     session[:user_id] = user.id
 
-    redirect_to user
+    redirect_to root_url
   end
 #below is for before_action :require_login
   def logged_in?

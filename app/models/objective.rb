@@ -5,6 +5,6 @@ class Objective < ApplicationRecord
   validates :duration, presence: true
 #for displaying in objectives#index short or long quest
   def type
-    "Go on #{duration.capitalize} Quest"
+    "#{duration.capitalize} Quest"
   end
 end

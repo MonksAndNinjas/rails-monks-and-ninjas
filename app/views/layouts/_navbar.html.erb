@@ -1,19 +1,15 @@
-<!-- always display home and set proper font -->
-<%= display_home_link %>
+<div id="logo">
+  <%= link_to show_svg('lifetitle.svg'), root_url %>
+</div>
 
 <% if @current_user %>
-  <%= display_user_link %>
 
+<div class="dropdown">
+  <%= show_svg('profile.svg') %>
+  <div class="dropdown-content">
+    <a href="/users/<%= @current_user.id %>">Profile Page</a>
     <%= link_to "Log Out", logout_path, method: :delete %>
+  </div>
+</div>
 
-  <br></br>
-
-  <% nested_attributes_keys.each do |attr| %>
-    <%= display_nested_attribute_link(attr) %>
-  <% end %>
-<% else %>
-<!-- display links to sign up or log in if not logged in -->
-  <%= display_sign_up %>
-
-  <%= display_log_in %>
 <% end %>

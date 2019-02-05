@@ -7,9 +7,9 @@ module CreateLinksHelper
   end
 #edit link
   def display_edit_link?(attribute)
-    return link_to show_svg('edit-icon.svg'), double_nested_route(attribute) if valid_controller?("objective_id")
+    return link_to "E", double_nested_route(attribute) if valid_controller?("objective_id")
 
-    return link_to show_svg('edit-icon.svg'), single_nested_route(attribute) if valid_controller?("edit")
+    return link_to "E", single_nested_route(attribute) if valid_controller?("edit")
   end
 #show link
   def display_nested_attribute?(inspiration_attribute, attribute)

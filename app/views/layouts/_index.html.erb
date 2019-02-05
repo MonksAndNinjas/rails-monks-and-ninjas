@@ -1,7 +1,29 @@
-<h1><%= proper_format(controller_name) %></h1>
+<div class="container">
+  <%= show_svg('content_section.svg') %>
 
-<%= render partial: "layouts/#{list_or_table}",
-  locals: { all_of_nested_attribute: @all_of_nested_attribute } unless @all_of_nested_attribute.blank? %><br>
+  <div class="title">
+    <h1><%= proper_format(controller_name) %></h1>
+  </div>
 
+  <section>
+    <%= render partial: "layouts/#{list_or_table}",
+      locals: { all_of_nested_attribute: @all_of_nested_attribute } unless @all_of_nested_attribute.blank? %><br>
+  </section>
 
-<%= link_to "+", "/#{users_path}/#{controller_name}/new", class: "comp-font blue" if valid_controller? %>
+  <div class="actions">
+    <%= link_to "+", "/#{users_path}/#{controller_name}/new", class: "comp-font blue" if valid_controller? %>
+
+    <%= link_to "+", "/#{users_path}/#{controller_name}/new", class: "comp-font blue" if controller_name == "priority_items" %>
+
+<% if controller_name == "quests" %>
+
+    <div id="objective-links">
+      <% @objectives.each do |objective| %>
+          <%= link_to objective.type, new_user_objective_quest_path(@current_user, objective) %>
+      <% end %>
+    </div>
+<% end %>
+
+  </div>
+
+</div>

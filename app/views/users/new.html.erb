@@ -1,9 +1,17 @@
-<h1>Create Profile</h1>
+<div class="container">
+  <%= show_svg('content_section.svg') %>
 
-<%= render partial: 'form', locals: { object: @user, url: url = signup_path, :errors => flash[:messages] } %>
+  <div class="title">
+    <h1>Create Profile</h1>
+  </div>
 
-<br></br>
+  <section>
+    <%= render partial: 'form', locals: { object: @user, url: url = signup_path, :errors => flash[:messages] } %>
+  </section>
 
-<span class="comp-font">or,</span><br>
-
-<%= link_to 'Sign up with Facebook!', '/auth/facebook', class: "comp-font" %>
+  <div class="facebook">
+    <span>Sign up with<br>
+    <%= link_to 'Facebook!', '/auth/facebook', class: "comp-font" %><br>
+    or,</span>
+  </div>
+</div>

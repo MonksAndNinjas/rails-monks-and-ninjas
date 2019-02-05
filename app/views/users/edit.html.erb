@@ -1,4 +1,12 @@
-<h1>Edit Profile</h1>
+<div class="container">
+  <%= show_svg('content_section.svg') %>
 
-<%= render partial: 'form',
-  locals: { object: @current_user, url: url = @current_user, :errors => flash[:messages] } %>
+  <div class="title">
+    <h1>Edit Profile</h1>
+  </div>
+
+  <section>
+    <%= render partial: 'form',
+      locals: { object: @current_user, url: url = @current_user, :errors => flash[:messages] } %>
+  </section>
+</div>

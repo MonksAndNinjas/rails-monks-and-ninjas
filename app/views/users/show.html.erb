@@ -1,11 +1,22 @@
-<h1><%= @current_user.display_name %></h1><br>
+<div class="profile_page">
 
-<strong class="comp-font"><span class="pink">Born</span> on <span class="pink"><%= @current_user.birthday %></span> and is now <span class="pink"><%= @current_user.age %></span> yesars old!</strong>
-<!-- clean this up -->
-<br></br>
+<%= show_svg('profile_page.svg') %>
 
-<strong class="comp-font pink"><%= @current_user.email %></strong>
+  <div id="name">
+    <p>Hey <%= @current_user.display_name %>,<br>what are you up to today?!</p><br>
+  </div>
 
-<br></br>
+  <div id="email">
+    <p><%= @current_user.email %><br>Use that to contact me.</p>
+  </div>
 
-<%= link_to show_svg('edit-icon.svg'), edit_user_url %><br>
+  <div id="birthday">
+    <p>You were born on<br><%= @current_user.birthday %><br> so that makes you <br><%= @current_user.age %> years old!<br>
+    It's kinda weird<br> that you're here<br>isn't it?</p>
+  </div>
+
+  <div id="user-edit">
+    <%= link_to show_svg('edit-icon.svg'), edit_user_url %>
+  </div>
+
+</div>

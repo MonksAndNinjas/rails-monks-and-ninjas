@@ -1,11 +1,9 @@
 ############# Rails Monks and Ninjas Project #################
 
 
-
-
 ########## What's Next? ###########
 
-  * Finished for now *
+  =>  Change life manager logo
 
 ######## App Information ##########
 

@@ -1,9 +1,16 @@
-<h1>Log In</h1>
+<div class="container">
+  <%= show_svg('content_section.svg') %>
 
-<%= render partial: 'form', locals: {:errors => flash[:messages] } %>
+  <div class="title">
+    <h1>Log In</h1>
+  </div>
 
-<br></br>
+  <section>
+    <%= render partial: 'form', locals: {:errors => flash[:messages] } %>
+  </section>
 
-<span class="comp-font">or,</span><br>
-
-<%= link_to 'Log in with Facebook!', '/auth/facebook', class: "comp-font" %>
+  <div class="facebook">
+    <span>Log in with<br>
+    <%= link_to 'Facebook!', '/auth/facebook', class: "comp-font" %><br>
+    or,</span>
+</div>

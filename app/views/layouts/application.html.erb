@@ -11,13 +11,15 @@
   </head>
 
   <body>
-    <nav>
-      <%= render partial: "layouts/navbar" %>
-    </nav>
+    <header>
+        <%= render partial: "layouts/navbar" %>
+    </header>
 
-    <div id="container">
+    <main>
       <%= yield %>
-    </div>
+    </main>
 
+    <footer>
+    </footer>
   </body>
 </html>

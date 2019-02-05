@@ -13,9 +13,11 @@
         </ul>
       <% end %>
 
-      <%= link_to show_svg('edit-icon.svg'), "/#{user_attr_path(controller_name, attr)}/edit" %>
-      <%= link_to "X", "/#{user_attr_path(controller_name, attr)}",
-        method: :delete, data: { confirm: "Really?" }, class: "comp-font red"%>
+      <div id="inspiration-links" style="display: inline-flex; height: 2em;">
+        <%= link_to "E", "/#{user_attr_path(controller_name, attr)}/edit" %>
+        <%= link_to "X", "/#{user_attr_path(controller_name, attr)}",
+          method: :delete, data: { confirm: "Really?" }, class: "comp-font red"%>
+      </div>
     </div><br>
 
   <% else %>
@@ -32,7 +34,8 @@
       <% end %>
 
 <!-- delete and edit -->
-      <%= link_to show_svg('edit-icon.svg'),
+
+      <%= link_to "E",
         "/#{user_attr_path(controller_name, attr)}/edit" if valid_controller?("edit") %>
       <%= link_to "X", "/#{user_attr_path(controller_name, attr)}",
         method: :delete, data: { confirm: "Really?" }, class: "comp-font red"%>
