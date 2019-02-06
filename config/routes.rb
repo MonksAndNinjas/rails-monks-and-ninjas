@@ -23,4 +23,7 @@ Rails.application.routes.draw do
       resources :quests
     end
   end
+
+  get '/users/:id/my_life', to: 'users#my_life'
+
 end

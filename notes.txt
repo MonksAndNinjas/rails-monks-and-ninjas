@@ -4,6 +4,7 @@
 ########## What's Next? ###########
 
   =>  Change life manager logo
+  =>  It's still changing password when editing user profile
 
 ######## App Information ##########
 

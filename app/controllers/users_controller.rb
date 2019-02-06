@@ -25,4 +25,9 @@ class UsersController < ApplicationController
     flash[:messages]
     redirect_updated_user(@current_user, user_params)
   end
+
+  def my_life
+    user = User.find(params[:id])
+    render json: user.to_json(include: [ :subscriptions, :family_members, :inspirations, :disciplines, :quests, :priority_items ])
+  end
 end
