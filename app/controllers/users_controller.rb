@@ -28,6 +28,6 @@ class UsersController < ApplicationController
 
   def my_life
     user = User.find(params[:id])
-    render json: user.to_json(include: [ :subscriptions, :family_members, :inspirations, :disciplines, :quests, :priority_items ])
+    render json: user, status: 200
   end
 end
