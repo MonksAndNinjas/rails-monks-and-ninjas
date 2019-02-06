@@ -3,4 +3,5 @@ class UserSerializer < ActiveModel::Serializer
   has_many :subscriptions
   has_many :family_members
   has_many :disciplines
+  has_many :inspirations
 end
