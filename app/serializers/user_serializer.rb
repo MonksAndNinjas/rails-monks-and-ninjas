@@ -4,4 +4,5 @@ class UserSerializer < ActiveModel::Serializer
   has_many :family_members
   has_many :disciplines
   has_many :inspirations
+  has_many :quests
 end
