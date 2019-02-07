@@ -14,7 +14,8 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
-
+//= require jquery
+//= require jquery_ujs
 
 // Makes the button in Inspirations#index transparent, making only the words visible
 
