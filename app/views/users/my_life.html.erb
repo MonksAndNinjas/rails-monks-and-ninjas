@@ -14,7 +14,19 @@ $(function () {
     var id = $(this).data("id");
 
     $.getJSON("/users/" + id + "/user_data", function(data) {
-      console.log(data[`${attr}`]);
+      var data_attr = $(data).attr(`${attr}`);
+
+
+      data_attr.forEach(function(item, index, arr) {
+        if (item.name) {
+          console.log(item.name);
+        } else if (item.title) {
+          console.log(item.title);
+        } else if (item.source) {
+          console.log(item.source);
+        }
+      });
+
     });
   });
 });
