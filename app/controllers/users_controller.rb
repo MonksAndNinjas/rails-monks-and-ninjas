@@ -1,9 +1,6 @@
 class UsersController < ApplicationController
   skip_before_action :require_login, except: [:show, :edit, :update]
 
-  def index
-  end
-
   def new
     flash[:messages]
     @user = User.new
@@ -29,8 +26,11 @@ class UsersController < ApplicationController
     redirect_updated_user(@current_user, user_params)
   end
 
-  def my_life
+  def user_data
     user = User.find(params[:id])
     render json: user, status: 200
+  end
+
+  def my_life
   end
 end
