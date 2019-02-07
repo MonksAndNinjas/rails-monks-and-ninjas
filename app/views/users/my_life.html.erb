@@ -7,6 +7,11 @@
   <div><a href="#" class="attr" name="family_members" data-id="<%= @current_user.id %>">Family Members</a></div>
 </div>
 
+<h1 class="attr-title"></h1>
+
+<section id="attr-body">
+</section>
+
 <script type="text/javascript" charset="utf-8">
 $(function () {
   $(".attr").on("click", function() {
@@ -15,18 +20,19 @@ $(function () {
 
     $.getJSON("/users/" + id + "/user_data", function(data) {
       var data_attr = $(data).attr(`${attr}`);
-
+      var body_array = [];
 
       data_attr.forEach(function(item, index, arr) {
         if (item.name) {
-          console.log(item.name);
+          body_array.push(item.name);
         } else if (item.title) {
-          console.log(item.title);
+          body_array.push(item.title);
         } else if (item.source) {
-          console.log(item.source);
+          body_array.push(item.source);
         }
       });
 
+      console.log(body_array);
     });
   });
 });
