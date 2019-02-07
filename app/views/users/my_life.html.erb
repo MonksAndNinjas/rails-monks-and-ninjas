@@ -1,16 +1,16 @@
 <div>
   <div><a href="#" class="attr" data-id="<%= @current_user %>">Subscriptions</a></div>
-  <div><%= link_to 'Inspirations', user_inspirations_path(@current_user) %></div>
-  <div><%= link_to 'Priorities', user_priority_items_path(@current_user) %></div>
-  <div><%= link_to 'Discipline', user_disciplines_path(@current_user) %></div>
-  <div><%= link_to 'Quests', user_objectives_path(@current_user) %></div>
-  <div><%= link_to 'Family Members', user_family_members_path(@current_user) %></div>
+  <div><a href="#" class="attr" data-id="<%= @current_user %>">Inspirations</a></div>
+  <div><a href="#" class="attr" data-id="<%= @current_user %>">Priorities</a></div>
+  <div><a href="#" class="attr" data-id="<%= @current_user %>">Disciplines</a></div>
+  <div><a href="#" class="attr" data-id="<%= @current_user %>">Quests</a></div>
+  <div><a href="#" class="attr" data-id="<%= @current_user %>">Family Members</a></div>
 </div>
 
 <script type="text/javascript" charset="utf-8">
 $(function () {
-  $("#subscriptions").on("click", function() {
-
+  $(".attr").on("click", function() {
+    console.log(this);
   });
 });
 </script>
