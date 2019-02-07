@@ -25,5 +25,6 @@ Rails.application.routes.draw do
   end
 
   get '/users/:id/my_life', to: 'users#my_life'
+  get '/users/:id/user_data', to: 'users#user_data'
 
 end
