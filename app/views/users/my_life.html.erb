@@ -1,19 +1,20 @@
 <div>
-  <div><a href="#" class="attr" data-id="<%= @current_user.id %>">Subscriptions</a></div>
-  <div><a href="#" class="attr" data-id="<%= @current_user.id %>">Inspirations</a></div>
-  <div><a href="#" class="attr" data-id="<%= @current_user.id %>">Priorities</a></div>
-  <div><a href="#" class="attr" data-id="<%= @current_user.id %>">Disciplines</a></div>
-  <div><a href="#" class="attr" data-id="<%= @current_user.id %>">Quests</a></div>
-  <div><a href="#" class="attr" data-id="<%= @current_user.id %>">Family Members</a></div>
+  <div><a href="#" class="attr" name="subscriptions" data-id="<%= @current_user.id %>">Subscriptions</a></div>
+  <div><a href="#" class="attr" name="inspirations" data-id="<%= @current_user.id %>">Inspirations</a></div>
+  <div><a href="#" class="attr" name="priority_items" data-id="<%= @current_user.id %>">Priorities</a></div>
+  <div><a href="#" class="attr" name="disciplines" data-id="<%= @current_user.id %>">Disciplines</a></div>
+  <div><a href="#" class="attr" name="quests" data-id="<%= @current_user.id %>">Quests</a></div>
+  <div><a href="#" class="attr" name="family_members" data-id="<%= @current_user.id %>">Family Members</a></div>
 </div>
 
 <script type="text/javascript" charset="utf-8">
 $(function () {
   $(".attr").on("click", function() {
+    var attr = $(this).attr("name");
     var id = $(this).data("id");
+
     $.getJSON("/users/" + id + "/user_data", function(data) {
-      // Replace text of body-id div
-      console.log(data);
+      console.log(data[`${attr}`]);
     });
   });
 });
