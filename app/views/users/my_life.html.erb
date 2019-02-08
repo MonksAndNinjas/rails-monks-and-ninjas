@@ -30,7 +30,6 @@ $(function () {
           $('section').append(`<a href="#" id="${attr}-${item.id}">${item.name}</a><br>`);
 
           document.getElementById(`${attr}-${item.id}`).addEventListener("click", function() {
-
             $.getJSON(`/${attr}/` + `${item.id}` + `/${attr}_data`, function (data) {
               console.log(data);
             });
@@ -40,14 +39,20 @@ $(function () {
           $('section').append(`<a href="#" id="${attr}-${item.id}">${item.title}</a><br>`);
 
           document.getElementById(`${attr}-${item.id}`).addEventListener("click", function() {
-            console.log(this);
+            $.getJSON(`/${attr}/` + `${item.id}` + `/${attr}_data`, function (data) {
+              console.log(data);
+            });
           });
+
         } else if (item.source) {
           $('section').append(`<a href="#" id="${attr}-${item.id}">${item.source}</a><br>`);
 
           document.getElementById(`${attr}-${item.id}`).addEventListener("click", function() {
-            console.log(this);
+            $.getJSON(`/${attr}/` + `${item.id}` + `/${attr}_data`, function (data) {
+              console.log(data);
+            });
           });
+          
         }
       });
 
