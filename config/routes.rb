@@ -26,5 +26,6 @@ Rails.application.routes.draw do
 
   get '/users/:id/my_life', to: 'users#my_life'
   get '/users/:id/user_data', to: 'users#user_data'
+  get '/subscription/:id/sub_data', to: 'subscriptions#sub_data'
 
 end
