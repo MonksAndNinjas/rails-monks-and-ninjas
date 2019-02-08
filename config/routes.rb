@@ -29,5 +29,6 @@ Rails.application.routes.draw do
   get '/family_members/:id/family_members_data', to: 'family_members#family_members_data'
   get '/subscriptions/:id/subscriptions_data', to: 'subscriptions#subscriptions_data'
   get '/priority_items/:id/priority_items_data', to: 'priority_items#priority_items_data'
+  get '/disciplines/:id/disciplines_data', to: 'disciplines#disciplines_data'
 
 end
