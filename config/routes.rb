@@ -31,5 +31,6 @@ Rails.application.routes.draw do
   get '/priority_items/:id/priority_items_data', to: 'priority_items#priority_items_data'
   get '/disciplines/:id/disciplines_data', to: 'disciplines#disciplines_data'
   get '/inspirations/:id/inspirations_data', to: 'inspirations#inspirations_data'
+  get '/quests/:id/quests_data', to: 'quests#quests_data'
 
 end
