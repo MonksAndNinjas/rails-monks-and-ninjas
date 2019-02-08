@@ -28,10 +28,22 @@ $(function () {
       data_attr.forEach(function(item, index, arr) {
         if (item.name) {
           $('section').append(`<a href="#" id="${attr}-${item.id}">${item.name}</a><br>`);
+
+          document.getElementById(`${attr}-${item.id}`).addEventListener("click", function() {
+            console.log(this);
+          });
         } else if (item.title) {
           $('section').append(`<a href="#" id="${attr}-${item.id}">${item.title}</a><br>`);
+
+          document.getElementById(`${attr}-${item.id}`).addEventListener("click", function() {
+            console.log(this);
+          });
         } else if (item.source) {
           $('section').append(`<a href="#" id="${attr}-${item.id}">${item.source}</a><br>`);
+
+          document.getElementById(`${attr}-${item.id}`).addEventListener("click", function() {
+            console.log(this);
+          });
         }
       });
 
