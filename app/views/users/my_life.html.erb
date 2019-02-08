@@ -30,8 +30,12 @@ $(function () {
           $('section').append(`<a href="#" id="${attr}-${item.id}">${item.name}</a><br>`);
 
           document.getElementById(`${attr}-${item.id}`).addEventListener("click", function() {
-            console.log(this);
+
+            $.getJSON(`/${attr}/` + `${item.id}` + `/${attr}_data`, function (data) {
+              console.log(data);
+            });
           });
+
         } else if (item.title) {
           $('section').append(`<a href="#" id="${attr}-${item.id}">${item.title}</a><br>`);
 
