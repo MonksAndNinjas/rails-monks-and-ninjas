@@ -4,6 +4,6 @@ class UserSerializer < ActiveModel::Serializer
   has_many :family_members, serializer: UserFamilyMemberSerializer
   has_many :disciplines, serializer: UserDisciplineSerializer
   has_many :inspirations, serializer: UserInspirationSerializer
-  has_many :quests
+  has_many :quests, serializer: UserQuestSerializer
   has_many :priority_items, serializer: UserPriorityItemSerializer
 end

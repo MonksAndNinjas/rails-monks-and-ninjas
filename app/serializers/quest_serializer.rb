@@ -1,4 +1,3 @@
 class QuestSerializer < ActiveModel::Serializer
-  attributes :id, :title
-  belongs_to :user
+  attributes :description
 end
