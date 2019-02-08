@@ -20,23 +20,20 @@ $(function () {
 
     $.getJSON("/users/" + id + "/user_data", function(data) {
       var data_attr = $(data).attr(`${attr}`);
-      var body_array = [];
-
-      data_attr.forEach(function(item, index, arr) {
-        if (item.name) {
-          body_array.push(item.name);
-        } else if (item.title) {
-          body_array.push(item.title);
-        } else if (item.source) {
-          body_array.push(item.source);
-        }
-      });
 
       $('section').html('');
       $('.attr-title').html(`${attr}`);
-      body_array.forEach(function(item, index, arr) {
-        $('section').append(`<p>${item}</p>`);
+
+      data_attr.forEach(function(item, index, arr) {
+        if (item.name) {
+          $('section').append(`<a href="#" id="${attr}-${item.id}">${item.name}</a>`);
+        } else if (item.title) {
+          $('section').append(`<a href="#" id="${attr}-${item.id}">${item.title}</a>`);
+        } else if (item.source) {
+          $('section').append(`<a href="#" id="${attr}-${item.id}">${item.source}</a>`);
+        }
       });
+
     });
   });
 });
