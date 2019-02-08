@@ -32,7 +32,11 @@ $(function () {
         }
       });
 
-      console.log(body_array);
+      $('section').html('');
+
+      body_array.forEach(function(item, index, arr) {
+        $('section').append(`<p>${item}</p>`);
+      });
     });
   });
 });
