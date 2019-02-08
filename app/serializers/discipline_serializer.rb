@@ -1,4 +1,3 @@
 class DisciplineSerializer < ActiveModel::Serializer
-  attributes :id, :title
-  belongs_to :user
+  attributes :content, :duration
 end
