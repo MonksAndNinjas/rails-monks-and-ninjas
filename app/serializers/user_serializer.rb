@@ -5,5 +5,5 @@ class UserSerializer < ActiveModel::Serializer
   has_many :disciplines
   has_many :inspirations
   has_many :quests
-  has_many :priority_items
+  has_many :priority_items, serializer: UserPriorityItemSerializer
 end
