@@ -1,4 +1,4 @@
 class PriorityItemSerializer < ActiveModel::Serializer
-  attributes :id, :title, :description
+  attributes :id, :title
   belongs_to :user
 end

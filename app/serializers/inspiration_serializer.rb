@@ -1,4 +1,4 @@
 class InspirationSerializer < ActiveModel::Serializer
-  attributes :id, :source, :image, :link, :video, :content, :about
+  attributes :id, :source
   belongs_to :user
 end

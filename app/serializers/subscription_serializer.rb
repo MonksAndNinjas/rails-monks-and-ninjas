@@ -1,4 +1,4 @@
 class SubscriptionSerializer < ActiveModel::Serializer
-  attributes :id, :name, :amount, :due_day
+  attributes :id, :name
   belongs_to :user
 end
