@@ -33,7 +33,7 @@ $(function () {
       });
 
       $('section').html('');
-
+      $('.attr-title').html(`${attr}`);
       body_array.forEach(function(item, index, arr) {
         $('section').append(`<p>${item}</p>`);
       });
