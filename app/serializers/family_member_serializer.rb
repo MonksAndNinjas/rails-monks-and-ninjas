@@ -1,4 +1,3 @@
 class FamilyMemberSerializer < ActiveModel::Serializer
-  attributes :id, :name
-  belongs_to :user
+  attributes :location, :birthdate, :relationship, :contact, :relationship_status
 end
