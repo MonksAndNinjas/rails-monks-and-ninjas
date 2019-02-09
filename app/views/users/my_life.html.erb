@@ -16,18 +16,7 @@
 <script type="text/javascript" charset="utf-8">
 $(function () {
   $(".attr").on("click", function() {
-    var attr = $(this).attr("name");
-    var id = $(this).data("id");
-
-    $.getJSON("/users/" + id + "/user_data", function(data) {
-      var data_attr = $(data).attr(`${attr}`);
-
-      $('section').html('');
-      $('ul').html('');
-      $('.attr-title').html(`${attr}`);
-
-      getData(data_attr, attr);
-    });
+    getUserData(this);
   });
 });
 </script>

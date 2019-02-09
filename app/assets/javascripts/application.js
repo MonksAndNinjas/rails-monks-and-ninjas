@@ -17,21 +17,37 @@
 //= require jquery
 //= require jquery_ujs
 
-// Retrieves data and adds listeners
+// Retrieves user data
+function getUserData (user_data) {
+  var attr = $(user_data).attr("name");
+  var id = $(user_data).data("id");
+
+  $.getJSON("/users/" + id + "/user_data", function(data) {
+    var data_attr = $(data).attr(`${attr}`);
+
+    $('section').html('');
+    $('ul').html('');
+    $('.attr-title').html(`${attr}`);
+
+    getData(data_attr, attr);
+  });
+}
+
+// Retrieves attr data and adds listeners
 function getData (data_attr, attr) {
   data_attr.forEach(function(item, index, arr) {
     if (item.name) {
       appendTitle(attr, item.name, item.id);
-
       addListener(attr, item);
+
     } else if (item.title) {
       appendTitle(attr, item.title, item.id);
-
       addListener(attr, item);
+
     } else if (item.source) {
       appendTitle(attr, item.source, item.id);
-
       addListener(attr, item);
+
     }
   });
 }
