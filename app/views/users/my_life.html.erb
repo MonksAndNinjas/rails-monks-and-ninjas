@@ -11,7 +11,7 @@
 
 <section></section>
 
-<div class="attr-body"></div>
+<ul class="attr-body"></ul>
 
 <script type="text/javascript" charset="utf-8">
 $(function () {
@@ -23,6 +23,7 @@ $(function () {
       var data_attr = $(data).attr(`${attr}`);
 
       $('section').html('');
+      $('ul').html('');
       $('.attr-title').html(`${attr}`);
 
       data_attr.forEach(function(item, index, arr) {
@@ -31,8 +32,10 @@ $(function () {
 
           document.getElementById(`${attr}-${item.id}`).addEventListener("click", function() {
             $.getJSON(`/${attr}/` + `${item.id}` + `/${attr}_data`, function (data) {
+              $('ul').html('');
+
               $.each(data, function( index, value ) {
-                console.log( index + ":" + value );
+                $('ul').append(`<li>${index}: ${value}</li>`);
               });
             });
           });
@@ -42,8 +45,10 @@ $(function () {
 
           document.getElementById(`${attr}-${item.id}`).addEventListener("click", function() {
             $.getJSON(`/${attr}/` + `${item.id}` + `/${attr}_data`, function (data) {
+              $('ul').html('');
+
               $.each(data, function( index, value ) {
-                console.log( index + ":" + value );
+                $('ul').append(`<li>${index}: ${value}</li>`);
               });
             });
           });
@@ -53,8 +58,10 @@ $(function () {
 
           document.getElementById(`${attr}-${item.id}`).addEventListener("click", function() {
             $.getJSON(`/${attr}/` + `${item.id}` + `/${attr}_data`, function (data) {
+              $('ul').html('');
+
               $.each(data, function( index, value ) {
-                console.log( index + ":" + value );
+                $('ul').append(`<li>${index}: ${value}</li>`);
               });
             });
           });
