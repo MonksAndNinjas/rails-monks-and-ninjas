@@ -34,9 +34,7 @@ $(function () {
             $.getJSON(`/${attr}/` + `${item.id}` + `/${attr}_data`, function (data) {
               $('ul').html('');
 
-              $.each(data, function( index, value ) {
-                $('ul').append(`<li>${index}: ${value}</li>`);
-              });
+              appendContent(data);
             });
           });
 
@@ -47,9 +45,7 @@ $(function () {
             $.getJSON(`/${attr}/` + `${item.id}` + `/${attr}_data`, function (data) {
               $('ul').html('');
 
-              $.each(data, function( index, value ) {
-                $('ul').append(`<li>${index}: ${value}</li>`);
-              });
+              appendContent(data);
             });
           });
 
@@ -60,9 +56,7 @@ $(function () {
             $.getJSON(`/${attr}/` + `${item.id}` + `/${attr}_data`, function (data) {
               $('ul').html('');
 
-              $.each(data, function( index, value ) {
-                $('ul').append(`<li>${index}: ${value}</li>`);
-              });
+              appendContent(data);
             });
           });
 

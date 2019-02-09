@@ -17,8 +17,15 @@
 //= require jquery
 //= require jquery_ujs
 
-// Makes the button in Inspirations#index transparent, making only the words visible
 
+// Appends attr content into ul tag of my_life.html.erb
+function appendContent(data) {
+  $.each(data, function( index, value ) {
+    $('ul').append(`<li>${index}: ${value}</li>`);
+  });
+}
+
+// Makes the button in Inspirations#index transparent, making only the words visible
 function button_style(attr) {
   var x = document.getElementById(attr);
   if (x.style.display === "none") {
