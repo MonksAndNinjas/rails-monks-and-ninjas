@@ -27,13 +27,15 @@ function getUserData (user_data) {
 
     $('section').html('');
     $('ul').html('');
+    $('.attr-actions').html('');
     $('.attr-title').html(`${attr}`);
 
+    addNewAction(attr);
     getData(data_attr, attr);
   });
 }
 
-// Retrieves attr data and adds listeners
+// Retrieves attr data and adds listeners      **maybe refactor so it is dry**
 function getData (data_attr, attr) {
   data_attr.forEach(function(item, index, arr) {
     if (item.name) {
@@ -73,6 +75,11 @@ function appendContent(data) {
   $.each(data, function( index, value ) {
     $('ul').append(`<li>${index}: ${value}</li>`);
   });
+}
+
+// Appends new item button
+function addNewAction (attr) {
+  $('.attr-actions').append(`<button data-id="${attr}">New ${attr}</button>`);
 }
 
 // Makes the button in Inspirations#index transparent, making only the words visible
