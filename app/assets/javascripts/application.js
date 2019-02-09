@@ -17,6 +17,11 @@
 //= require jquery
 //= require jquery_ujs
 
+// Appends attr name, title, or source to section
+function appendTitle(attr, title, id) {
+  $('section').append(`<a href="#" id="${attr}-${id}">${title}</a><br>`);
+}
+
 // Add Event Listeners to name, source, or title or attr
 function addListener (attr, item) {
   document.getElementById(`${attr}-${item.id}`).addEventListener("click", function() {
