@@ -30,36 +30,17 @@ $(function () {
         if (item.name) {
           $('section').append(`<a href="#" id="${attr}-${item.id}">${item.name}</a><br>`);
 
-          document.getElementById(`${attr}-${item.id}`).addEventListener("click", function() {
-            $.getJSON(`/${attr}/` + `${item.id}` + `/${attr}_data`, function (data) {
-              $('ul').html('');
-
-              appendContent(data);
-            });
-          });
+          addListener(attr, item);
 
         } else if (item.title) {
           $('section').append(`<a href="#" id="${attr}-${item.id}">${item.title}</a><br>`);
 
-          document.getElementById(`${attr}-${item.id}`).addEventListener("click", function() {
-            $.getJSON(`/${attr}/` + `${item.id}` + `/${attr}_data`, function (data) {
-              $('ul').html('');
-
-              appendContent(data);
-            });
-          });
+          addListener(attr, item);
 
         } else if (item.source) {
           $('section').append(`<a href="#" id="${attr}-${item.id}">${item.source}</a><br>`);
 
-          document.getElementById(`${attr}-${item.id}`).addEventListener("click", function() {
-            $.getJSON(`/${attr}/` + `${item.id}` + `/${attr}_data`, function (data) {
-              $('ul').html('');
-
-              appendContent(data);
-            });
-          });
-
+          addListener(attr, item);
         }
       });
 

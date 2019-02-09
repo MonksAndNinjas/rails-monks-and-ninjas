@@ -17,6 +17,16 @@
 //= require jquery
 //= require jquery_ujs
 
+// Add Event Listeners to name, source, or title or attr
+function addListener (attr, item) {
+  document.getElementById(`${attr}-${item.id}`).addEventListener("click", function() {
+    $.getJSON(`/${attr}/` + `${item.id}` + `/${attr}_data`, function (data) {
+      $('ul').html('');
+
+      appendContent(data);
+    });
+  });
+}
 
 // Appends attr content into ul tag of my_life.html.erb
 function appendContent(data) {
