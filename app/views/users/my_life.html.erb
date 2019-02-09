@@ -26,24 +26,7 @@ $(function () {
       $('ul').html('');
       $('.attr-title').html(`${attr}`);
 
-      data_attr.forEach(function(item, index, arr) {
-        if (item.name) {
-          appendTitle(attr, item.name, item.id);
-
-          addListener(attr, item);
-
-        } else if (item.title) {
-          appendTitle(attr, item.title, item.id);
-
-          addListener(attr, item);
-
-        } else if (item.source) {
-          appendTitle(attr, item.source, item.id);
-
-          addListener(attr, item);
-        }
-      });
-
+      getData(data_attr, attr);
     });
   });
 });

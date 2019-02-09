@@ -17,8 +17,27 @@
 //= require jquery
 //= require jquery_ujs
 
+// Retrieves data and adds listeners
+function getData (data_attr, attr) {
+  data_attr.forEach(function(item, index, arr) {
+    if (item.name) {
+      appendTitle(attr, item.name, item.id);
+
+      addListener(attr, item);
+    } else if (item.title) {
+      appendTitle(attr, item.title, item.id);
+
+      addListener(attr, item);
+    } else if (item.source) {
+      appendTitle(attr, item.source, item.id);
+
+      addListener(attr, item);
+    }
+  });
+}
+
 // Appends attr name, title, or source to section
-function appendTitle(attr, title, id) {
+function appendTitle (attr, title, id) {
   $('section').append(`<a href="#" id="${attr}-${id}">${title}</a><br>`);
 }
 
