@@ -30,7 +30,7 @@ function getUserData (user_data) {
     $('.attr-actions').html('');
     $('.attr-title').html(`${attr}`);
 
-    addNewAction(attr);
+    addNewAction(attr, id);
     getData(data_attr, attr);
   });
 }
@@ -78,8 +78,17 @@ function appendContent(data) {
 }
 
 // Appends new item button
-function addNewAction (attr) {
-  $('.attr-actions').append(`<button data-id="${attr}">New ${attr}</button>`);
+function addNewAction (attr, id) {
+  $('.attr-actions').append(`<button class="new-action" data-id="${attr}" >New ${attr}</button>`);
+
+  $('.new-action').click(function() {
+    var attr = $(event.target).data("id");
+
+    $.ajax({
+      url: `/users/${id}/${attr}/new`,
+      dataType: 'script'
+    });
+  });
 }
 
 // Makes the button in Inspirations#index transparent, making only the words visible

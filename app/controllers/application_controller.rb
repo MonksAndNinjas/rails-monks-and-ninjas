@@ -17,6 +17,8 @@ class ApplicationController < ActionController::Base
     flash[:messages]
     set_model_for(controller_name)
     @nested_attribute = @current_user.send(@model).build
+
+    render :layout => false
   end
 
   def show
