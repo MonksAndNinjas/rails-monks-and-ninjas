@@ -1,2 +1,7 @@
-<%= render partial: 'layouts/form',
-  locals: { user: @current_user, :nested_attributes => @nested_attribute, :errors => flash[:messages] } %>
+<div class="container">
+  <%= show_svg('content_section.svg') %>
+
+  <%= render partial: 'layouts/form',
+    locals: { user: @current_user, :nested_attributes => @nested_attribute, :errors => flash[:messages] } %>
+
+</div>
