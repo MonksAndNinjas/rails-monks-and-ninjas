@@ -8,3 +8,10 @@ function addListener (attr, item) {
     });
   });
 }
+
+function addFormListener () {
+  $('form').submit(function(event) {
+    event.preventDefault();
+    console.log('hello');
+  });
+}

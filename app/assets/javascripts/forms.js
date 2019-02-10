@@ -22,6 +22,9 @@ function getForm (event, id) {
 
   $.ajax({
     url: `/users/${id}/${attr}/new`,
-    dataType: 'script'
+    dataType: 'script',
+    success: function () {
+      addFormListener();
+    }
   });
 }

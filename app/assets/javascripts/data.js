@@ -30,7 +30,6 @@ function getData (data_attr, attr) {
     } else if (item.source) {
       appendTitle(attr, item.source, item.id);
       addListener(attr, item);
-
     }
   });
 }
