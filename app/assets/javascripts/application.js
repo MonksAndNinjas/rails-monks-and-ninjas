@@ -79,11 +79,16 @@ function appendContent(data) {
 
 // Appends new item button
 function addNewAction (attr, id) {
-  $('.attr-actions').append(`<button class="new-action" data-id="${attr}" >New ${attr}</button>`);
+  if (attr === "quests") {
+    $('.attr-actions')
+    .append(`<button class="new-action" data-id="${attr}-1">Short ${attr}</button><br><button class="new-action" data-id="${attr}-2">Long ${attr}</button>`);
+  } else {
+    $('.attr-actions').append(`<button class="new-action" data-id="${attr}">New ${attr}</button>`);
 
-  $('.new-action').click(function() {
-    getForm(event, id);
-  });
+    $('.new-action').click(function() {
+      getForm(event, id);
+    });
+  }
 }
 
 // Retrieves form for the attribute
