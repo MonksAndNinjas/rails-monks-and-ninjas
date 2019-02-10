@@ -25,7 +25,7 @@ function getUserData (user_data) {
   $.getJSON("/users/" + id + "/user_data", function(data) {
     var data_attr = $(data).attr(`${attr}`);
 
-    $('section').html('');
+    $('article').html('');
     $('ul').html('');
     $('.attr-actions').html('');
     $('.attr-title').html(`${attr}`);
@@ -56,7 +56,7 @@ function getData (data_attr, attr) {
 
 // Appends attr name, title, or source to section
 function appendTitle (attr, title, id) {
-  $('section').append(`<a href="#" id="${attr}-${id}">${title}</a><br>`);
+  $('article').append(`<a href="#" id="${attr}-${id}">${title}</a><br>`);
 }
 
 // Add Event Listeners to name, source, or title or attr
@@ -82,12 +82,20 @@ function addNewAction (attr, id) {
   $('.attr-actions').append(`<button class="new-action" data-id="${attr}" >New ${attr}</button>`);
 
   $('.new-action').click(function() {
-    var attr = $(event.target).data("id");
+    getForm(event, id);
+  });
+}
 
-    $.ajax({
-      url: `/users/${id}/${attr}/new`,
-      dataType: 'script'
-    });
+// Retrieves form for the attribute
+function getForm (event, id) {
+  var attr = $(event.target).data("id");
+
+    $('.attr-actions').html('');
+    $('ul').html('');
+
+  $.ajax({
+    url: `/users/${id}/${attr}/new`,
+    dataType: 'script'
   });
 }
 
