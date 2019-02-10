@@ -82,6 +82,10 @@ function addNewAction (attr, id) {
   if (attr === "quests") {
     $('.attr-actions')
     .append(`<button class="new-action" data-id="${attr}-1">Short ${attr}</button><br><button class="new-action" data-id="${attr}-2">Long ${attr}</button>`);
+
+    $('.new-action').click(function() {
+      getQuestForm(event, id);
+    });
   } else {
     $('.attr-actions').append(`<button class="new-action" data-id="${attr}">New ${attr}</button>`);
 
