@@ -3,8 +3,7 @@
 
 ########## What's Next? ###########
 
-  =>  Work on adding new attribute content to user
-  =>  Make so that serializer include duration of quest in my_life.html.erb
+  =>  refactor code in application.js
   =>  Change life manager logo
   =>  It's still changing password when editing user profile
 
