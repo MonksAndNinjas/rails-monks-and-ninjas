@@ -54,65 +54,6 @@ function getData (data_attr, attr) {
   });
 }
 
-// Appends attr name, title, or source to section
-function appendTitle (attr, title, id) {
-  $('article').append(`<a href="#" id="${attr}-${id}">${title}</a><br>`);
-}
-
-
-// Appends attr content into ul tag of my_life.html.erb
-function appendContent(data) {
-  $.each(data, function( index, value ) {
-    $('ul').append(`<li>${index}: ${value}</li>`);
-  });
-}
-
-// Appends new item button
-function addNewAction (attr, id) {
-  if (attr === "quests") {
-    $('.attr-actions')
-    .append(`<button class="new-action" data-id="${attr}-1">Short ${attr}</button><br><button class="new-action" data-id="${attr}-2">Long ${attr}</button>`);
-
-    $('.new-action').click(function() {
-      getQuestForm(event, id);
-    });
-  } else {
-    $('.attr-actions').append(`<button class="new-action" data-id="${attr}">New ${attr}</button>`);
-
-    $('.new-action').click(function() {
-      getForm(event, id);
-    });
-  }
-}
-
-// Retrives form for long or short quest
-function getQuestForm (event, id) {
-  var data = $(event.target).data("id").split("-");
-  var attr = data[0];
-  var objectiveID = data[1];
-
-  $('.attr-actions').html('');
-  $('ul').html('');
-
-  $.ajax({
-    url: `/users/${id}/objectives/${objectiveID}/${attr}/new`,
-    dataType: 'script'
-  });
-}
-
-// Retrieves form for the attribute
-function getForm (event, id) {
-  var attr = $(event.target).data("id");
-
-    $('.attr-actions').html('');
-    $('ul').html('');
-
-  $.ajax({
-    url: `/users/${id}/${attr}/new`,
-    dataType: 'script'
-  });
-}
-
 // Makes the button in Inspirations#index transparent, making only the words visible
 function button_style(attr) {
   var x = document.getElementById(attr);
