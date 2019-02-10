@@ -1,7 +1,10 @@
 <div class="container">
   <%= show_svg('content_section.svg') %>
 
+  <div class="title">
+    <h1><%= proper_format(controller_name) %></h1>
+  </div>
+
   <%= render partial: 'layouts/form',
     locals: { user: @current_user, :nested_attributes => @nested_attribute, :errors => flash[:messages] } %>
-
 </div>
