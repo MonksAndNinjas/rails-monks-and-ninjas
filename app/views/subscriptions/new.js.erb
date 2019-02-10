@@ -1,1 +1,1 @@
-$('.attr-form').append('<h1>Hello World</h1>');
+$('.attr-form').html("<%= j render(partial: 'layouts/form', locals: { user: @current_user, :nested_attributes => @nested_attribute, :errors => flash[:messages] } ) %>")
