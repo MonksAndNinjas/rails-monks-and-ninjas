@@ -23,7 +23,11 @@ class UsersController < ApplicationController
 
   def update
     flash[:messages]
-    redirect_updated_user(@current_user, user_params)
+
+    respond_to do |format|
+      format.html { redirect_updated_user(@current_user, user_params) }
+      format.json { render json: @current_user.update(user_params), status: 201 }
+    end
   end
 
   def user_data
