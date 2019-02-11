@@ -16,10 +16,14 @@ function addFormListener () {
     var id = event.target.id.split("_")[2];
     var values = $(this).serialize();
     var posting = $.post(`/users/${id}`, values, function(data) {
-      console.log(data);
+      var response = data;
     }, "json");
 
-    console.log(posting);
+    posting.done(function(response) {
+      if (!response) {
+        alert('nope');
+      };
+    });
 
   });
 }

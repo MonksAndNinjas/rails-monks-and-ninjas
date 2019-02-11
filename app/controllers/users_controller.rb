@@ -26,7 +26,14 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       format.html { redirect_updated_user(@current_user, user_params) }
-      format.json { render json: @current_user.update(user_params), status: 201 }
+      format.json {
+        value = {
+          success: @current_user.update(user_params),
+          data: user_params
+        }
+
+        render json: value, status: 201
+      }
     end
   end
 
