@@ -17,5 +17,9 @@ function handleError (response) {
 }
 
 function handleSuccess (response) {
-  
+  $('.attr-form').html('');
+
+  var user_data = $(`.attr[name="${response.action}"]`);
+
+  getUserData(user_data);
 }
