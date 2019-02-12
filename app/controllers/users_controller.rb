@@ -34,7 +34,10 @@ class UsersController < ApplicationController
         value = {
           success: success,
           action: params[:user][:controller],
-          messages: messages
+          messages: messages,
+          user: @current_user,
+          user_params: user_params,
+          id: @current_user.id
         }
         #all the way up to here
         render json: value, status: 201

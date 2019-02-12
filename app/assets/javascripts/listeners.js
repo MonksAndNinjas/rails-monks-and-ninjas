@@ -21,7 +21,19 @@ function addFormListener () {
     }, "json");
 
     posting.done(function(response) {
+      $.ajax({
+        url: `/users/${response.id}/${response.action}/new`,
+        dataType: 'script',
+        success: function () {
+          console.log(response.user_params);
 
+          $('section').prepend(`<ul class="errors"><p>${response.messages.length} errors<br>Prohibited ${response.user} from being saved:</p></ul>`);
+          for (let i = 0; i < response.messages.length; i++) {
+            $('.errors').append(`<li>${response.messages[i]}</li>`);
+          }
+          addFormListener();
+        }
+      });
     });
 
   });
