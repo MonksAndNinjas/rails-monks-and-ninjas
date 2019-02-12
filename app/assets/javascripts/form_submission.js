@@ -15,3 +15,7 @@ function handleError (response) {
   }
   addFormListener();
 }
+
+function handleSuccess (response) {
+  
+}
