@@ -32,4 +32,23 @@ function addNewAction (attr, id) {
 function addEditAction (attr, id) {
   $('.edit-action').remove();
   $('.attr-actions').append(`<button class="edit-action" data-id="${attr}-${id}">Edit</button>`);
+
+  $('.edit-action').on("click", function() {
+    var attr_data = $(this).data("id").split("-");
+    var attr = attr_data[0];
+    var attr_id = attr_data[1];
+    var id = $('.attr').first().data("id");
+    var url = `/users/${id}/${attr}/${attr_id}/edit`;
+
+    $('.attr-actions').html('');
+    $('ul').html('');
+
+    $.ajax({
+      url: url,
+      dataType: 'script',
+      success: function () {
+        console.log(this);
+      }
+    });
+  });
 }
