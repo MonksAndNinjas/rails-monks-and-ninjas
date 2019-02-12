@@ -11,7 +11,7 @@ function getQuestForm (event, id) {
     url: `/users/${id}/objectives/${objectiveID}/${attr}/new`,
     dataType: 'script',
     success: function () {
-      addQuestFormListener();
+      addFormListener();
     }
   });
 }

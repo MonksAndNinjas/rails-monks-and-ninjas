@@ -1,6 +1,5 @@
 ############# Rails Monks and Ninjas Project #################
 
-
 ########## What's Next? ###########
 
   =>  refactor code in application.js

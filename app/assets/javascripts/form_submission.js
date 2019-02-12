@@ -1,6 +1,13 @@
 function handleResponse (response) {
+  var url = `/users/${response.id}/${response.action}/new`;
+
+  if (response.action === "quests") {
+    var objectiveId = response.user_params.quests_attributes.objective_id;
+    url = `/users/${response.id}/objectives/${objectiveId}/quests/new`;
+  }
+
   $.ajax({
-    url: `/users/${response.id}/${response.action}/new`,
+    url: url,
     dataType: 'script',
     success: function () {
       if (response.success) {
@@ -24,6 +31,7 @@ function handleError (response) {
   }
 
   $('section').prepend(`<ul class="errors"><p>${response.messages.length} errors<br>Prohibited from being saved:</p></ul>`);
+
   for (let i = 0; i < response.messages.length; i++) {
     $('.errors').append(`<li>${response.messages[i]}</li>`);
   }
