@@ -1,3 +1,17 @@
+function handleResponse (response) {
+  $.ajax({
+    url: `/users/${response.id}/${response.action}/new`,
+    dataType: 'script',
+    success: function () {
+      if (response.success) {
+        handleSuccess(response);
+      } else if (!response.success) {
+        handleError(response);
+      }
+    }
+  });
+}
+
 function handleError (response) {
   var invalid_attr = response.user_params[`${response.action}_attributes`];
 

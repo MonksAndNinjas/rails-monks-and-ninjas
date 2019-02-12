@@ -9,7 +9,10 @@ function getQuestForm (event, id) {
 
   $.ajax({
     url: `/users/${id}/objectives/${objectiveID}/${attr}/new`,
-    dataType: 'script'
+    dataType: 'script',
+    success: function () {
+      addQuestFormListener();
+    }
   });
 }
 

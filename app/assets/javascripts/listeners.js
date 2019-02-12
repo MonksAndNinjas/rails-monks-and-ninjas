@@ -21,18 +21,7 @@ function addFormListener () {
     }, "json");
 
     posting.done(function(response) {
-      $.ajax({
-        url: `/users/${response.id}/${response.action}/new`,
-        dataType: 'script',
-        success: function () {
-          if (response.success) {
-            handleSuccess(response);
-          } else if (!response.success) {
-            handleError(response);
-          }
-        }
-      });
+      handleResponse(response);
     });
-
   });
 }
