@@ -1,6 +1,8 @@
 class UsersController < ApplicationController
   skip_before_action :require_login, except: [:show, :edit, :update]
 
+  include JsonResponse
+
   def new
     flash[:messages]
     @user = User.new
@@ -26,22 +28,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       format.html { redirect_updated_user(@current_user, user_params) }
-      format.json {
-        #move into method in concerns
-        success = @current_user.update(user_params)
-        messages = user_errors(@current_user) if !success
-
-        value = {
-          success: success,
-          action: params[:user][:controller],
-          messages: messages,
-          user: @current_user,
-          user_params: user_params,
-          id: @current_user.id
-        }
-        #all the way up to here
-        render json: value, status: 201
-      }
+      format.json { render json: compileResponse, status: 201 }
     end
   end
 

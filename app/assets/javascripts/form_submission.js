@@ -1,5 +1,6 @@
 // Gets the response and deals with it accordingly
 function handleResponse (response) {
+  console.log(response);
   var url = `/users/${response.id}/${response.action}/new`;
 // Gets the response from the appropriate url; double or single nested attribute
   if (response.action === "quests") {
@@ -24,7 +25,7 @@ function handleResponse (response) {
 function handleError (response) {
   var invalid_data = response.user_params[`${response.action}_attributes`];
 // Gathers submitted information and displays it on the form
-  for (var key in invalid_attr){
+  for (var key in invalid_data){
     var attr = `${response.action}_attributes`;
     var input_field = `user[${attr}][${key}]`;
     var value = invalid_data[`${key}`];
