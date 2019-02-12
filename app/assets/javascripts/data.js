@@ -1,24 +1,24 @@
 // Retrieves user data
-function getUserData (user_data) {
-  var attr = $(user_data).attr("name");
-  var id = $(user_data).data("id");
+function getUserData (data) {
+  var attr = $(data).attr("name");
+  var id = $(data).data("id");
 
-  $.getJSON("/users/" + id + "/user_data", function(data) {
-    var data_attr = $(data).attr(`${attr}`);
-
+  $.getJSON("/users/" + id + "/user_data", function(user_data) {
+    var attr_data = $(user_data).attr(`${attr}`);
+// Reset fields                                **maybe add to a reset fields function**
     $('article').html('');
     $('ul').html('');
     $('.attr-actions').html('');
     $('.attr-title').html(`${attr}`);
 
     addNewAction(attr, id);
-    getData(data_attr, attr);
+    getData(attr_data, attr);
   });
 }
 
 // Retrieves attr data and adds listeners      **maybe refactor so it is dry**
-function getData (data_attr, attr) {
-  data_attr.forEach(function(item, index, arr) {
+function getData (attr_data, attr) {
+  attr_data.forEach(function(item, index, arr) {
     if (item.name) {
       appendTitle(attr, item.name, item.id);
       addListener(attr, item);
