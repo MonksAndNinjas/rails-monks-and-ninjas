@@ -28,3 +28,8 @@ function addNewAction (attr, id) {
     });
   }
 }
+
+function addEditAction (attr, id) {
+  $('.edit-action').remove();
+  $('.attr-actions').append(`<button class="edit-action" data-id="${attr}-${id}">Edit</button>`);
+}

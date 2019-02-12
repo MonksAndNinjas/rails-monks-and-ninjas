@@ -2,7 +2,7 @@
 
 ########## What's Next? ###########
 
-  =>  refactor code in application.js
+  =>  display ability to edit and to post changes with success or fail responses
   =>  Change life manager logo
   =>  It's still changing password when editing user profile
 
