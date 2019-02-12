@@ -22,6 +22,7 @@ function getForm (event, id) {
   loadForm(url);
 }
 
+// Makes request to load form
 function loadForm (url) {
   $.ajax({
     url: url,

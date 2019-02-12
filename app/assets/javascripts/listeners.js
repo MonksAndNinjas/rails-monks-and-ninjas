@@ -1,14 +1,15 @@
-// Add Event Listeners to name, source, or title or attr
+// Add Event Listeners to names, sources, or titles from attr list
 function addListener (attr, item) {
   document.getElementById(`${attr}-${item.id}`).addEventListener("click", function() {
     $.getJSON(`/${attr}/` + `${item.id}` + `/${attr}_data`, function (data) {
       $('ul').html('');
-
+// Displays content for the specific attr object
       appendContent(data);
     });
   });
 }
 
+// Adds form submission listener and makes a request
 function addFormListener () {
   $('form').submit(function(event) {
     event.preventDefault();

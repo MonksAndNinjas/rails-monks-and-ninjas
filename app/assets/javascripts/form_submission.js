@@ -1,6 +1,7 @@
+// Gets the response and deals with it accordingly
 function handleResponse (response) {
   var url = `/users/${response.id}/${response.action}/new`;
-
+// Gets the response from the appropriate url; double or single nested attribute
   if (response.action === "quests") {
     var objectiveId = response.user_params.quests_attributes.objective_id;
     url = `/users/${response.id}/objectives/${objectiveId}/quests/new`;
@@ -19,17 +20,18 @@ function handleResponse (response) {
   });
 }
 
+// User did not update
 function handleError (response) {
-  var invalid_attr = response.user_params[`${response.action}_attributes`];
-
+  var invalid_data = response.user_params[`${response.action}_attributes`];
+// Gathers submitted information and displays it on the form
   for (var key in invalid_attr){
     var attr = `${response.action}_attributes`;
-    var search = `user[${attr}][${key}]`;
-    var value = invalid_attr[`${key}`];
+    var input_field = `user[${attr}][${key}]`;
+    var value = invalid_data[`${key}`];
 
-    $(`input[name="${search}"]`).val(value);
+    $(`input[name="${input_field}"]`).val(value);
   }
-
+// Displays errors and reattaches listener
   $('section').prepend(`<ul class="errors"><p>${response.messages.length} errors<br>Prohibited from being saved:</p></ul>`);
 
   for (let i = 0; i < response.messages.length; i++) {
@@ -38,10 +40,11 @@ function handleError (response) {
   addFormListener();
 }
 
+// User updated displays updated list
 function handleSuccess (response) {
-  $('.attr-form').html('');
-
   var user_data = $(`.attr[name="${response.action}"]`);
+
+  $('.attr-form').html('');
 
   getUserData(user_data);
 }
