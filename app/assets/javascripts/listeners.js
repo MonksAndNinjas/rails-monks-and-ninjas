@@ -2,7 +2,6 @@
 function addListener (attr, item) {
   document.getElementById(`${attr}-${item.id}`).addEventListener("click", function() {
     $.getJSON(`/${attr}/` + `${item.id}` + `/${attr}_data`, function (data) {
-      console.log(data);
       $('ul').html('');
 
       if (attr === "inspirations" || attr === "family_members" || attr === "quests") {

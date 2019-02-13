@@ -1,6 +1,5 @@
 // Gets the response and deals with it accordingly
 function handleResponse (response) {
-  console.log(response);
   var url = `/users/${response.id}/${response.action}/new`;
 // Gets the response from the appropriate url; double or single nested attribute
   if (response.action === "quests") {

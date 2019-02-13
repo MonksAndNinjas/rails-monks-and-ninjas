@@ -64,6 +64,30 @@ function addDeleteAction (attr, id, data) {
   $('.attr-actions').append(`<button class="delete-action" data-id="${attr}-${id}">Delete</button>`);
 
   $('.delete-action').on("click", function() {
-    
+    var attr_data = $(this).data("id").split("-");
+    var attr = attr_data[0];
+    var attr_id = attr_data[1];
+    var id = $('.attr').first().data("id");
+    var url = `/users/${id}/${attr}/${attr_id}`;
+
+    if (attr === "quests") {
+      url = `/users/${id}/objectives/${data.objective_id}/quests/${attr_id}`;
+    }
+
+    $('.attr-actions').html('');
+    $('ul').html('');
+
+    $.ajax({
+      type: "POST",
+      url: url,
+      dataType: 'json',
+      data: {"_method":"delete"},
+      complete: function () {
+        alert("Successfully Deleted");
+        var user_data = $(`.attr[name="${attr}"]`);
+
+        getUserData(user_data);
+      }
+    });
   });
 }
