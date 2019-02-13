@@ -7,9 +7,9 @@ function addListener (attr, item) {
       if (attr === "inspirations" || attr === "family_members" || attr === "quests") {
         addEditAction(attr, item.id, data);
       }
-      addDeleteAction(attr, item.id, data);
 // Displays content for the specific attr object
       appendContent(data);
+      addDeleteAction(attr, item.id, data);
     });
   });
 }

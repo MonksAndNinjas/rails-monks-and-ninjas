@@ -15,7 +15,7 @@ function addNewAction (attr, id) {
 // Quests has double nested route so need to check for that and retrieve appropriate form
   if (attr === "quests") {
     $('.attr-actions')
-    .append(`<button class="new-action" data-id="${attr}-1">Short ${attr}</button><br><button class="new-action" data-id="${attr}-2">Long ${attr}</button>`);
+      .append(`<button class="new-action" data-id="${attr}-1">Short ${attr}</button><br><button class="new-action" data-id="${attr}-2">Long ${attr}</button>`);
 
     $('.new-action').click(function() {
       getQuestForm(event, id);
@@ -29,36 +29,17 @@ function addNewAction (attr, id) {
   }
 }
 
-
+// Appends edit item button
 function addEditAction (attr, id, data) {
   $('.edit-action').remove();
   $('.attr-actions').append(`<button class="edit-action" data-id="${attr}-${id}">Edit</button>`);
 
   $('.edit-action').on("click", function() {
-    var attr_data = $(this).data("id").split("-");
-    var attr = attr_data[0];
-    var attr_id = attr_data[1];
-    var id = $('.attr').first().data("id");
-    var url = `/users/${id}/${attr}/${attr_id}/edit`;
-
-    if (attr === "quests") {
-      url = `/users/${id}/objectives/${data.objective_id}/quests/${attr_id}/edit`;
-    }
-
-    $('.attr-actions').html('');
-    $('ul').html('');
-
-    $.ajax({
-      url: url,
-      dataType: 'script',
-      success: function () {
-        addFormListener();
-      }
-    });
+    getEditForm(this, data);
   });
 }
 
-
+// Appends delete item button
 function addDeleteAction (attr, id, data) {
   $('.delete-action').remove();
   $('.attr-actions').append(`<button class="delete-action" data-id="${attr}-${id}">Delete</button>`);
@@ -74,8 +55,7 @@ function addDeleteAction (attr, id, data) {
       url = `/users/${id}/objectives/${data.objective_id}/quests/${attr_id}`;
     }
 
-    $('.attr-actions').html('');
-    $('ul').html('');
+    resetFields();
 
     $.ajax({
       type: "POST",

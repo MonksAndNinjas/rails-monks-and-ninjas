@@ -2,7 +2,9 @@
 
 ########## What's Next? ###########
 
-  =>  add delete action
+  =>  refactor js code, and reduce loading time in the beginning when entering my_life.html.erb
+  =>  review ruby code
+  =>  work on presentation of my_life.html.erb
   =>  Change life manager logo
   =>  It's still changing password when editing user profile
 
