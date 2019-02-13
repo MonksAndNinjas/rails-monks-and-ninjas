@@ -5,6 +5,9 @@ function appendTitle (attr, title, id) {
 
 // Appends attr content into ul tag of my_life.html.erb
 function appendContent(data) {
+  $('form').remove();
+  $('section').append(`<ul></ul>`);
+
   $.each(data, function( index, value ) {
     $('ul').append(`<li>${index}: ${value}</li>`);
   });
@@ -21,7 +24,7 @@ function addNewAction (attr, id) {
       getQuestForm(event, id);
     });
   } else {
-    $('.attr-actions').append(`<button class="new-action" data-id="${attr}">New ${attr}</button>`);
+    $('.actions').append(`<button class="new-action" data-id="${attr}">New ${attr}</button>`);
 
     $('.new-action').click(function() {
       getForm(event, id);
@@ -32,7 +35,7 @@ function addNewAction (attr, id) {
 // Appends edit item button
 function addEditAction (attr, id, data) {
   $('.edit-action').remove();
-  $('.attr-actions').append(`<button class="edit-action" data-id="${attr}-${id}">Edit</button>`);
+  $('.actions').append(`<button class="edit-action" data-id="${attr}-${id}">Edit</button>`);
 
   $('.edit-action').on("click", function() {
     getEditForm(this, data);
@@ -42,7 +45,7 @@ function addEditAction (attr, id, data) {
 // Appends delete item button
 function addDeleteAction (attr, id, data) {
   $('.delete-action').remove();
-  $('.attr-actions').append(`<button class="delete-action" data-id="${attr}-${id}">Delete</button>`);
+  $('.actions').append(`<button class="delete-action" data-id="${attr}-${id}">Delete</button>`);
 
   $('.delete-action').on("click", function() {
     var attr_data = $(this).data("id").split("-");

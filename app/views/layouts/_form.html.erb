@@ -1,41 +1,39 @@
-<section>
-  <% if errors != nil %>
-    <div class="errors">
-      <p>
-        <%= pluralize(errors.count, "error") %>
-        <%= "prohibited #{@current_user.name} from being saved:" %>
-      </p>
+<% if errors != nil %>
+  <div class="errors">
+    <p>
+      <%= pluralize(errors.count, "error") %>
+      <%= "prohibited #{@current_user.name} from being saved:" %>
+    </p>
 
-      <ul>
-        <% errors.each do |msg| %>
+    <ul>
+      <% errors.each do |msg| %>
 
-          <li class="red"><%= msg %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <%= form_for user do |f| %>
-
-    <%= f.fields_for :nested_attributes do |attr| %>
-      <% nested_attributes.attr_keys.each do |key| %>
-
-        <% data_type = nested_attributes.get_data_type_for(key) %>
-  <!-- find data type then create label and field -->
-        <%= attr.label "#{key.to_s}" unless invalid_label?(key)  %><br>
-        <%= display_field_using(key, data_type, attr) %><br>
-
+        <li class="red"><%= msg %></li>
       <% end %>
-    <% end %>
-  <!-- adds controller and action to assist in redirecting to appropriate path -->
-    <%= f.hidden_field :controller, :value => "#{controller_name}" %>
-    <%= f.hidden_field :action, :value => "#{action_name}" %>
+    </ul>
+  </div>
+<% end %>
 
-  <!-- what button displays based on type of form -->
-    <% if action_name == "new" %>
-      <%= f.submit "Create", class: "button" %>
-    <% elsif action_name == "edit" %>
-      <%= f.submit "Update", class: "button" %>
+<%= form_for user do |f| %>
+
+  <%= f.fields_for :nested_attributes do |attr| %>
+    <% nested_attributes.attr_keys.each do |key| %>
+
+      <% data_type = nested_attributes.get_data_type_for(key) %>
+<!-- find data type then create label and field -->
+      <%= attr.label "#{key.to_s}" unless invalid_label?(key)  %><br>
+      <%= display_field_using(key, data_type, attr) %><br>
+
     <% end %>
   <% end %>
-</section>
+<!-- adds controller and action to assist in redirecting to appropriate path -->
+  <%= f.hidden_field :controller, :value => "#{controller_name}" %>
+  <%= f.hidden_field :action, :value => "#{action_name}" %>
+
+<!-- what button displays based on type of form -->
+  <% if action_name == "new" %>
+    <%= f.submit "Create", class: "button" %>
+  <% elsif action_name == "edit" %>
+    <%= f.submit "Update", class: "button" %>
+  <% end %>
+<% end %>

@@ -279,7 +279,7 @@ section {
   bottom: 5em;
   left: 41em;
   height: 22em;
-  width: 18em;
+  max-width: 18em;
   overflow: auto;
 }
 

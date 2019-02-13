@@ -2,7 +2,11 @@
 function addListener (attr, item) {
   document.getElementById(`${attr}-${item.id}`).addEventListener("click", function() {
     $.getJSON(`/${attr}/` + `${item.id}` + `/${attr}_data`, function (data) {
-      $('ul').html('');
+      $('section').html('');
+
+      if ($('.new-action').length === 0) {
+        addNewAction(attr, item.id);
+      }
 
       if (attr === "inspirations" || attr === "family_members" || attr === "quests") {
         addEditAction(attr, item.id, data);
