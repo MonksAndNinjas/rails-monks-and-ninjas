@@ -5,7 +5,9 @@
     <h1><%= proper_format(controller_name) %></h1>
   </div>
 
-  <%= render partial: 'layouts/form',
-    locals: { user: @current_user, :nested_attributes => @nested_attribute,
-        objective: @objective, :errors => flash[:messages] } %>
+  <section>
+    <%= render partial: 'layouts/form',
+      locals: { user: @current_user, :nested_attributes => @nested_attribute,
+          objective: @objective, :errors => flash[:messages] } %>
+  </section>
 </div>
