@@ -29,6 +29,7 @@ function addNewAction (attr, id) {
   }
 }
 
+
 function addEditAction (attr, id, data) {
   $('.edit-action').remove();
   $('.attr-actions').append(`<button class="edit-action" data-id="${attr}-${id}">Edit</button>`);
@@ -54,5 +55,15 @@ function addEditAction (attr, id, data) {
         addFormListener();
       }
     });
+  });
+}
+
+
+function addDeleteAction (attr, id, data) {
+  $('.delete-action').remove();
+  $('.attr-actions').append(`<button class="delete-action" data-id="${attr}-${id}">Delete</button>`);
+
+  $('.delete-action').on("click", function() {
+    
   });
 }
