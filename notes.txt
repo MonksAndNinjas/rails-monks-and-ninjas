@@ -2,7 +2,7 @@
 
 ########## What's Next? ###########
 
-  =>  display ability to edit and to post changes with success or fail responses
+  =>  add delete action
   =>  Change life manager logo
   =>  It's still changing password when editing user profile
 

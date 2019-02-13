@@ -29,7 +29,7 @@ function addNewAction (attr, id) {
   }
 }
 
-function addEditAction (attr, id) {
+function addEditAction (attr, id, data) {
   $('.edit-action').remove();
   $('.attr-actions').append(`<button class="edit-action" data-id="${attr}-${id}">Edit</button>`);
 
@@ -40,6 +40,10 @@ function addEditAction (attr, id) {
     var id = $('.attr').first().data("id");
     var url = `/users/${id}/${attr}/${attr_id}/edit`;
 
+    if (attr === "quests") {
+      url = `/users/${id}/objectives/${data.objective_id}/quests/${attr_id}/edit`;
+    }
+
     $('.attr-actions').html('');
     $('ul').html('');
 
@@ -47,7 +51,7 @@ function addEditAction (attr, id) {
       url: url,
       dataType: 'script',
       success: function () {
-        console.log(this);
+        addFormListener();
       }
     });
   });

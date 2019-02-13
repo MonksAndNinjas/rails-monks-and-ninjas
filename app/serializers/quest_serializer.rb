@@ -1,3 +1,3 @@
 class QuestSerializer < ActiveModel::Serializer
-  attributes :description
+  attributes :description, :objective_id
 end

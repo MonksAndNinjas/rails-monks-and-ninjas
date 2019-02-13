@@ -1,0 +1,2 @@
+$('.attr-form')
+  .html("<%= j render(partial: 'layouts/form', locals: { user: @current_user, :nested_attributes => @nested_attribute, objective: @objective, :errors => flash[:messages] } ) %>")
