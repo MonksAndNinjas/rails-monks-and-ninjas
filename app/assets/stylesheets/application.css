@@ -234,6 +234,15 @@ div.title {
   top: 3%;
 }
 
+article {
+  position: absolute;
+  top: 6em;
+  left: 26em;
+  height: 18em;
+  width: 10em;
+  overflow: scroll;
+}
+
 /*
 div.profile {
   position: fixed;

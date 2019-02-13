@@ -1,8 +1,10 @@
 // Retrieves user data
 function getUserData (data) {
   var attr = $(data).attr("name");
+  var id = $(data).data("id");
 
   $.getJSON("/users/" + id + "/user_data", function(user_data) {
+    console.log(user_data);
     var attr_data = $(user_data).attr(`${attr}`);
 // Reset fields                                **maybe add to a reset fields function**
     $('article').html('');
