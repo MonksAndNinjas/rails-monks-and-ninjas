@@ -8,6 +8,7 @@
   <%= show_svg('profile.svg') %>
   <div class="dropdown-content">
     <a href="/users/<%= @current_user.id %>">Profile Page</a>
+    <a class="my_life" href="/users/1/my_life">My Life</a>
     <%= link_to "Log Out", logout_path, method: :delete %>
   </div>
 </div>

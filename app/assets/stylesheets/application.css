@@ -22,89 +22,7 @@
 }
 
 
-/* set web fonts */
-/*@font-face {
-   font-family: 'Liner';
-   src:url('liner BMP14.ttf') format('truetype');
- }
-/* Links
-nav a, #objective-links a, .comp-font {
- font-family: 'Liner';
- font-size: normal;
- text-decoration: none;
- font-weight: bold;
- font-style: normal;
- padding-right: 15px;
- color: black;
-}
-/* Other elements
-h1, h2, li {
- font-family: 'Liner';
- font-size: large;
- text-decoration: none;
- font-weight: bold;
- font-style: normal;
- color: black;
-}
-
-//////////////  Colors ////////////////*/
-
-/* error messages and delete
-.red {
- color: black;
- font-size: 1.25em;
-}
-/* add button color
-.blue {
- color: black;
- font-size: 1.75em;
-}
-
-
-///////////// Form /////////////////*/
-
-/* form
-form {
-  position: relative;
-  bottom: 80%;
-  left: 57%;
-}
-
-button.button, form input.button, strong, label {
-  font-family: 'Liner';
-  font-size: large;
-  text-decoration: none;
-  font-weight: bold;
-  font-style: normal;
-  color: black;
-}
-
-div.image form input.button {
-  position: fixed;
-  right: 50%;
-  bottom: 15%;
-}
-/* form field style
-input {
- background-color: black;
- font-family: 'Liner';
- color: black;
- font-weight: bold;
- font-style: normal;
- font-size: large;
- margin-top: 6px;
- margin-bottom: 6px;
-}
-
-#password-label {
- padding: 0;
-}
-
-#password-input {
- padding: 0;
-}
-
-///////////// Background //////////////*/
+/*///////////// Background //////////////*/
 
 body {
  margin: 0;
@@ -117,25 +35,8 @@ body {
 a {
   text-decoration-line: none;
 }
-/*
-ul.navigation {
-   background:#fff;
-}
-
-ul.navigation li a  {
-   text-decoration:none;
-}
-
-nav.navigation a.on {
-   background: yellow;
-}
-
-.nav-link {
- color: snow;
-}
 
 /*////////////// Table and List ////////////////*/
-*/
 
 .inspiration-links {
   display: inline-flex;
@@ -146,23 +47,7 @@ div#objective-links {
   width: 9em;
 }
 
-
-
-/*
-.button {
- background-color: Transparent;
- background-repeat: no-repeat;
- cursor: pointer;
- overflow: hidden;
- outline: none;
- border: none;
- padding: 6px 32px;
- text-decoration: none;
- display: inline-block;
- font-size: 16px;
-}
-
-//////////////// Display /////////////////*/
+/*/////////////// Display /////////////////*/
 
 header {
  background-color: white;
@@ -243,13 +128,6 @@ article {
   overflow: scroll;
 }
 
-/*
-div.profile {
-  position: fixed;
-  bottom: 37%;
-  left: 51%;
-}
-*/
 div#name {
   position: absolute;
   top: 2em;
@@ -298,7 +176,6 @@ div#user-edit {
 
 /*///////////  Artwork  /////////*/
 
-/* Header SVG */
 #svg107 {
   width: 70px;
   height: 60px;
@@ -315,16 +192,6 @@ div#logo {
   float: left;
   bottom: 30px;
 }
-
-/* other artwork */
-/*
-#svg68 {
-  height: 80%;
-  width: 80%;
-  position: fixed;
-  bottom: 8%;
-  left: 16%;
-}*/
 
 #home-links {
   text-align: center;

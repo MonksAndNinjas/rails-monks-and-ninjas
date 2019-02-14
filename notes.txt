@@ -1,16 +1,14 @@
-############# Rails Monks and Ninjas Project #################
-
-<div class="attr-form"></div>
-
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.3/p5.js"></script>
+############# Rails Monks and Ninjas Project ################
 
 
 ########## What's Next? ###########
 
   =>  refactor js code, and reduce loading time in the beginning when entering my_life.html.erb
   =>  review ruby code
-  =>  work on presentation of my_life.html.erb
+  =>  elongate placeholder for action buttons
+  =>  make content body clear when changing attr
+  =>  place links to attrs in proper placeholder
+  =>  create show page
   =>  Change life manager logo
   =>  It's still changing password when editing user profile
 
