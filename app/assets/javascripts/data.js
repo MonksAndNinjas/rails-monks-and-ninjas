@@ -3,6 +3,7 @@ function getUserData (data) {
   var attr = $(data).attr("name");
   var id = $(data).data("id");
 
+$('.loader').show();
   $.getJSON("/users/" + id + "/user_data", function(user_data) {
     var attr_data = $(user_data).attr(`${attr}`);
 // Reset fields                                **maybe add to a reset fields function**
@@ -12,6 +13,9 @@ function getUserData (data) {
 
     addNewAction(attr, id);
     getData(attr_data, attr);
+  })
+  .always(function () {
+    $(".loader").hide();
   });
 }
 
