@@ -17,8 +17,8 @@ function appendContent(data) {
 function addNewAction (attr, id) {
 // Quests has double nested route so need to check for that and retrieve appropriate form
   if (attr === "quests") {
-    $('.attr-actions')
-      .append(`<button class="new-action" data-id="${attr}-1">Short ${attr}</button><br><button class="new-action" data-id="${attr}-2">Long ${attr}</button>`);
+    $('.actions')
+      .append(`<button class="new-action" data-id="${attr}-1">Short ${attr}</button><button class="new-action" data-id="${attr}-2">Long ${attr}</button>`);
 
     $('.new-action').click(function() {
       getQuestForm(event, id);

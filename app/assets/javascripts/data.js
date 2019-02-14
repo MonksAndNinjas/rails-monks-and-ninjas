@@ -35,5 +35,6 @@ function getData (attr_data, attr) {
 
 
 function resetFields () {
+  $('ul').remove();
   $('.actions').html('');
 }

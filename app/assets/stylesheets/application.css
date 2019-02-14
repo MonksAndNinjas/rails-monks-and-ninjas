@@ -111,7 +111,7 @@ footer {
 }
 
 
-/*/////////// Content Location ////////////*/
+/*/////////// Content Display ////////////*/
 
 div.title {
   position: absolute;
@@ -174,7 +174,7 @@ div#user-edit {
   height: 2em;
 }
 
-/*///////////  Artwork  /////////*/
+/*///////////  Artwork Display  /////////*/
 
 #svg107 {
   width: 70px;
@@ -225,4 +225,22 @@ div.profile_page {
   bottom: 6%;
   top: 6%;
   right: 6%;
+}
+
+/*/////////// My_life links //////////*/
+
+.my-life-links {
+  position: absolute;
+  width: 10em;
+  top: 12em;
+  left: 0;
+  z-index: 1;
+}
+
+.my-life-link {
+  background-color: white;
+  padding: 1%;
+  margin: 5% 0;
+  border-style: solid;
+  box-shadow: 2px 2px lightgrey;
 }
