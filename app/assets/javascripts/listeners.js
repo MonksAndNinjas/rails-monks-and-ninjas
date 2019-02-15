@@ -23,10 +23,9 @@ function addFormListener () {
   $('form').submit(function(event) {
     event.preventDefault();
 
-    var id = event.target.id.split("_")[2];
     var values = $(this).serialize();
 
-    var posting = $.post(`/users/${id}`, values, function(data) {
+    var posting = $.post(`/users/${current_user.id}`, values, function(data) {
       var response = data;
     }, "json");
 

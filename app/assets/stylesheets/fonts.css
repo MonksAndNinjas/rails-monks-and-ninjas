@@ -12,6 +12,10 @@
   100% { transform: rotate(360deg); }
 }
 
+article a:hover, .my-life-link a:hover, .dropdown-content a:hover {
+  text-shadow: 0 0 1px black;
+}
+
 
 /*
 ul.navigation {

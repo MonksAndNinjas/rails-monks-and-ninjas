@@ -9,25 +9,25 @@ function appendContent(data) {
   $('section').append(`<ul></ul>`);
 
   $.each(data, function( index, value ) {
-    $('ul').append(`<li>${index}: ${value}</li>`);
+    $('ul').append(`<li>${index}: ${value}</li><hr>`);
   });
 }
 
 // Appends new item button
-function addNewAction (attr, id) {
+function addNewAction (attr) {
 // Quests has double nested route so need to check for that and retrieve appropriate form
   if (attr === "quests") {
     $('.actions')
       .append(`<button class="new-action" data-id="${attr}-1">Short ${attr}</button><button class="new-action" data-id="${attr}-2">Long ${attr}</button>`);
 
     $('.new-action').click(function() {
-      getQuestForm(event, id);
+      getQuestForm(event);
     });
   } else {
     $('.actions').append(`<button class="new-action" data-id="${attr}">New ${attr}</button>`);
 
     $('.new-action').click(function() {
-      getForm(event, id);
+      getForm(event);
     });
   }
 }

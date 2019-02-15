@@ -1,17 +1,23 @@
+var current_user;
+
+function User(current_attr) {
+  this.id = $('.my-life-links').attr("data-id");
+  this.current_attr = current_attr;
+}
 // Retrieves user data
 function getUserData (data) {
   var attr = $(data).attr("name");
-  var id = $(data).data("id");
 
   $('.loader').show();
-  $.getJSON("/users/" + id + "/user_data", function(user_data) {
+  $.getJSON("/users/" + current_user.id + "/user_data", function(user_data) {
     var attr_data = $(user_data).attr(`${attr}`);
 // Reset fields                                **maybe add to a reset fields function**
     $('article').html('');
     $('.attr-title').html(`${attr}`);
-    resetFields();
+    $('ul').remove();
+    $('.actions').html('');
 
-    addNewAction(attr, id);
+    addNewAction(attr);
     getData(attr_data, attr);
   })
   .always(function () {
