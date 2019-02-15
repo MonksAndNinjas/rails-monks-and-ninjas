@@ -2,18 +2,19 @@
 function addListener (item) {
   document.getElementById(`${current_user.current_attr}-${item.id}`).addEventListener("click", function() {
     $.getJSON(`/${current_user.current_attr}/` + `${item.id}` + `/${current_user.current_attr}_data`, function (data) {
+      current_user.current_item = item;
       $('section').html('');
 
       if ($('.new-action').length === 0) {
-        addNewAction(item.id);
+        addNewAction();
       }
 
       if (current_user.current_attr === "inspirations" || current_user.current_attr === "family_members" || current_user.current_attr === "quests") {
-        addEditAction(item.id, data);
+        addEditAction(data);
       }
 // Displays content for the specific attr object
       appendContent(data);
-      addDeleteAction(item.id, data);
+      addDeleteAction(data);
     });
   });
 }

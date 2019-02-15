@@ -17,12 +17,10 @@ function getForm (event) {
 }
 
 function getEditForm (event, data) {
-  var attr_data = $(event).data("id").split("-");
-  var attr_id = attr_data[1];
-  var url = `/users/${current_user.id}/${current_user.current_attr}/${attr_id}/edit`;
+  var url = `/users/${current_user.id}/${current_user.current_attr}/${current_user.current_item.id}/edit`;
 
   if (current_user.current_attr === "quests") {
-    url = `/users/${current_user.id}/objectives/${data.objective_id}/quests/${attr_id}/edit`;
+    url = `/users/${current_user.id}/objectives/${data.objective_id}/quests/${current_user.current_item.id}/edit`;
   }
 
   resetFields();

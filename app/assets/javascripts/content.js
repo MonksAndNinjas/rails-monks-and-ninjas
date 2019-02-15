@@ -33,9 +33,9 @@ function addNewAction () {
 }
 
 // Appends edit item button
-function addEditAction (id, data) {
+function addEditAction (data) {
   $('.edit-action').remove();
-  $('.actions').append(`<button class="edit-action" data-id="${current_user.current_attr}-${id}">Edit</button>`);
+  $('.actions').append(`<button class="edit-action" data-id="${current_user.current_attr}-${current_user.current_item.id}">Edit</button>`);
 
   $('.edit-action').on("click", function() {
     getEditForm(this, data);
@@ -43,17 +43,15 @@ function addEditAction (id, data) {
 }
 
 // Appends delete item button
-function addDeleteAction (id, data) {
+function addDeleteAction (data) {
   $('.delete-action').remove();
-  $('.actions').append(`<button class="delete-action" data-id="${current_user.current_attr}-${id}">Delete</button>`);
+  $('.actions').append(`<button class="delete-action">Delete</button>`);
 
   $('.delete-action').on("click", function() {
-    var attr_data = $(this).data("id").split("-");
-    var attr_id = attr_data[1];
-    var url = `/users/${current_user.id}/${current_user.current_attr}/${attr_id}`;
+    var url = `/users/${current_user.id}/${current_user.current_attr}/${current_user.current_item.id}`;
 
     if (current_user.current_attr === "quests") {
-      url = `/users/${current_user.id}/objectives/${data.objective_id}/quests/${attr_id}`;
+      url = `/users/${current_user.id}/objectives/${data.objective_id}/quests/${current_user.current_item.id}`;
     }
 
     resetFields();
