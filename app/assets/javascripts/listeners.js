@@ -1,19 +1,19 @@
 // Add Event Listeners to names, sources, or titles from attr list
-function addListener (attr, item) {
-  document.getElementById(`${attr}-${item.id}`).addEventListener("click", function() {
-    $.getJSON(`/${attr}/` + `${item.id}` + `/${attr}_data`, function (data) {
+function addListener (item) {
+  document.getElementById(`${current_user.current_attr}-${item.id}`).addEventListener("click", function() {
+    $.getJSON(`/${current_user.current_attr}/` + `${item.id}` + `/${current_user.current_attr}_data`, function (data) {
       $('section').html('');
 
       if ($('.new-action').length === 0) {
-        addNewAction(attr, item.id);
+        addNewAction(item.id);
       }
 
-      if (attr === "inspirations" || attr === "family_members" || attr === "quests") {
-        addEditAction(attr, item.id, data);
+      if (current_user.current_attr === "inspirations" || current_user.current_attr === "family_members" || current_user.current_attr === "quests") {
+        addEditAction(item.id, data);
       }
 // Displays content for the specific attr object
       appendContent(data);
-      addDeleteAction(attr, item.id, data);
+      addDeleteAction(item.id, data);
     });
   });
 }

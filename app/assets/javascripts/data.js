@@ -1,24 +1,25 @@
 var current_user;
 
-function User(current_attr) {
+function User(name, current_attr) {
   this.id = $('.my-life-links').attr("data-id");
+  this.name = name;
   this.current_attr = current_attr;
 }
 // Retrieves user data
 function getUserData (data) {
-  var attr = $(data).attr("name");
+  current_user.current_attr = $(data).attr("name");
 
   $('.loader').show();
   $.getJSON("/users/" + current_user.id + "/user_data", function(user_data) {
-    var attr_data = $(user_data).attr(`${attr}`);
+    var attr_data = $(user_data).attr(`${current_user.current_attr}`);
 // Reset fields                                **maybe add to a reset fields function**
     $('article').html('');
-    $('.attr-title').html(`${attr}`);
+    $('.attr-title').html(`${current_user.current_attr}`);
     $('ul').remove();
     $('.actions').html('');
 
-    addNewAction(attr);
-    getData(attr_data, attr);
+    addNewAction();
+    getData(attr_data);
   })
   .always(function () {
     $(".loader").hide();
@@ -26,7 +27,7 @@ function getUserData (data) {
 }
 
 // Retrieves attr data and adds listeners
-function getData (attr_data, attr) {
+function getData (attr_data) {
   attr_data.forEach(function(item, index, arr) {
     var itemName;
 
@@ -38,8 +39,8 @@ function getData (attr_data, attr) {
       itemName = item.source
     }
 
-    appendTitle(attr, itemName, item.id);
-    addListener(attr, item);
+    appendTitle(itemName, item.id);
+    addListener(item);
   });
 }
 

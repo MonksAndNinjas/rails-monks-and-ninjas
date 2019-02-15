@@ -1,9 +1,8 @@
 // Retrives form for long or short quest
 function getQuestForm (event) {
   var data = $(event.target).data("id").split("-");
-  var attr = data[0];
   var objectiveID = data[1];
-  var url = `/users/${current_user.id}/objectives/${objectiveID}/${attr}/new`;
+  var url = `/users/${current_user.id}/objectives/${objectiveID}/${current_user.current_attr}/new`;
 
   resetFields();
   loadForm(url);
@@ -11,8 +10,7 @@ function getQuestForm (event) {
 
 // Retrieves form for the attribute
 function getForm (event) {
-  var attr = $(event.target).data("id");
-  var url = `/users/${current_user.id}/${attr}/new`;
+  var url = `/users/${current_user.id}/${current_user.current_attr}/new`;
 
   resetFields();
   loadForm(url);
@@ -20,11 +18,10 @@ function getForm (event) {
 
 function getEditForm (event, data) {
   var attr_data = $(event).data("id").split("-");
-  var attr = attr_data[0];
   var attr_id = attr_data[1];
-  var url = `/users/${current_user.id}/${attr}/${attr_id}/edit`;
+  var url = `/users/${current_user.id}/${current_user.current_attr}/${attr_id}/edit`;
 
-  if (attr === "quests") {
+  if (current_user.current_attr === "quests") {
     url = `/users/${current_user.id}/objectives/${data.objective_id}/quests/${attr_id}/edit`;
   }
 
