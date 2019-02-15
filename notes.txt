@@ -6,8 +6,6 @@
   =>  refactor js code, and reduce loading time in the beginning when entering my_life.html.erb
   =>  review ruby code
   =>  elongate placeholder for action buttons
-  =>  make content body clear when changing attr
-  =>  place links to attrs in proper placeholder
   =>  create show page
   =>  Change life manager logo
   =>  It's still changing password when editing user profile

@@ -33,6 +33,7 @@ $(function () {
   $('section').html('What to do, What to do!?<br>Click on a link to the left');
 
   $(".attr").on("click", function() {
+    $('section').html('');
     getUserData(this);
   });
 });

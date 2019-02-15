@@ -1,6 +1,6 @@
 // Appends name, title, or source of attr to section
 function appendTitle (attr, title, id) {
-  $('article').append(`<a href="#" id="${attr}-${id}">${title}</a><br>`);
+  $('article').append(`<a href="#" id="${attr}-${id}">${title}</a><br><hr>`);
 }
 
 // Appends attr content into ul tag of my_life.html.erb
