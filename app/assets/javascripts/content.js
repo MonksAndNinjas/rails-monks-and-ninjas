@@ -27,7 +27,7 @@ function addNewAction () {
     $('.actions').append(`<button class="new-action" data-id="${current_user.current_attr}">New ${current_user.current_attr}</button>`);
 
     $('.new-action').click(function() {
-      getForm(event);
+      getForm();
     });
   }
 }
@@ -38,7 +38,7 @@ function addEditAction (data) {
   $('.actions').append(`<button class="edit-action" data-id="${current_user.current_attr}-${current_user.current_item.id}">Edit</button>`);
 
   $('.edit-action').on("click", function() {
-    getEditForm(this, data);
+    getEditForm(data);
   });
 }
 

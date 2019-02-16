@@ -6,11 +6,8 @@ module JsonResponse
 
     value = {
       success: success,
-      action: params[:user][:controller],
       messages: messages,
-      user: @current_user,
-      user_params: user_params,
-      id: @current_user.id
+      user_params: user_params
     }
 
     value

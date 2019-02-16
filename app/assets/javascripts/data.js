@@ -13,10 +13,9 @@ function getUserData (data) {
   $.getJSON("/users/" + current_user.id + "/user_data", function(user_data) {
     var attr_data = $(user_data).attr(`${current_user.current_attr}`);
 // Reset fields                                **maybe add to a reset fields function**
-    $('article').html('');
     $('.attr-title').html(`${current_user.current_attr}`);
-    $('ul').remove();
-    $('.actions').html('');
+    $('article').html('');
+    resetFields();
 
     addNewAction();
     getData(attr_data);
@@ -24,6 +23,14 @@ function getUserData (data) {
   .always(function () {
     $(".loader").hide();
   });
+}
+
+User.prototype.url_new = function () {
+    return `/users/${this.id}/${this.current_attr}/new`;
+}
+
+User.prototype.url_edit = function () {
+  return `/users/${current_user.id}/${current_user.current_attr}/${current_user.current_item.id}/edit`;
 }
 
 // Retrieves attr data and adds listeners
@@ -43,7 +50,6 @@ function getData (attr_data) {
     addListener(item);
   });
 }
-
 
 function resetFields () {
   $('ul').remove();

@@ -9,15 +9,15 @@ function getQuestForm (event) {
 }
 
 // Retrieves form for the attribute
-function getForm (event) {
-  var url = `/users/${current_user.id}/${current_user.current_attr}/new`;
+function getForm () {
+  var url = current_user.url_new();
 
   resetFields();
   loadForm(url);
 }
 
-function getEditForm (event, data) {
-  var url = `/users/${current_user.id}/${current_user.current_attr}/${current_user.current_item.id}/edit`;
+function getEditForm () {
+  var url = current_user.url_edit();
 
   if (current_user.current_attr === "quests") {
     url = `/users/${current_user.id}/objectives/${data.objective_id}/quests/${current_user.current_item.id}/edit`;

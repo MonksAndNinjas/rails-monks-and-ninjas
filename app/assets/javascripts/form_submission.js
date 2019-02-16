@@ -1,10 +1,11 @@
 // Gets the response and deals with it accordingly
 function handleResponse (response) {
-  var url = `/users/${response.id}/${response.action}/new`;
+//  `/users/${current_user.id}/${current_user.current_attr}/new`
+  var url = current_user.url_new();
 // Gets the response from the appropriate url; double or single nested attribute
-  if (response.action === "quests") {
+  if (current_user.current_attr === "quests") {
     var objectiveId = response.user_params.quests_attributes.objective_id;
-    url = `/users/${response.id}/objectives/${objectiveId}/quests/new`;
+    url = `/users/${current_user.id}/objectives/${objectiveId}/quests/new`;
   }
 
   $.ajax({
@@ -22,11 +23,10 @@ function handleResponse (response) {
 
 // User did not update
 function handleError (response) {
-  var invalid_data = response.user_params[`${response.action}_attributes`];
+  var invalid_data = response.user_params[`${current_user.current_attr}_attributes`];
 // Gathers submitted information and displays it on the form
   for (var key in invalid_data){
-    var attr = `${response.action}_attributes`;
-    var input_field = `user[${attr}][${key}]`;
+    var input_field = `user[${current_user.current_attr}_attributes][${key}]`;
     var value = invalid_data[`${key}`];
 
     $(`input[name="${input_field}"]`).val(value);
@@ -42,9 +42,9 @@ function handleError (response) {
 
 // User updated displays updated list
 function handleSuccess (response) {
-  var user_data = $(`.attr[name="${response.action}"]`);
+  var user_data = $(`.attr[name="${current_user.current_attr}"]`);
 
-  $('.attr-form').html('');
+  $('section').html('');
 
   getUserData(user_data);
 }
