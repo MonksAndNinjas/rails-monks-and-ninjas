@@ -19,17 +19,17 @@ function addNewAction () {
   if (current_user.current_attr === "quests") {
     $('.actions')
       .append(`<button class="new-action" data-id="${current_user.current_attr}-1">Short ${current_user.current_attr}</button><button class="new-action" data-id="${current_user.current_attr}-2">Long ${current_user.current_attr}</button>`);
-
-    $('.new-action').click(function() {
-      getQuestForm(event);
-    });
   } else {
     $('.actions').append(`<button class="new-action" data-id="${current_user.current_attr}">New ${current_user.current_attr}</button>`);
-
-    $('.new-action').click(function() {
-      getForm();
-    });
   }
+
+  $('.new-action').click(function() {
+    if (current_user.current_attr === "quests") {
+      current_user.current_objective = $(event.target).data("id").split("-")[1];
+    }
+
+    getNewForm();
+  });
 }
 
 // Appends edit item button
@@ -38,7 +38,11 @@ function addEditAction (data) {
   $('.actions').append(`<button class="edit-action" data-id="${current_user.current_attr}-${current_user.current_item.id}">Edit</button>`);
 
   $('.edit-action').on("click", function() {
-    getEditForm(data);
+      if (current_user.current_attr === "quests") {
+        current_user.current_objective =  data.objective_id;
+      }
+
+    getEditForm();
   });
 }
 

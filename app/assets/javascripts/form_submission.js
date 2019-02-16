@@ -1,6 +1,5 @@
 // Gets the response and deals with it accordingly
 function handleResponse (response) {
-//  `/users/${current_user.id}/${current_user.current_attr}/new`
   var url = current_user.url_new();
 // Gets the response from the appropriate url; double or single nested attribute
   if (current_user.current_attr === "quests") {
