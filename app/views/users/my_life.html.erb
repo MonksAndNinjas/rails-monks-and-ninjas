@@ -33,7 +33,7 @@ $(function () {
      current_user.current_attr = $('.my-life-links').data("id");
 
      $.getJSON("/users/" + current_user.id + "/user_data", function(user_data) {
-       createAttrObjects(user_data);
+       createAttrObjects();
      })
      .always(function () {
        $(".loader").hide();
