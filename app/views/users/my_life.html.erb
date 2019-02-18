@@ -1,10 +1,10 @@
 <div class="my-life-links" data-id="<%= @current_user.id %>">
-  <div class="my-life-link"><a href="#" class="attr" name="subscriptions">Subscriptions</a></div>
-  <div class="my-life-link"><a href="#" class="attr" name="inspirations">Inspirations</a></div>
-  <div class="my-life-link"><a href="#" class="attr" name="priority_items">Priorities</a></div>
-  <div class="my-life-link"><a href="#" class="attr" name="disciplines">Disciplines</a></div>
-  <div class="my-life-link"><a href="#" class="attr" name="quests">Quests</a></div>
-  <div class="my-life-link"><a href="#" class="attr" name="family_members">Family Members</a></div>
+  <div class="my-life-link"><a href="#" class="attr" name="subscriptions" data-id="<%= @current_user.id %>">Subscriptions</a></div>
+  <div class="my-life-link"><a href="#" class="attr" name="inspirations" data-id="<%= @current_user.id %>">Inspirations</a></div>
+  <div class="my-life-link"><a href="#" class="attr" name="priority_items" data-id="<%= @current_user.id %>">Priorities</a></div>
+  <div class="my-life-link"><a href="#" class="attr" name="disciplines" data-id="<%= @current_user.id %>">Disciplines</a></div>
+  <div class="my-life-link"><a href="#" class="attr" name="quests" data-id="<%= @current_user.id %>">Quests</a></div>
+  <div class="my-life-link"><a href="#" class="attr" name="family_members" data-id="<%= @current_user.id %>">Family Members</a></div>
 </div>
 
 <div class="container">
@@ -27,27 +27,17 @@
 <script type="text/javascript" charset="utf-8">
 $(function () {
   $(window).load(function() {
-     $('.loader').show();
-     //$('.loader').hide();
-     current_user = new User;
-     current_user.current_attr = $('.my-life-links').data("id");
-
-     $.getJSON("/users/" + current_user.id + "/user_data", function(user_data) {
-       createAttrObjects();
-     })
-     .always(function () {
-       $(".loader").hide();
-     });
+     $('.loader').hide();
   });
-/*
-  current_user = new User;
+
+  var current_user = new User;
 
   $('section').html('What to do, What to do!?<br>Click on a link to the left');
 
   $(".attr").on("click", function() {
     $('section').html('');
     getUserData(this);
-  });*/
+  });
 });
 </script>
 

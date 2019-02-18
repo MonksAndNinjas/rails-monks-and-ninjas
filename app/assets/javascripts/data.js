@@ -1,5 +1,5 @@
 // Retrieves user data            make this so it gets on load and put into json  object
-/*function getUserData (data) {
+function getUserData (data) {
   current_user.current_attr = $(data).attr("name");
 
   $('.loader').show();
@@ -31,4 +31,4 @@ function getData (attr_data) {
 function resetFields () {
   $('ul').remove();
   $('.actions').html('');
-}*/
+}
