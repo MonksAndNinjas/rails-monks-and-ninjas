@@ -1,11 +1,11 @@
-// Retrieves user data
+// Retrieves user data            make this so it gets on load and put into json  object
 function getUserData (data) {
   current_user.current_attr = $(data).attr("name");
 
   $('.loader').show();
   $.getJSON("/users/" + current_user.id + "/user_data", function(user_data) {
     var attr_data = $(user_data).attr(`${current_user.current_attr}`);
-// Reset fields                                **maybe add to a reset fields function**
+// Reset fields                 right here put into item object
     $('.attr-title').html(`${current_user.current_attr}`);
     $('article').html('');
     resetFields();
@@ -21,18 +21,10 @@ function getUserData (data) {
 // Retrieves attr data and adds listeners
 function getData (attr_data) {
   attr_data.forEach(function(item, index, arr) {
-    var itemName;
-
-    if (item.name) {
-      itemName = item.name;
-    } else if (item.title) {
-      itemName = item.title
-    } else if (item.source) {
-      itemName = item.source
-    }
+    var itemName = Object.entries(item)[1][1];
 
     appendTitle(itemName, item.id);
-    addListener(item);
+    addItemListener(item);
   });
 }
 

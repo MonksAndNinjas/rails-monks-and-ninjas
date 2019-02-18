@@ -23,13 +23,7 @@ function addNewAction () {
     $('.actions').append(`<button class="new-action" data-id="${current_user.current_attr}">New ${current_user.current_attr}</button>`);
   }
 
-  $('.new-action').click(function() {
-    if (current_user.current_attr === "quests") {
-      current_user.current_objective = $(event.target).data("id").split("-")[1];
-    }
-
-    getNewForm();
-  });
+  addNewListener();
 }
 
 // Appends edit item button
@@ -37,13 +31,7 @@ function addEditAction (data) {
   $('.edit-action').remove();
   $('.actions').append(`<button class="edit-action" data-id="${current_user.current_attr}-${current_user.current_item.id}">Edit</button>`);
 
-  $('.edit-action').on("click", function() {
-      if (current_user.current_attr === "quests") {
-        current_user.current_objective =  data.objective_id;
-      }
-
-    getEditForm();
-  });
+  addEditListener(data);
 }
 
 // Appends delete item button
@@ -51,26 +39,5 @@ function addDeleteAction (data) {
   $('.delete-action').remove();
   $('.actions').append(`<button class="delete-action">Delete</button>`);
 
-  $('.delete-action').on("click", function() {
-    var url = `/users/${current_user.id}/${current_user.current_attr}/${current_user.current_item.id}`;
-
-    if (current_user.current_attr === "quests") {
-      url = `/users/${current_user.id}/objectives/${data.objective_id}/quests/${current_user.current_item.id}`;
-    }
-
-    resetFields();
-
-    $.ajax({
-      type: "POST",
-      url: url,
-      dataType: 'json',
-      data: {"_method":"delete"},
-      complete: function () {
-        alert("Successfully Deleted");
-        var user_data = $(`.attr[name="${current_user.current_attr}"]`);
-
-        getUserData(user_data);
-      }
-    });
-  });
+  addDeleteListener();
 }

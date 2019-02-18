@@ -27,9 +27,19 @@
 <script type="text/javascript" charset="utf-8">
 $(function () {
   $(window).load(function() {
-     $('.loader').hide();
-  });
+     $('.loader').show();
+     //$('.loader').hide();
+     current_user = new User;
+     current_user.current_attr = $('.my-life-links').data("id");
 
+     $.getJSON("/users/" + current_user.id + "/user_data", function(user_data) {
+       createAttrObjects(user_data);
+     })
+     .always(function () {
+       $(".loader").hide();
+     });
+  });
+/*
   current_user = new User;
 
   $('section').html('What to do, What to do!?<br>Click on a link to the left');
@@ -37,7 +47,7 @@ $(function () {
   $(".attr").on("click", function() {
     $('section').html('');
     getUserData(this);
-  });
+  });*/
 });
 </script>
 

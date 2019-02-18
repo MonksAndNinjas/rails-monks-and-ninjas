@@ -1,11 +1,6 @@
 // Gets the response and deals with it accordingly
 function handleResponse (response) {
   var url = current_user.url_new();
-// Gets the response from the appropriate url; double or single nested attribute
-  if (current_user.current_attr === "quests") {
-    var objectiveId = response.user_params.quests_attributes.objective_id;
-    url = `/users/${current_user.id}/objectives/${objectiveId}/quests/new`;
-  }
 
   $.ajax({
     url: url,
@@ -41,6 +36,7 @@ function handleError (response) {
 
 // User updated displays updated list
 function handleSuccess (response) {
+  console.log(response.attribute.id);
   var user_data = $(`.attr[name="${current_user.current_attr}"]`);
 
   $('section').html('');
