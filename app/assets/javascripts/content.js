@@ -18,7 +18,8 @@ function addNewAction () {
 // Quests has double nested route so need to check for that and retrieve appropriate form
   if (current_user.current_attr === "quests") {
     $('.actions')
-      .append(`<button class="new-action" data-id="${current_user.current_attr}-1">Short ${current_user.current_attr}</button><button class="new-action" data-id="${current_user.current_attr}-2">Long ${current_user.current_attr}</button>`);
+      .append(`<button class="new-action" data-id="${current_user.current_attr}-1">Short ${current_user.current_attr}</button>` +
+      `<button class="new-action" data-id="${current_user.current_attr}-2">Long ${current_user.current_attr}</button>`);
   } else {
     $('.actions').append(`<button class="new-action" data-id="${current_user.current_attr}">New ${current_user.current_attr}</button>`);
   }

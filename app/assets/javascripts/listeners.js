@@ -20,7 +20,7 @@ function addItemListener (item) {
 }
 
 function addNewListener () {
-  $('.new-action').click(function() {
+  $('.new-action').on("click", function() {
     if (current_user.current_attr === "quests") {
       current_user.current_objective = $(event.target).data("id").split("-")[1];
     }
@@ -33,6 +33,7 @@ function addEditListener (data) {
   $('.edit-action').on("click", function() {
     if (current_user.current_attr === "quests") {
       current_user.current_objective =  data.objective_id;
+      console.log($(event.target))
     }
 
     getEditForm();
@@ -53,7 +54,7 @@ function addDeleteListener () {
       complete: function () {
         alert("Successfully Deleted");
         var user_data = $(`.attr[name="${current_user.current_attr}"]`);
-
+// remove call to getUserData(user_data), goin and pluck
         getUserData(user_data);
       }
     });

@@ -26,14 +26,7 @@ Rails.application.routes.draw do
 
   get '/users/:id/my_life', to: 'users#my_life'
   get '/users/:id/user_data', to: 'users#user_data'
-
-  get '/users/:id/user_family_members', to: 'users#family_members'
-  get '/users/:id/user_subscriptions', to: 'users#subscriptions'
-  get '/users/:id/user_priority_items', to: 'users#priority_items'
-  get '/users/:id/user_disciplines', to: 'users#disciplines'
-  get '/users/:id/user_inspirations', to: 'users#inspirations'
-  get '/users/:id/user_quests', to: 'users#quests'
-
+  
   get '/family_members/:id/family_members_data', to: 'family_members#family_members_data'
   get '/subscriptions/:id/subscriptions_data', to: 'subscriptions#subscriptions_data'
   get '/priority_items/:id/priority_items_data', to: 'priority_items#priority_items_data'

@@ -33,40 +33,10 @@ class UsersController < ApplicationController
   end
 
   def user_data
+    destination = params[:destination]
     user = User.find(params[:id])
-    render json: user, status: 200
-  end
 
-  def family_members
-    user = User.find(params[:id])
-    render json: user.family_members, status: 200
-  end
-
-  def subscriptions
-    user = User.find(params[:id])
-    render json: user.subscriptions, status: 200
-  end
-
-  def disciplines
-    user = User.find(params[:id])
-    render json: user.disciplines, status: 200
-  end
-
-  def inspirations
-    user = User.find(params[:id])
-    render json: user.inspirations, status: 200
-  end
-
-  def quests
-    user = User.find(params[:id])
-    render json: user.quests, status: 200
-  end
-
-  def priority_items
-    user = User.find(params[:id])
-    render json: user.priority_items, status: 200
-  end
-
-  def my_life
+    render json: user.to_json(only: [:name],
+      include: [destination.to_sym => { only: [:id, :name, :title, :source] }]), status: 200
   end
 end

@@ -36,10 +36,9 @@ function handleError (response) {
 
 // User updated displays updated list
 function handleSuccess (response) {
-  console.log(response.attribute.id);
-  var user_data = $(`.attr[name="${current_user.current_attr}"]`);
-
   $('section').html('');
+  item = new Item(response.attribute);
 
-  getUserData(user_data);
+  item.appendTitle();
+  addItemListener(item);
 }
