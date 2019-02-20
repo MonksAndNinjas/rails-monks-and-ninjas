@@ -4,11 +4,11 @@ function appendTitle (title, id) {
 }
 
 // Appends attr content into ul tag of my_life.html.erb
-function appendContent(data) {
+function appendContent () {
   $('form').remove();
   $('section').append(`<ul></ul>`);
 
-  $.each(data, function( index, value ) {
+  $.each(this, function( index, value ) {
     $('ul').append(`<li>${index}: ${value}</li><hr>`);
   });
 }
@@ -28,15 +28,19 @@ function addNewAction () {
 }
 
 // Appends edit item button
-function addEditAction (data) {
+function addEditAction () {
   $('.edit-action').remove();
   $('.actions').append(`<button class="edit-action" data-id="${current_user.current_attr}-${current_user.current_item.id}">Edit</button>`);
 
-  addEditListener(data);
+  if (current_user.current_attr === "quests") {
+    current_user.current_objective = this.objective_id;
+  }
+
+  addEditListener();
 }
 
 // Appends delete item button
-function addDeleteAction (data) {
+function addDeleteAction () {
   $('.delete-action').remove();
   $('.actions').append(`<button class="delete-action">Delete</button>`);
 

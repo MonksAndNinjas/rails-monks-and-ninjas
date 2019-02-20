@@ -5,17 +5,16 @@ function getUserData (data) {
   $('.loader').show();
   $.getJSON("/users/" + current_user.id + "/user_data", { destination: current_user.current_attr }, function(data) {
     var attr_data = $(data).attr(`${current_user.current_attr}`);
-// Reset fields
+// set fields
     $('.attr-title').html(`${current_user.current_attr}`);
+    $('section').html('');
     $('article').html('');
     resetFields();
 
     addNewAction();
     getData(attr_data);
   })
-  .always(function () {
-    $(".loader").hide();
-  });
+  .always( () => $(".loader").hide() );
 }
 
 // Retrieves attr data and adds listeners

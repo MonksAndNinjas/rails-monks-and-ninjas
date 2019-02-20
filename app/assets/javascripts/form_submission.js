@@ -17,11 +17,10 @@ function handleResponse (response) {
 
 // User did not update
 function handleError (response) {
-  var invalid_data = response.user_params[`${current_user.current_attr}_attributes`];
 // Gathers submitted information and displays it on the form
-  for (var key in invalid_data){
+  for (var key in response.attribute){
     var input_field = `user[${current_user.current_attr}_attributes][${key}]`;
-    var value = invalid_data[`${key}`];
+    var value = response.attribute[`${key}`];
 
     $(`input[name="${input_field}"]`).val(value);
   }
@@ -38,7 +37,13 @@ function handleError (response) {
 function handleSuccess (response) {
   $('section').html('');
   item = new Item(response.attribute);
+//check for edit
+  if (response.action === "new") {
+    item.appendTitle();
+  } else if (response.action === "edit") {
+    item.replaceTitle();
+  }
 
-  item.appendTitle();
   addItemListener(item);
+  addNewAction();
 }

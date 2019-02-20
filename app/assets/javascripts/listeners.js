@@ -10,34 +10,21 @@ function addItemListener (item) {
       }
 
       if (current_user.current_attr === "inspirations" || current_user.current_attr === "family_members" || current_user.current_attr === "quests") {
-        addEditAction(data);
+        addEditAction.apply(data);
       }
+      addDeleteAction();
 // Displays content for the specific attr object
-      appendContent(data);
-      addDeleteAction(data);
+      appendContent.apply(data);
     });
   });
 }
 
 function addNewListener () {
-  $('.new-action').on("click", function() {
-    if (current_user.current_attr === "quests") {
-      current_user.current_objective = $(event.target).data("id").split("-")[1];
-    }
-
-    getNewForm();
-  });
+  $('.new-action').on("click", () => getNewForm.apply(event));
 }
 
-function addEditListener (data) {
-  $('.edit-action').on("click", function() {
-    if (current_user.current_attr === "quests") {
-      current_user.current_objective =  data.objective_id;
-      console.log($(event.target))
-    }
-
-    getEditForm();
-  });
+function addEditListener () {
+  $('.edit-action').on("click", () => getEditForm());
 }
 
 function addDeleteListener () {
@@ -53,9 +40,14 @@ function addDeleteListener () {
       data: {"_method":"delete"},
       complete: function () {
         alert("Successfully Deleted");
-        var user_data = $(`.attr[name="${current_user.current_attr}"]`);
-// remove call to getUserData(user_data), goin and pluck
-        getUserData(user_data);
+// remove call to getUserData(user_data), go in and pluck
+        var aTag = $(`a[id="${current_user.current_attr}-${current_user.current_item.id}"]`);
+
+        aTag.next().next().remove();
+        aTag.next().remove();
+        aTag.remove();
+
+        addNewAction();
       }
     });
   });
@@ -68,12 +60,8 @@ function addFormListener () {
 
     var values = $(this).serialize();
 
-    var posting = $.post(`/users/${current_user.id}`, values, function(data) {
-      var response = data;
-    }, "json");
+    var posting = $.post(`/users/${current_user.id}`, values, (data) => { var response = data }, "json");
 
-    posting.done(function(response) {
-      handleResponse(response);
-    });
+    posting.done( (response) => handleResponse(response));
   });
 }
