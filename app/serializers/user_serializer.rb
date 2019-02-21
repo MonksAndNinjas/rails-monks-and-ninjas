@@ -1,5 +1,5 @@
 class UserSerializer < ActiveModel::Serializer
-  attributes :id, :name, :birthdate, :email
+  attributes :name
   has_many :subscriptions, serializer: UserSubscriptionSerializer
   has_many :family_members, serializer: UserFamilyMemberSerializer
   has_many :disciplines, serializer: UserDisciplineSerializer
