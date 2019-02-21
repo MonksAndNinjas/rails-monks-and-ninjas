@@ -39,4 +39,8 @@ class UsersController < ApplicationController
     render json: user.to_json(only: [:name],
       include: [destination.to_sym => { only: [:id, :name, :title, :source] }]), status: 200
   end
+
+  def display_quest
+    inspect.params
+  end
 end

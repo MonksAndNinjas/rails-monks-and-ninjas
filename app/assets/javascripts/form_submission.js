@@ -31,7 +31,6 @@ function handleError (response) {
 
 // User updated displays updated list
 function handleSuccess (response) {
-  console.log(response);
   $('section').html('');
   item = new Item(response.attribute);
 //check for edit
@@ -40,7 +39,6 @@ function handleSuccess (response) {
   } else if (response.action === "edit") {
     item.replaceTitle();
   }
-  console.log(item);
 
   addItemListener(item);
   addNewAction();
