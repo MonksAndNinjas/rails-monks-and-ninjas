@@ -32,11 +32,14 @@ class UsersController < ApplicationController
     end
   end
 
+  before_action :require_login
+
   def user_data
     destination = params[:destination]
-    user = User.find(params[:id])
 
-    render json: user.to_json(only: [:name],
-      include: [destination.to_sym => { only: [:id, :name, :title, :source] }]), status: 200
+    render json: @current_user, include: destination.to_sym, status: 200
+  end
+
+  def my_life
   end
 end
