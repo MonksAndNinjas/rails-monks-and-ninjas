@@ -14,12 +14,12 @@ function getUserData (data) {
     addNewAction();
     getData(attr_data);
   })
-  .always( () => $(".loader").hide() );
+  .always( () => $(".loader").hide());
 }
 
 // Retrieves attr data and adds listeners
 function getData (attr_data) {
-  attr_data.forEach(function(item, index, arr) {
+  attr_data.forEach(function(item) {
     item = new Item(item);
 
     item.appendTitle();

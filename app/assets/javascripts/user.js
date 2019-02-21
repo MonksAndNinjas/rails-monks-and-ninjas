@@ -10,7 +10,7 @@ function User(name, current_attr, current_item, current_objective) {
 
 User.prototype.url_new = function () {
   if (this.current_attr === "quests") {
-    return `/users/${this.id}/objectives/${this.current_objective}/${this.current_attr}/new`;
+    return `/users/${this.id}/objectives/${this.current_objective}/quests/new`;
   } else {
     return `/users/${this.id}/${this.current_attr}/new`;
   }

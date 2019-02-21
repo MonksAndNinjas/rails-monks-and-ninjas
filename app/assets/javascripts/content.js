@@ -8,9 +8,7 @@ function appendContent () {
   $('form').remove();
   $('section').append(`<ul></ul>`);
 
-  $.each(this, function( index, value ) {
-    $('ul').append(`<li>${index}: ${value}</li><hr>`);
-  });
+  $.each(this, ( index, value ) => $('ul').append(`<li>${index}: ${value}</li><hr>`));
 }
 
 // Appends new item button

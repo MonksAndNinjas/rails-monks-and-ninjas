@@ -6,11 +6,7 @@ function handleResponse (response) {
     url: url,
     dataType: 'script',
     success: function () {
-      if (response.success) {
-        handleSuccess(response);
-      } else if (!response.success) {
-        handleError(response);
-      }
+      (response.success) ? handleSuccess(response) : handleError(response);
     }
   });
 }
@@ -18,7 +14,7 @@ function handleResponse (response) {
 // User did not update
 function handleError (response) {
 // Gathers submitted information and displays it on the form
-  for (var key in response.attribute){
+  for (var key in response.attribute) {
     var input_field = `user[${current_user.current_attr}_attributes][${key}]`;
     var value = response.attribute[`${key}`];
 
@@ -35,6 +31,7 @@ function handleError (response) {
 
 // User updated displays updated list
 function handleSuccess (response) {
+  console.log(response);
   $('section').html('');
   item = new Item(response.attribute);
 //check for edit
@@ -43,6 +40,7 @@ function handleSuccess (response) {
   } else if (response.action === "edit") {
     item.replaceTitle();
   }
+  console.log(item);
 
   addItemListener(item);
   addNewAction();
