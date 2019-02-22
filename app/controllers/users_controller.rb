@@ -20,8 +20,8 @@ class UsersController < ApplicationController
   def edit
   end
 
-  def oldest
-  end
+#  def oldest
+#  end
 
   def update
     flash[:messages]
@@ -37,7 +37,11 @@ class UsersController < ApplicationController
   def user_data
     destination = params[:destination]
 
-    render json: @current_user, include: destination.to_sym, status: 200
+    if destination
+      render json: @current_user, include: destination.to_sym, status: 200
+    else
+      render json: @current_user, status: 200
+    end
   end
 
   def my_life

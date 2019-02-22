@@ -1,18 +1,13 @@
 // Add Event Listeners to names, sources, or titles from attr list
 function addItemListener (item) {
-  console.log(item)
   document.getElementById(`${current_user.current_attr}-${item.id}`).addEventListener("click", function() {
     $.getJSON(`/${current_user.current_attr}/` + `${item.id}` + `/${current_user.current_attr}_data`, function (data) {
       current_user.current_item = item;
+
       $('section').html('');
 
       if ($('.new-action').length === 0) addNewAction();
-
-
-      if (current_user.current_attr === "inspirations" || current_user.current_attr === "family_members" || current_user.current_attr === "quests") {
-        addEditAction.apply(data);
-      }
-
+      if (["inspirations", "family_members", "quests"].includes(current_user.current_attr)) addEditAction.apply(data);
       addDeleteAction();
 // Displays content for the specific attr object
       appendContent.apply(data);

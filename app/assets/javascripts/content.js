@@ -1,14 +1,9 @@
-// Appends name, title, or source of attr to section
-function appendTitle (title, id) {
-  $('article').append(`<a href="#" id="${current_user.current_attr}-${id}">${title}</a><br><hr>`);
-}
-
 // Appends attr content into ul tag of my_life.html.erb
 function appendContent () {
   $('form').remove();
   $('section').append(`<ul></ul>`);
 
-  $.each(this, ( index, value ) => $('ul').append(`<li>${index}: ${value}</li><hr>`));
+  $.each(this, (index, value) => $('ul').append(`<li>${index}: ${value}</li><hr>`));
 }
 
 // Appends new item button
@@ -17,7 +12,7 @@ function addNewAction () {
   if (current_user.current_attr === "quests") {
     $('.actions')
       .append(`<button class="new-action" data-id="${current_user.current_attr}-1">Short ${current_user.current_attr}</button>` +
-      `<button class="new-action" data-id="${current_user.current_attr}-2">Long ${current_user.current_attr}</button>`);
+              `<button class="new-action" data-id="${current_user.current_attr}-2">Long ${current_user.current_attr}</button>`);
   } else {
     $('.actions').append(`<button class="new-action" data-id="${current_user.current_attr}">New ${current_user.current_attr}</button>`);
   }
@@ -30,9 +25,7 @@ function addEditAction () {
   $('.edit-action').remove();
   $('.actions').append(`<button class="edit-action" data-id="${current_user.current_attr}-${current_user.current_item.id}">Edit</button>`);
 
-  if (current_user.current_attr === "quests") {
-    current_user.current_objective = this.objective_id;
-  }
+  if (current_user.current_attr === "quests") current_user.current_objective = this.objective_id;
 
   addEditListener();
 }

@@ -11,7 +11,7 @@ Rails.application.routes.draw do
 
   get '/auth/facebook/callback' => 'sessions#create'
 
-  get '/oldest_family_member', to: 'users#oldest'
+#  get '/oldest_family_member', to: 'users#oldest'
 
   resources :users do
     resources :family_members
@@ -24,8 +24,9 @@ Rails.application.routes.draw do
     end
   end
 
-  get '/my_life', to: 'users#my_life'   #index page for all resources
+  get '/my_life', to: 'users#my_life'                  #index page for all resources
   get '/my_life/:quest_id', to: 'quests#display_quest' #show page for quest items
+
   get '/users/:id/user_data', to: 'users#user_data'
 
   get '/family_members/:id/family_members_data', to: 'family_members#family_members_data'

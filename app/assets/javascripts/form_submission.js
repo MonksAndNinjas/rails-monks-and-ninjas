@@ -23,22 +23,20 @@ function handleError (response) {
 // Displays errors and reattaches listener
   $('section').prepend(`<ul class="errors"><p>${response.messages.length} errors<br>Prohibited from being saved:</p></ul>`);
 
-  for (let i = 0; i < response.messages.length; i++) {
-    $('.errors').append(`<li>${response.messages[i]}</li>`);
+  for (var index in response.messages) {
+    $('.errors').append(`<li>${response.messages[index]}</li>`);
   }
+  
   addFormListener();
 }
 
 // User updated displays updated list
 function handleSuccess (response) {
   $('section').html('');
+
   item = new Item(response.attribute);
-//check for edit
-  if (response.action === "new") {
-    item.appendTitle();
-  } else if (response.action === "edit") {
-    item.replaceTitle();
-  }
+// check for type of action
+  (response.action === "new") ? item.appendTitle() : item.replaceTitle();
 
   addItemListener(item);
   addNewAction();
