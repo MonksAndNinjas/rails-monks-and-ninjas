@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" data-id="<%= @current_user.id %>">
   <%= show_svg('content_section.svg') %>
 
   <div class="title">
@@ -8,5 +8,15 @@
 
 <script type="text/javascript" charset="utf-8">
 $(function () {
-}
+  $(document).ready(function () {
+// your code
+    var id = $('.container').attr("data-id");
+
+    $.getJSON("/users/" + id + "/user_data", { destination: 'quests' }, function(data) {
+      console.log(data);
+
+      
+    });
+  });
+});
 </script>
