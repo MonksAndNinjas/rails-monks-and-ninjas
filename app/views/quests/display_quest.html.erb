@@ -13,9 +13,11 @@ $(function () {
     var id = $('.container').attr("data-id");
 
     $.getJSON("/users/" + id + "/user_data", { destination: 'quests' }, function(data) {
-      console.log(data);
+      var quest_id = data.quests[0].id;
 
-      
+      $.getJSON("/quests/" + quest_id + "/quests_data", { extended_data: 'true' }, function(quest_data) {
+        console.log(quest_data);
+      });
     });
   });
 });
