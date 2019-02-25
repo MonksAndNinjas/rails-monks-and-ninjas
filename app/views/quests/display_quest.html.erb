@@ -19,7 +19,7 @@ $(function () {
         $.extend(attributes, data.quests[0], quest_data);
 
         quest = new Quest(attributes);
-        console.log(quest, quest.objective(), quest.currentDate());
+        console.log(quest, quest.objective(), quest.countdown(), quest.message());
         // this.objective_id, this.createdAt, this.UpdatedAt, this.description
         // if objective_id 1 || 2 ? short : long
 

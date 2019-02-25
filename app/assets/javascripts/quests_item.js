@@ -11,15 +11,24 @@ Quest.prototype.objective = function () {
   return this.objective_id === 1 ? "short" : "long";
 }
 
-Quest.prototype.currentDate = function () {
-  var today = new Date();
-  var dd = today.getDate();
-  var mm = today.getMonth() + 1; //January is 0!
-  var yyyy = today.getFullYear();
+Quest.prototype.countdown = function () {
+  var diff = Math.abs(new Date() - new Date(this.updatedAt)) /1000/60/60/24;
 
-  if (dd < 10) dd = '0' + dd;
-  if (mm < 10) mm = '0' + mm;
+  return Math.floor(diff);
+}
 
-  today = mm + '/' + dd + '/' + yyyy;
-  return today;
+Quest.prototype.message = function () {
+  if (this.objective_id === 1) {
+    if (this.countdown() < 8) {
+      return "Take you're time";
+    } else if (this.countdown() > 7 && this.countdown() < 15) {
+      return "You got this!!";
+    } else if (this.countdown() > 14 && this.countdown() < 22) {
+      return "Eye on the prize!!";
+    } else if (this.countdown() > 21) {
+      return "Time's up, it's time to update your quest";
+    }
+  } else if (this.objective_id === 2) {
+    return "Take you're time, you're in it for the long haul"
+  }
 }
