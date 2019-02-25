@@ -16,28 +16,7 @@
 $(function () {
   $(document).ready(function () {
 // your code
-    var id = $('.container').attr("data-id");
-
-    $.getJSON("/users/" + id + "/user_data", { destination: 'quests' }, function(data) {
-      $.getJSON("/quests/" + data.quests[0].id + "/quests_data", { extended_data: 'true' }, function(quest_data) {
-        var attributes = {};
-
-        $.extend(attributes, data.quests[0], quest_data);
-
-        quest = new Quest(attributes);
-        console.log(quest, quest.objective(), quest.count(), quest.message());
-
-        displayEditLink();
-
-      //  nextQuest();
-
-        // next display items in proper place
-        // have funciton that gives the next quest
-
-        // need to have one page for displaying items and another for the quest javascript class -- .js
-        // split pages so not loading the pages in my_life
-      });
-    });
+    getQuestData();
   });
 });
 </script>
