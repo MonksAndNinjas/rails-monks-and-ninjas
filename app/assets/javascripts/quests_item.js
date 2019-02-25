@@ -20,7 +20,7 @@ Quest.prototype.count = function () {
 Quest.prototype.message = function () {
   var c = this.count();
 
-  if (this.objective_id === 2) {
+  if (this.objective_id === 1) {
 
     switch(true) {
 
@@ -33,10 +33,18 @@ Quest.prototype.message = function () {
     case c > 21:
       return "Time's up, please update your quest";
     }
-  } else if (this.objective_id === 1) {
+  } else if (this.objective_id === 2) {
 
-    switch(true)
+    switch(true) {
 
-    return "Take you're time, you're in it for the long haul";
+    case c <= 40:
+      return "Take you're time, you're in it for the long haul";
+    case c > 40 && c <= 80:
+      return "You got this!!";
+    case c > 80 && c <= 120:
+      return "Eye on the prize!!";
+    case c > 160:
+      return "Time's up, please update your quest";
+    }
   }
 }
