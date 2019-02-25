@@ -11,24 +11,32 @@ Quest.prototype.objective = function () {
   return this.objective_id === 1 ? "short" : "long";
 }
 
-Quest.prototype.countdown = function () {
+Quest.prototype.count = function () {
   var diff = Math.abs(new Date() - new Date(this.updatedAt)) /1000/60/60/24;
 
   return Math.floor(diff);
 }
 
 Quest.prototype.message = function () {
-  if (this.objective_id === 1) {
-    if (this.countdown() < 8) {
+  var c = this.count();
+
+  if (this.objective_id === 2) {
+
+    switch(true) {
+
+    case c <= 7:
       return "Take you're time";
-    } else if (this.countdown() > 7 && this.countdown() < 15) {
+    case c > 7 && c <= 14:
       return "You got this!!";
-    } else if (this.countdown() > 14 && this.countdown() < 22) {
+    case c > 15 && c <= 21:
       return "Eye on the prize!!";
-    } else if (this.countdown() > 21) {
-      return "Time's up, it's time to update your quest";
+    case c > 21:
+      return "Time's up, please update your quest";
     }
-  } else if (this.objective_id === 2) {
-    return "Take you're time, you're in it for the long haul"
+  } else if (this.objective_id === 1) {
+
+    switch(true)
+
+    return "Take you're time, you're in it for the long haul";
   }
 }
