@@ -13,12 +13,17 @@ $(function () {
     var id = $('.container').attr("data-id");
 
     $.getJSON("/users/" + id + "/user_data", { destination: 'quests' }, function(data) {
-      var quest_id = data.quests[0].id;
+      console.log(data.quests[0]);
 
+      var quest_id = data.quests[0].id;
       // quest = new Quest;  create quest class function
       // this.name, this.id
       $.getJSON("/quests/" + quest_id + "/quests_data", { extended_data: 'true' }, function(quest_data) {
         console.log(quest_data);
+        var attributes = {}
+        $.extend(attributes, data.quests[0], quest_data);
+        quest = new Quest(attributes);
+        console.log(quest);
         // this.objective_id, this.createdAt, this.UpdatedAt, this.description
         // if objective_id 1 || 2 ? short : long
 
