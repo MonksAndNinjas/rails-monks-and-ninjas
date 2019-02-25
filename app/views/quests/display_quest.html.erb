@@ -15,8 +15,31 @@ $(function () {
     $.getJSON("/users/" + id + "/user_data", { destination: 'quests' }, function(data) {
       var quest_id = data.quests[0].id;
 
+      // quest = new Quest;  create quest class function
+      // this.name, this.id
       $.getJSON("/quests/" + quest_id + "/quests_data", { extended_data: 'true' }, function(quest_data) {
         console.log(quest_data);
+        // this.objective_id, this.createdAt, this.UpdatedAt, this.description
+        // if objective_id 1 || 2 ? short : long
+
+        // short is for 3 week period, long is for 6 month period, priority items- are for one week period
+        // if < 3 weeks ? keep it up!! : Getting close to the expiration period : Time passed, time to change your quest
+
+        // if short quest goes past 3 week period have it display you may consider changing this to long quest or change description to better suit needs
+        // same for long quest
+
+
+        // provide links if changes are to be made
+        // <a>objective edit path</a>
+
+        // display counter for days
+        // these methods should be in javascript quest class
+
+        // next display items in proper place
+        // have funciton that gives the next quest
+
+        // need to have one page for displaying items and another for the quest javascript class -- .js
+        // split pages so not loading the pages in my_life
       });
     });
   });
