@@ -7,3 +7,11 @@ function displayEditLink () {
                          `objectives/2/quests/${quest.id}/edit">Edit Quest</a>`);
   }
 }
+
+function nextQuest () {
+    $('.actions').append(`<button class="next-action">Next Quest</button>`);
+}
+
+function attachListener () {
+  $('.next-action').on("click", () => getNextQuest.apply(event));
+}
