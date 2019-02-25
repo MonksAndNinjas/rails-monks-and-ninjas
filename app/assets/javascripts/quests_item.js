@@ -1,3 +1,7 @@
+var correctNumber = () => Math.round(quest.count() / 5.7);
+var diff = () => Math.abs(new Date() - new Date(quest.updatedAt)) /1000/60/60/24;
+var c = () => (quest.objective_id === 2) ? quest.count() : correctNumber();
+
 function Quest (attributes) {
   this.id = attributes.id;
   this.title = attributes.title;
@@ -12,39 +16,24 @@ Quest.prototype.objective = function () {
 }
 
 Quest.prototype.count = function () {
-  var diff = Math.abs(new Date() - new Date(this.updatedAt)) /1000/60/60/24;
-
-  return Math.floor(diff);
+  return Math.floor(diff());
 }
 
 Quest.prototype.message = function () {
-  var c = this.count();
+  switch(true) {
 
-  if (this.objective_id === 1) {
-
-    switch(true) {
-
-    case c <= 7:
-      return "Take you're time";
-    case c > 7 && c <= 14:
-      return "You got this!!";
-    case c > 15 && c <= 21:
-      return "Eye on the prize!!";
-    case c > 21:
-      return "Time's up, please update your quest";
-    }
-  } else if (this.objective_id === 2) {
-
-    switch(true) {
-
-    case c <= 40:
-      return "Take you're time, you're in it for the long haul";
-    case c > 40 && c <= 80:
-      return "You got this!!";
-    case c > 80 && c <= 120:
-      return "Eye on the prize!!";
-    case c > 160:
-      return "Time's up, please update your quest";
-    }
+  case c() <= 7:
+    return "Take you're time";
+  case c() > 7 && c() <= 14:
+    return "You got this!!";
+  case c() > 14 && c() <= 21:
+    return "Eye on the prize!!";
+  case c() > 21:
+    return "Time's up, please update your quest";
   }
+}
+
+Quest.prototype.editQuest = function () {
+  $('.actions').append(`<a href="/users/${$('.container').attr("data-id")}/` +
+                       `objectives/${this.objective_id}/quests/${this.id}/edit">Edit Quest</a>`)
 }

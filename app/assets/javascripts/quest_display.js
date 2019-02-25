@@ -1,13 +1,7 @@
 var idCount = 0;
 
 function displayEditLink () {
-  if (quest.objective_id === 1 && quest.count() > 21) {
-    $('.actions').append(`<a href="/users/${$('.container').attr("data-id")}/` +
-                         `objectives/1/quests/${quest.id}/edit">Edit Quest</a>`);
-  } else if (quest.objective_id === 1 && quest.count() > 160) {
-    $('.actions').append(`<a href="/users/${$('.container').attr("data-id")}/` +
-                         `objectives/2/quests/${quest.id}/edit">Edit Quest</a>`);
-  }
+  if (c() > 21) quest.editQuest();
 }
 
 function nextQuest () {
@@ -16,39 +10,34 @@ function nextQuest () {
 }
 
 function attachListener () {
-  $('.next-action').on("click", function () {
-    $('.actions').html('');
-    idCount++;
-    console.log(idCount);
-    getQuestData();
-  });
+  $('.next-action').on("click", () => getQuestData.apply(idCount++));
 }
 
 function getQuestData () {
   var id = $('.container').attr("data-id");
 
   $.getJSON("/users/" + id + "/user_data", { destination: 'quests' }, function(data) {
-    if (idCount > data.quests.length - 1) {
-      idCount = 0;
-    }
+    if (idCount > data.quests.length - 1) idCount = 0;
 
     $.getJSON("/quests/" + data.quests[idCount].id + "/quests_data", { extended_data: 'true' }, function(quest_data) {
       var attributes = {};
 
+      $('.actions').html('');
       $.extend(attributes, data.quests[idCount], quest_data);
 
       quest = new Quest(attributes);
-      console.log(quest, quest.objective(), quest.count(), quest.message());
+
+      displayQuest();
 
       displayEditLink();
 
       nextQuest();
-
-      // next display items in proper place
-      // have funciton that gives the next quest
-
-      // need to have one page for displaying items and another for the quest javascript class -- .js
-      // split pages so not loading the pages in my_life
     });
   });
+}
+
+function displayQuest () {
+  $.each(quest, (index, value) => console.log(index,value));
+  //  $('section').append(`<ul></ul>`);
+    //$.each(this, (index, value) => $('ul').append(`<li>${index}: ${value}</li><hr>`));
 }
