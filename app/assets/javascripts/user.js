@@ -1,5 +1,6 @@
 var current_user;
-// User serves as storage for dynamic current data that belongs to current_user
+// User serves as a storage object for dynamic current data that belongs to current_user
+// Don't know if I need to do this as an object, what other methods are there?
 function User(name, current_attr, current_item, current_objective) {
   this.id = $('.my-life-links').attr("data-id");
   this.name = name;
