@@ -1,4 +1,4 @@
-// Retrieves form for the attribute
+// Retrieves appropriate data to render form for the attribute depending on the type of action
 function getNewForm () {
   if (current_user.current_attr === "quests") current_user.current_objective = $(this.target).data("id").split("-")[1];
 
@@ -11,7 +11,7 @@ function getEditForm () {
   loadForm(url);
 }
 
-// Makes request to load form
+// Makes request to load form and attaches listener
 function loadForm (url) {
   resetFields();
 

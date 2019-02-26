@@ -2,10 +2,11 @@
 function addItemListener (item) {
   document.getElementById(`${current_user.current_attr}-${item.id}`).addEventListener("click", function() {
     $.getJSON(`/${current_user.current_attr}/` + `${item.id}` + `/${current_user.current_attr}_data`, function (data) {
+// Adds item to memory
       current_user.current_item = item;
 
       $('section').html('');
-
+// Displays appropriate actions
       if ($('.new-action').length === 0) addNewAction();
       if (["inspirations", "family_members", "quests"].includes(current_user.current_attr)) addEditAction.apply(data);
       addDeleteAction();
@@ -15,6 +16,7 @@ function addItemListener (item) {
   });
 }
 
+// All three action listeners
 function addNewListener () {
   $('.new-action').on("click", () => getNewForm.apply(event));
 }
@@ -49,7 +51,7 @@ function addDeleteListener () {
   });
 }
 
-// Adds form submission listener and makes a request
+// Adds form submission listener and makes request
 function addFormListener () {
   $('form').submit(function(event) {
     event.preventDefault();

@@ -24,7 +24,7 @@ function addNewAction () {
 function addEditAction () {
   $('.edit-action').remove();
   $('.actions').append(`<button class="edit-action" data-id="${current_user.current_attr}-${current_user.current_item.id}">Edit</button>`);
-
+// Assign current_objective in case of edit
   if (current_user.current_attr === "quests") current_user.current_objective = this.objective_id;
 
   addEditListener();

@@ -1,4 +1,4 @@
-var idCount = 0;
+var idCount = 0; // Counter for displaying next quest item
 
 function displayEditLink () {
   if (c() > 21) quest.editQuest();
@@ -14,15 +14,15 @@ function attachListener () {
 }
 
 function getQuestData () {
-  var id = $('.container').attr("data-id");
+  var id = $('.container').attr("data-id"); // Defines and retrieves user_id
 
   $.getJSON("/users/" + id + "/user_data", { destination: 'quests' }, function(data) {
     if (idCount > data.quests.length - 1) idCount = 0;
 
     $.getJSON("/quests/" + data.quests[idCount].id + "/quests_data", { extended_data: 'true' }, function(quest_data) {
-      var attributes = {};
+      var attributes = {}; // Defines hash to be used in creation of quest object
 
-      $('.actions').html('');
+      $('ul, .actions').html('');
       $.extend(attributes, data.quests[idCount], quest_data);
 
       quest = new Quest(attributes);
@@ -37,7 +37,5 @@ function getQuestData () {
 }
 
 function displayQuest () {
-  $.each(quest, (index, value) => console.log(index,value));
-  //  $('section').append(`<ul></ul>`);
-    //$.each(this, (index, value) => $('ul').append(`<li>${index}: ${value}</li><hr>`));
+  $.each(quest.data(), (index, value) => $('ul').append(`<li>${index}: ${value}</li><hr>`));
 }

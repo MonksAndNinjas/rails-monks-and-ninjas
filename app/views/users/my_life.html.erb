@@ -21,17 +21,12 @@
   <div class="actions"></div>
 </div>
 
-<div class="loader"></div>
-
 <script type="text/javascript" charset="utf-8">
 $(function () {
-  $(window).load(function() {
-     $('.loader').hide();
-  });
-
+  // Creates user object to collect active data
   current_user = new User;
 
-  $('section').html('What to do, What to do!?<br>Click on a link to the left');
+  $('section').html('Click on a link to the left to get started');
 
   $(".attr").on("click", function() {
     getUserData(this);

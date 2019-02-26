@@ -21,21 +21,21 @@ function handleError (response) {
     $(`input[name="${input_field}"]`).val(value);
   }
 // Displays errors and reattaches listener
-  $('section').prepend(`<ul class="errors"><p>${response.messages.length} errors<br>Prohibited from being saved:</p></ul>`);
+  $('section').prepend(`<ul class="errors"><p>${response.messages.length} error(s)<br>Prohibited item from being saved:</p></ul>`);
 
   for (var index in response.messages) {
     $('.errors').append(`<li>${response.messages[index]}</li>`);
   }
-  
+
   addFormListener();
 }
 
-// User updated displays updated list
+// User updated renders updated list
 function handleSuccess (response) {
   $('section').html('');
 
   item = new Item(response.attribute);
-// check for type of action
+// Check for type of action to render list appropriately
   (response.action === "new") ? item.appendTitle() : item.replaceTitle();
 
   addItemListener(item);

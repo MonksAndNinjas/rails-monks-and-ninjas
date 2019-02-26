@@ -1,6 +1,7 @@
-var correctNumber = () => Math.round(quest.count() / 5.7);
-var diff = () => Math.abs(new Date() - new Date(quest.updatedAt)) /1000/60/60/24;
-var c = () => (quest.objective_id === 2) ? quest.count() : correctNumber();
+// Defines dynamic variables
+var correctNumber = () => Math.round(quest.count() / 5.7); // Gives new count when quest is long type
+var diff = () => Math.abs(new Date() - new Date(quest.updatedAt)) /1000/60/60/24; // Gives number of days since quest was last created or updated
+var c = () => (quest.objective_id === 2) ? quest.count() : correctNumber(); // Reads out appropriate number depending on type of quest
 
 function Quest (attributes) {
   this.id = attributes.id;
@@ -36,4 +37,16 @@ Quest.prototype.message = function () {
 Quest.prototype.editQuest = function () {
   $('.actions').append(`<a href="/users/${$('.container').attr("data-id")}/` +
                        `objectives/${this.objective_id}/quests/${this.id}/edit">Edit Quest</a>`)
+}
+
+Quest.prototype.data = function () {
+  var data = {
+    title: this.title,
+    description: this.description,
+    type: this.objective(),
+    count: this.count(),
+    message: this.message()
+  }
+
+  return data;
 }
