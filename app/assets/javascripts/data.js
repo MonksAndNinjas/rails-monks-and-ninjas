@@ -3,7 +3,7 @@ function getUserData (data) {
   current_user.current_attr = $(data).attr("name");
 
   $.getJSON("/users/" + current_user.id + "/user_data", { destination: current_user.current_attr }, function(data) {
-    var attr_data = $(data).attr(`${current_user.current_attr}`);
+    let attr_data = $(data).attr(`${current_user.current_attr}`);
 // sets fields
     $('.attr-title').html(`${current_user.current_attr}`);
     $('section, article').html('');

@@ -27,7 +27,7 @@ function addEditListener () {
 
 function addDeleteListener () {
   $('.delete-action').on("click", function() {
-    var url = current_user.url_delete();
+    let url = current_user.url_delete();
 
     resetFields();
 
@@ -39,7 +39,7 @@ function addDeleteListener () {
       complete: function () {
         alert("Successfully Deleted");
 
-        var aTag = $(`a[id="${current_user.current_attr}-${current_user.current_item.id}"]`);
+        let aTag = $(`a[id="${current_user.current_attr}-${current_user.current_item.id}"]`);
 
         aTag.next().next().remove();
         aTag.next().remove();

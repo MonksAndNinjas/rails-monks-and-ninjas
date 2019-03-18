@@ -32,8 +32,6 @@ class UsersController < ApplicationController
     end
   end
 
-  before_action :require_login
-
   def user_data
     destination = params[:destination]
 

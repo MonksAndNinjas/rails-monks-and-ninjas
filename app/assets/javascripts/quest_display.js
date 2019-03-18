@@ -14,7 +14,7 @@ function attachListener () {
 }
 
 function getQuestData () {
-  var id = $('.container').attr("data-id"); // Defines and retrieves user_id
+  let id = $('.container').attr("data-id"); // Defines and retrieves user_id
 
   $.getJSON("/users/" + id + "/user_data", { destination: 'quests' }, function(data) {
     if (idCount > data.quests.length - 1) idCount = 0;

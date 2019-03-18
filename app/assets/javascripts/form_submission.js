@@ -15,8 +15,8 @@ function handleResponse (response) {
 function handleError (response) {
 // Gathers submitted information and displays it on the form
   for (var key in response.attribute) {
-    var input_field = `user[${current_user.current_attr}_attributes][${key}]`;
-    var value = response.attribute[`${key}`];
+    let input_field = `user[${current_user.current_attr}_attributes][${key}]`;
+    let value = response.attribute[`${key}`];
 
     $(`input[name="${input_field}"]`).val(value);
   }

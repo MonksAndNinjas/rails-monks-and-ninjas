@@ -3,7 +3,6 @@ class SessionsController < ApplicationController
 
   def new
     flash[:messages]
-    return redirect_to root_url, notice: "*Already logged in*" if @current_user
   end
 
   def create
